@@ -13,6 +13,17 @@ namespace MazeUnitTest
     TEST_CLASS(SoundscapeTests)
     {
     public:
+        TEST_METHOD(DistantDoorEventsCanBeSilentWithoutMutingAmbience)
+        {
+            SoundscapeSynth baseline,distant,nearby;
+            SoundscapeFrame frame;frame.active=true;
+            std::array<std::int16_t,8192> a{},b{},c{};
+            baseline.render(a.data(),a.size()/2,frame);
+            frame.doorEvent=1;frame.doorSlam=true;frame.doorGain=0.f;
+            distant.render(b.data(),b.size()/2,frame);
+            frame.doorGain=1.f;nearby.render(c.data(),c.size()/2,frame);
+            Assert::IsTrue(a==b);Assert::IsFalse(a==c);
+        }
         TEST_METHOD(OcclusionRemovesMonsterHighFrequencyDetail)
         {
             SoundscapeSynth baseline,clear,muffled;

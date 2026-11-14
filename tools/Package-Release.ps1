@@ -12,7 +12,9 @@ Copy-Item -LiteralPath (Join-Path $repo 'assets') -Destination $destination -Rec
 Copy-Item -LiteralPath (Join-Path $repo 'README.md') -Destination $destination
 Copy-Item -LiteralPath (Join-Path $repo 'docs/PLAY.md') -Destination $destination
 $sourceCommit = git -C $repo rev-parse HEAD
-"Source commit: $sourceCommit`nBuilt for Windows x64; co-op protocol 12." |
+$sourceChanges = git -C $repo status --porcelain
+$sourceState = if ($sourceChanges) { 'Includes uncommitted working-tree changes.' } else { 'Clean source checkout.' }
+"Source base commit: $sourceCommit`n$sourceState`nBuilt for Windows x64; co-op protocol 15." |
     Set-Content -LiteralPath (Join-Path $destination 'VERSION.txt') -Encoding ascii
 $notices = Join-Path $destination 'licenses'
 New-Item -ItemType Directory -Path $notices | Out-Null

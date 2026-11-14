@@ -21,7 +21,7 @@ void SoundscapeSynth::render(std::int16_t* output, std::size_t count, const Soun
     {
         if (frame.doorEvent != 0 && frame.active)
         {
-            doorPhase_ = 0.f; doorAmp_ = frame.doorSlam ? 1.f : .62f; doorSlam_ = frame.doorSlam;
+            doorPhase_ = 0.f; doorAmp_ = (frame.doorSlam ? 1.f : .62f)*std::clamp(frame.doorGain,0.f,1.f); doorSlam_ = frame.doorSlam;
         }
         doorEvent_ = frame.doorEvent;
     }
@@ -32,6 +32,8 @@ void SoundscapeSynth::render(std::int16_t* output, std::size_t count, const Soun
     }
     if (frame.active && frame.hunterChasing && !wasChasing_ && frame.threat > .05f) roar_ = 1.f;
     wasChasing_ = frame.active && frame.hunterChasing;
+    if(frame.pokerEvent!=pokerEvent_)
+    { if(frame.active && frame.pokerEvent) cardTime_=0.f; pokerEvent_=frame.pokerEvent; }
     if (frame.slotEvent != slotEvent_)
     { if (frame.active && frame.slotEvent) slotPull_=1.f; slotEvent_=frame.slotEvent; }
     if (frame.drinkEvent != drinkEvent_)
@@ -139,6 +141,10 @@ void SoundscapeSynth::render(std::int16_t* output, std::size_t count, const Soun
         // Uneven subharmonics and a rasp keep the pursuer less human-sounding.
         const float rasp=threat*.025f*breathEnvelope*(noise-breathNoise_)*roughness;
         sample += glass;
+        // Five short paper scrapes and muted taps, spread over the deal.
+        cardTime_+=dt;
+        const float cardBeat=std::fmod(cardTime_,.095f);
+        const float cards=cardTime_<.475f ? std::exp(-cardBeat*65.f)*(.05f*(noise-breathNoise_)+.025f*std::sin(cardBeat*2.f*pi*160.f))*std::clamp(frame.pokerGain,0.f,1.f):0.f;
         const float cutoff=350.f+std::clamp(frame.hunterClarity,0.f,1.f)*6000.f;
         const float filterAlpha=1.f-std::exp(-2.f*pi*cutoff*dt);
         occludedHunter_+=(creature*1.12f+rasp-occludedHunter_)*filterAlpha;
@@ -152,9 +158,9 @@ void SoundscapeSynth::render(std::int16_t* output, std::size_t count, const Soun
         thunder_ *= std::exp(-dt / 1.8f);
         gain_ += .002f * ((frame.active ? 1.f : 0.f) - gain_);
         const float left = sample + heardHunter * (1.f - hunterPan_) + branches * (1.f - shiftingPan_)
-            + door * (1.f - doorPan_) + whisper * (1.f - whisperPan_) + machine*(1.f-std::clamp(frame.slotPan,-1.f,1.f));
+            + door * (1.f - doorPan_) + whisper * (1.f - whisperPan_) + machine*(1.f-std::clamp(frame.slotPan,-1.f,1.f)) + cards*(1.f-std::clamp(frame.pokerPan,-1.f,1.f));
         const float right = sample + heardHunter * (1.f + hunterPan_) + branches * (1.f + shiftingPan_)
-            + door * (1.f + doorPan_) + whisper * (1.f + whisperPan_) + machine*(1.f+std::clamp(frame.slotPan,-1.f,1.f));
+            + door * (1.f + doorPan_) + whisper * (1.f + whisperPan_) + machine*(1.f+std::clamp(frame.slotPan,-1.f,1.f)) + cards*(1.f+std::clamp(frame.pokerPan,-1.f,1.f));
         output[2 * i] = static_cast<std::int16_t>(std::clamp(left * gain_, -1.f, 1.f) * 32767.f);
         output[2 * i + 1] = static_cast<std::int16_t>(std::clamp(right * gain_, -1.f, 1.f) * 32767.f);
         time_ += dt;

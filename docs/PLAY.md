@@ -3,6 +3,10 @@
 Launch `Play.cmd` or `Maze.Graphics.exe`. Windows x64 and an OpenGL-capable
 graphics driver are required. Extract the entire archive before playing.
 
+How to Play in the main menu opens Keeper's Field Guide. Its five readable pages
+cover survival, the gate, refuges, games and co-op. Use Previous/Next or the
+Left/Right arrow keys. Back or Escape returns to the main menu.
+
 WASD moves, mouse looks, Shift runs, Space jumps, Ctrl/C crouches, E interacts, Escape pauses. Follow the
 entrance inscription, find the three engraved stones, then decipher the gate.
 Running draws the hunter. Closed refuge doors block you: E opens or closes them.
@@ -54,4 +58,22 @@ assets/textures/README.md and assets/fonts/README.md.
 The hands close around carried basketballs, open with throw follow-through, and
 reach to the model's actual lever knob during its pull. Hold interactions briefly
 lock walking; the bar has a visible stool and a specific sit/drink prompt.
-All co-op players need this protocol-12 build for matching world and voice messages.
+All co-op players need this protocol-15 build for matching world and voice messages.
+
+Door warnings are shared in co-op: nearby doors visibly rattle and their impacts
+come from the door's position relative to each listener. A warning points left,
+right, ahead or behind. The first strike buys time; leave on the second, because
+the third forces the door. Distant door sounds fade out. Opening a damaged door
+does not repair it. Poker cards deal and turn over in sequence; held cards stay
+face-up during the replacement draw.
+
+At the downstairs bar, P opens Keeper's Draw and deals five cards. Press 1-5
+(or numpad 1-5) to toggle holds, then P to draw replacement cards once. Your
+result awards free-play points; P starts the next hand and Q hides the cards.
+Hands and scores belong to individual survivors and reset with the run. Each
+deal/draw needs a moment before another action. The game keeps running, and
+card noise can attract the hunter. There are no real-money stakes.
+
+Look for luggage, a toolbox, a recorder and a collapsed shelter in the four
+named districts. F collects their linked notes; J cycles collected pages.
+Boot trails follow actual passages, and the damaged shelter has bypasses.

@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="f6919dba-33ed-4aaa-90c7-96e6db8b29df" name="polek@POMELOE 2026-11-08 13:26:46" runUser="POMELOE\polek" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-08T13:26:46.5858387+02:00" queuing="2026-11-08T13:26:46.5858387+02:00" start="2026-11-08T13:26:46.3323107+02:00" finish="2026-11-08T13:26:51.2287070+02:00" />
+  <TestSettings name="default" id="2a889f80-3814-46d7-9a19-f242832fb767">
+    <Deployment runDeploymentRoot="polek_POMELOE_2026-11-08_13_26_46" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="a9dedb07-0b39-4334-a876-f30c6f26b2a0" testId="28a6be7f-5628-e5a6-88cb-5b86b594c0fa" testName="DenseHedgeAttenuatesFootstepsAndPassagesCarryThemAroundCorners" computerName="POMELOE" duration="00:00:00.0000087" startTime="2026-11-08T13:26:50.5459233+02:00" endTime="2026-11-08T13:26:50.5459320+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9dedb07-0b39-4334-a876-f30c6f26b2a0" />
+    <UnitTestResult executionId="8a0d8fbf-40a6-466d-94ce-8ba560f293ff" testId="9b225baa-41cd-a29d-ba20-3947b60797a4" testName="CollapsedSheltersHaveOpenBypassesAndPreserveRefuges" computerName="POMELOE" duration="00:00:00.0636463" startTime="2026-11-08T13:26:50.4134232+02:00" endTime="2026-11-08T13:26:50.4770695+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a0d8fbf-40a6-466d-94ce-8ba560f293ff" />
+    <UnitTestResult executionId="95b4bcb5-0836-4879-a7e8-ce14aa2572a5" testId="f82292f1-f473-247a-d070-17c7f13849f7" testName="ClosedDoorsMuffleAudioAndBlockSight" computerName="POMELOE" duration="00:00:00.0000087" startTime="2026-11-08T13:26:50.5476857+02:00" endTime="2026-11-08T13:26:50.5476944+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95b4bcb5-0836-4879-a7e8-ce14aa2572a5" />
+    <UnitTestResult executionId="227bd79d-4775-4f2e-b544-79777488c0a5" testId="679dbeaa-5a07-0737-856e-99de4b5212ed" testName="BlocksMovesOutsidePlayingPhase" computerName="POMELOE" duration="00:00:00.0001351" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5876346+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="227bd79d-4775-4f2e-b544-79777488c0a5" />
+    <UnitTestResult executionId="aa9449ae-6a9f-4c0b-b3de-4f41bc6b686c" testId="c820c062-4eb0-9ed9-1dba-c1f4f00fbd30" testName="MovesLeft" computerName="POMELOE" duration="00:00:00.0000118" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5891700+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa9449ae-6a9f-4c0b-b3de-4f41bc6b686c" />
+    <UnitTestResult executionId="93d6b049-ac5d-4ac9-8391-b3b6bff10179" testId="160a3113-1783-0a0c-3095-6bddfbbe425f" testName="DoesNotWinBeforeReachingExit" computerName="POMELOE" duration="00:00:00.0000064" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875059+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93d6b049-ac5d-4ac9-8391-b3b6bff10179" />
+    <UnitTestResult executionId="f3d6b8a0-ed6d-4fad-a076-870080b744e0" testId="8c3a8b0a-36f1-982d-981a-63c1110e953d" testName="EndGameHandlesPausedAndWonGames" computerName="POMELOE" duration="00:00:00.0000367" startTime="2026-11-08T13:26:51.0867182+02:00" endTime="2026-11-08T13:26:51.0867549+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f3d6b8a0-ed6d-4fad-a076-870080b744e0" />
+    <UnitTestResult executionId="f79cf8cf-cdfc-48dd-8e08-30c783e52f41" testId="50b463f1-1128-f2f1-4069-b5588d032867" testName="RejectsInvalidSizesWithoutSeed" computerName="POMELOE" duration="00:00:00.0000691" startTime="2026-11-08T13:26:50.1444332+02:00" endTime="2026-11-08T13:26:50.1445023+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f79cf8cf-cdfc-48dd-8e08-30c783e52f41" />
+    <UnitTestResult executionId="f7e12bc7-111c-447c-b9d5-d775f1b9bb36" testId="e71862ea-21cc-9ec3-260d-eac0f5265fb3" testName="InvalidReplacementPreservesBothSeeds" computerName="POMELOE" duration="00:00:00.0000187" startTime="2026-11-08T13:26:51.2107662+02:00" endTime="2026-11-08T13:26:51.2107849+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7e12bc7-111c-447c-b9d5-d775f1b9bb36" />
+    <UnitTestResult executionId="7bd09b14-b36a-44df-bdb3-381986bf152b" testId="2467386e-f623-0401-30f6-36db7117645d" testName="SeededSessionsRecordUsedSeedAndRepeatLayout" computerName="POMELOE" duration="00:00:00.0018803" startTime="2026-11-08T13:26:51.2115154+02:00" endTime="2026-11-08T13:26:51.2133957+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7bd09b14-b36a-44df-bdb3-381986bf152b" />
+    <UnitTestResult executionId="521d33f2-73a3-4b4c-8380-af0cf5352c29" testId="fa242feb-92fe-a6c0-da51-cddcf782b3bd" testName="FloorsHideSilentPlayersAndMuffleTheirFootsteps" computerName="POMELOE" duration="00:00:00.0000271" startTime="2026-11-08T13:26:50.5476857+02:00" endTime="2026-11-08T13:26:50.5477128+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="521d33f2-73a3-4b4c-8380-af0cf5352c29" />
+    <UnitTestResult executionId="f41ab506-9edb-46a8-bb5e-b31dd15140e3" testId="adeb1920-d1d0-84d6-d038-ba3bfe17350d" testName="AllCornersStayVisibleAtMaximumZoom" computerName="POMELOE" duration="00:00:00.0000017" startTime="2026-11-08T13:26:51.2145177+02:00" endTime="2026-11-08T13:26:51.2145194+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f41ab506-9edb-46a8-bb5e-b31dd15140e3" />
+    <UnitTestResult executionId="d6eb0a5d-e157-418a-9df4-07a2d3737263" testId="a2665b03-f2ad-84ee-d9a8-6ac2f5e149b4" testName="MovedFromGridCanBeReused" computerName="POMELOE" duration="00:00:00.0000106" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848471+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d6eb0a5d-e157-418a-9df4-07a2d3737263" />
+    <UnitTestResult executionId="1f9bed74-233f-4883-b477-8da24f6d19c0" testId="b12c6f38-f98b-8fee-2596-e678703a6a6d" testName="DistantDoorEventsCanBeSilentWithoutMutingAmbience" computerName="POMELOE" duration="00:00:00.0016366" startTime="2026-11-08T13:26:50.6000861+02:00" endTime="2026-11-08T13:26:50.6017227+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f9bed74-233f-4883-b477-8da24f6d19c0" />
+    <UnitTestResult executionId="0431ad72-5e3c-46e6-bb93-5f6d7a1bbec4" testId="686e6634-0680-205e-9b19-fc1277dd0de7" testName="ReplacementAndEndGameResetStatistics" computerName="POMELOE" duration="00:00:00.0000048" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088086+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0431ad72-5e3c-46e6-bb93-5f6d7a1bbec4" />
+    <UnitTestResult executionId="4a1c0703-d766-4366-b05f-63770e6d32bb" testId="720a2eef-623b-e452-1709-3ba539b62afd" testName="OcclusionRemovesMonsterHighFrequencyDetail" computerName="POMELOE" duration="00:00:00.0018451" startTime="2026-11-08T13:26:50.5973126+02:00" endTime="2026-11-08T13:26:50.5991577+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a1c0703-d766-4366-b05f-63770e6d32bb" />
+    <UnitTestResult executionId="a288a7f1-3c59-43d7-b8cc-7975bca8ed03" testId="e59f3387-c10e-21d2-7db0-48845fa2d5c1" testName="AcceptsMinimum" computerName="POMELOE" duration="00:00:00.0000083" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848448+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a288a7f1-3c59-43d7-b8cc-7975bca8ed03" />
+    <UnitTestResult executionId="9f1c0f14-2c24-42cb-b2eb-3b47f114dd3c" testId="ec43fbde-b350-5464-1163-9bf474f08db4" testName="AcceptsInteriorSize" computerName="POMELOE" duration="00:00:00.0000069" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815881+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f1c0f14-2c24-42cb-b2eb-3b47f114dd3c" />
+    <UnitTestResult executionId="069a91a4-d845-4df3-ad4a-0fbcefad3a98" testId="e561914d-cd1f-10ca-1e40-89c0e89fec06" testName="RectangularGridsKeepTheirDimensions" computerName="POMELOE" duration="00:00:00.0000170" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858557+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="069a91a4-d845-4df3-ad4a-0fbcefad3a98" />
+    <UnitTestResult executionId="9a178f82-74cb-4a82-bcdb-300052173f57" testId="da0355f9-ba18-e906-55f8-014ab935cdfb" testName="AccessOutsideGridThrows" computerName="POMELOE" duration="00:00:00.0000443" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848808+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a178f82-74cb-4a82-bcdb-300052173f57" />
+    <UnitTestResult executionId="6803c3ed-3f05-4177-84c3-94ccc2b3b7fe" testId="f9a8f6f2-d9b4-5cb9-b0c7-4b6786e8a174" testName="LoadsRectanglesAndWhitespace" computerName="POMELOE" duration="00:00:00.0106122" startTime="2026-11-08T13:26:51.1976969+02:00" endTime="2026-11-08T13:26:51.2083091+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6803c3ed-3f05-4177-84c3-94ccc2b3b7fe" />
+    <UnitTestResult executionId="9625d6fe-96f2-47eb-976e-edba99a6916b" testId="0573b2bb-dda4-4167-69bb-6837dfb8b792" testName="DefaultsToMenuWithNoActiveGame" computerName="POMELOE" duration="00:00:00.0000095" startTime="2026-11-08T13:26:46.5868492+02:00" endTime="2026-11-08T13:26:46.5868587+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9625d6fe-96f2-47eb-976e-edba99a6916b" />
+    <UnitTestResult executionId="5c0eccf0-c449-4786-a6e6-65449eba6955" testId="7cd8d779-3b34-1bfe-6502-f1d27af99364" testName="SearchLingersThenChecksAreaAndEventuallyGivesUp" computerName="POMELOE" duration="00:00:00.0000225" startTime="2026-11-08T13:26:50.5484366+02:00" endTime="2026-11-08T13:26:50.5484591+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5c0eccf0-c449-4786-a6e6-65449eba6955" />
+    <UnitTestResult executionId="5da2d0d4-d268-4084-90d0-a6e15391c607" testId="358c4cd2-a28a-80d5-5f9a-8b39b3062f54" testName="ZoomIncreasesCellsAndKeepsPlayerVisible" computerName="POMELOE" duration="00:00:00.0000031" startTime="2026-11-08T13:26:51.2145177+02:00" endTime="2026-11-08T13:26:51.2145208+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5da2d0d4-d268-4084-90d0-a6e15391c607" />
+    <UnitTestResult executionId="e3f7750e-b032-4605-bd4f-0d996a8e19e2" testId="2048e806-8503-4576-03ef-37abdc0b1665" testName="ThreatAndWeatherChangeTheOutput" computerName="POMELOE" duration="00:00:00.0005392" startTime="2026-11-08T13:26:50.5607433+02:00" endTime="2026-11-08T13:26:50.5612825+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e3f7750e-b032-4605-bd4f-0d996a8e19e2" />
+    <UnitTestResult executionId="838ba7ee-e560-4681-ab23-e2af0317dc0b" testId="bfa8e03c-ba7f-3055-2fb4-1ba98a56f4bb" testName="AcceptsMaximum" computerName="POMELOE" duration="00:00:00.0000044" startTime="2026-11-08T13:26:46.5823315+02:00" endTime="2026-11-08T13:26:46.5823359+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="838ba7ee-e560-4681-ab23-e2af0317dc0b" />
+    <UnitTestResult executionId="1f12149c-28df-44ca-9f68-59c2b9913e4c" testId="0024dc21-1331-b04f-e3bd-68e721a2221c" testName="FitContainsWholeGridAndBorder" computerName="POMELOE" duration="00:00:00.0000019" startTime="2026-11-08T13:26:51.2145177+02:00" endTime="2026-11-08T13:26:51.2145196+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f12149c-28df-44ca-9f68-59c2b9913e4c" />
+    <UnitTestResult executionId="cdefb03c-87b2-458c-8612-b4c6aed1ecc5" testId="ba977e27-d558-9eff-6e11-39b0b4a37ac9" testName="InvalidOrTinyAreasProduceNoLayout" computerName="POMELOE" duration="00:00:00.0000020" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130170+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cdefb03c-87b2-458c-8612-b4c6aed1ecc5" />
+    <UnitTestResult executionId="9f3a5b57-bb14-4a38-9456-a51511389aac" testId="bc6c97a2-7078-30a6-fce3-e659b2d75c96" testName="GeneratesIntermediateSizeWithReachableExit" computerName="POMELOE" duration="00:00:00.0007647" startTime="2026-11-08T13:26:50.1632785+02:00" endTime="2026-11-08T13:26:50.1640432+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f3a5b57-bb14-4a38-9456-a51511389aac" />
+    <UnitTestResult executionId="4861b303-b6f0-4f92-9ed3-737e6c19389b" testId="7681e7e0-8341-4c78-f70f-4516657039cc" testName="FitAfterZoomRestoresWholeGrid" computerName="POMELOE" duration="00:00:00.0000018" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130168+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4861b303-b6f0-4f92-9ed3-737e6c19389b" />
+    <UnitTestResult executionId="95638a4d-30c1-489c-9b48-45191f673e2e" testId="863f254c-4aba-4f1e-1c9b-ba869ec998bf" testName="StartsPreparedMazeAtTopLeft" computerName="POMELOE" duration="00:00:00.0000077" startTime="2026-11-08T13:26:46.5899068+02:00" endTime="2026-11-08T13:26:46.5899145+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95638a4d-30c1-489c-9b48-45191f673e2e" />
+    <UnitTestResult executionId="e04c8e0a-4b66-4d72-8aad-4d72cba22e75" testId="970538de-f446-0a00-bab5-47ffb5ea3f2d" testName="ChangingSelectedSizeDoesNotAllocateAMaze" computerName="POMELOE" duration="00:00:00.0000111" startTime="2026-11-08T13:26:46.5868492+02:00" endTime="2026-11-08T13:26:46.5868603+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e04c8e0a-4b66-4d72-8aad-4d72cba22e75" />
+    <UnitTestResult executionId="ab2ff1a4-58ea-470a-ac3e-d2f78248e054" testId="a28e306e-f2a8-bc65-68ee-f912fdf92f7f" testName="RejectsTooFewColumns" computerName="POMELOE" duration="00:00:00.0000048" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815860+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab2ff1a4-58ea-470a-ac3e-d2f78248e054" />
+    <UnitTestResult executionId="7b6568a3-16c1-4c22-82d1-100d94ea3aed" testId="358573b8-4270-e574-0580-29c1b2dd6abb" testName="SafehouseDoorFramesFillEachOpeningAndSwingOutward" computerName="POMELOE" duration="00:00:00.0000196" startTime="2026-11-08T13:26:50.2629933+02:00" endTime="2026-11-08T13:26:50.2630129+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b6568a3-16c1-4c22-82d1-100d94ea3aed" />
+    <UnitTestResult executionId="e88b5a18-7e63-49e3-a2b1-84c5e313b409" testId="807215d3-c4aa-3d30-b2f0-35808017d6a4" testName="GeneratesMinimumSizeWithReachableExit" computerName="POMELOE" duration="00:00:00.0001000" startTime="2026-11-08T13:26:50.1642804+02:00" endTime="2026-11-08T13:26:50.1643804+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e88b5a18-7e63-49e3-a2b1-84c5e313b409" />
+    <UnitTestResult executionId="3212378b-4cae-4032-8478-be10f7ed814a" testId="c4503bdb-3aac-99b6-5458-f91f7ee347ae" testName="RejectsTooManyRows" computerName="POMELOE" duration="00:00:00.0000047" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815859+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3212378b-4cae-4032-8478-be10f7ed814a" />
+    <UnitTestResult executionId="4f2951f8-2042-4167-bd16-f4fb106099d7" testId="d186f6b0-a7c7-8bef-0f8a-788eff796ed8" testName="ChasingCreatureVocalizesEvenWhenNotStepping" computerName="POMELOE" duration="00:00:00.0011631" startTime="2026-11-08T13:26:50.5875528+02:00" endTime="2026-11-08T13:26:50.5887159+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f2951f8-2042-4167-bd16-f4fb106099d7" />
+    <UnitTestResult executionId="9f02c6b2-247a-4339-99a3-5490a74462bf" testId="79708aba-425f-df7f-02c1-73b1f61413f6" testName="InvalidDimensionsThrow" computerName="POMELOE" duration="00:00:00.0000509" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858896+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f02c6b2-247a-4339-99a3-5490a74462bf" />
+    <UnitTestResult executionId="d5636beb-0e2e-47fd-a6d4-2913712b05bb" testId="3e62c406-afaf-6f66-d293-d8dc14a27b4d" testName="AccumulatesSubsecondTime" computerName="POMELOE" duration="00:00:00.0000016" startTime="2026-11-08T13:26:51.2100157+02:00" endTime="2026-11-08T13:26:51.2100173+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5636beb-0e2e-47fd-a6d4-2913712b05bb" />
+    <UnitTestResult executionId="e1c765a2-9b2c-4667-b510-79487520825d" testId="a4d6e22f-e836-f2c0-cb9e-09e2395a4adf" testName="FailedReplacePreservesDestination" computerName="POMELOE" duration="00:00:00.0065438" startTime="2026-11-08T13:26:51.0867182+02:00" endTime="2026-11-08T13:26:51.0932620+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1c765a2-9b2c-4667-b510-79487520825d" />
+    <UnitTestResult executionId="99dd262c-3ec2-4400-bd9d-e9d86bc2b915" testId="a1cd2a6a-5547-c454-c47c-00f47c630bb6" testName="PatrolIsSeededAndStaysOnPassages" computerName="POMELOE" duration="00:00:00.0001928" startTime="2026-11-08T13:26:50.5449210+02:00" endTime="2026-11-08T13:26:50.5451138+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="99dd262c-3ec2-4400-bd9d-e9d86bc2b915" />
+    <UnitTestResult executionId="26a10359-0939-41eb-b376-7e4ea46a6c96" testId="2fbed1de-a26d-e6b9-99ca-6257c5a45a51" testName="WritingCellsDoesNotAliasOtherCells" computerName="POMELOE" duration="00:00:00.0000105" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858492+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26a10359-0939-41eb-b376-7e4ea46a6c96" />
+    <UnitTestResult executionId="d3d38a05-ef6e-444a-8988-61d68f358fc7" testId="642b4478-fcf1-2ae2-69da-c936f9779d38" testName="StartsAtFitAndBoundsZoom" computerName="POMELOE" duration="00:00:00.0000106" startTime="2026-11-08T13:26:51.2145177+02:00" endTime="2026-11-08T13:26:51.2145283+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3d38a05-ef6e-444a-8988-61d68f358fc7" />
+    <UnitTestResult executionId="90cd1ece-c2cc-40fc-be34-51ca0d603ff6" testId="d530d563-62ca-a6d8-6e31-35b91e94d03c" testName="BalanceTargetsHaveExactlyOneTwoStoneAnswerAcrossSeeds" computerName="POMELOE" duration="00:00:00.0020981" startTime="2026-11-08T13:26:50.5216167+02:00" endTime="2026-11-08T13:26:50.5237148+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90cd1ece-c2cc-40fc-be34-51ca0d603ff6" />
+    <UnitTestResult executionId="13b89e7c-cee7-462b-ae1e-825a3acd4adb" testId="1e308734-b8ab-d0d6-1dd4-8953cde1e03e" testName="MalformedOrExtraDataUsesDefaults" computerName="POMELOE" duration="00:00:00.0351142" startTime="2026-11-08T13:26:51.1186948+02:00" endTime="2026-11-08T13:26:51.1538090+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13b89e7c-cee7-462b-ae1e-825a3acd4adb" />
+    <UnitTestResult executionId="d1b3511c-c05f-4ce3-84a5-35c4f3190eba" testId="fe73c109-4b6a-9130-1f8a-5a750aabf365" testName="RefugesDoNotDisconnectHunterRoutes" computerName="POMELOE" duration="00:00:00.0917176" startTime="2026-11-08T13:26:50.1708263+02:00" endTime="2026-11-08T13:26:50.2625439+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d1b3511c-c05f-4ce3-84a5-35c4f3190eba" />
+    <UnitTestResult executionId="73938145-7e9d-428d-be57-882402e43dd2" testId="9162048e-5603-97ff-c627-c54de274bc77" testName="SupportsEvenAndOddRectangles" computerName="POMELOE" duration="00:00:00.0045798" startTime="2026-11-08T13:26:50.1492323+02:00" endTime="2026-11-08T13:26:50.1538121+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="73938145-7e9d-428d-be57-882402e43dd2" />
+    <UnitTestResult executionId="2d3cdad9-2678-4ee3-bd24-db70c9c5b9c3" testId="fae1950f-7b63-eb19-3a95-c913b3620b79" testName="EndGameClearsCurrentSeedAndKeepsChoice" computerName="POMELOE" duration="00:00:00.0000111" startTime="2026-11-08T13:26:51.2107662+02:00" endTime="2026-11-08T13:26:51.2107773+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d3cdad9-2678-4ee3-bd24-db70c9c5b9c3" />
+    <UnitTestResult executionId="7b556920-b689-4bef-b9a4-0136855c2015" testId="2b5f1093-d3fb-4708-7dcc-2c82b2ee9d8b" testName="RestartWonGameCanBePlayedAgain" computerName="POMELOE" duration="00:00:00.0000065" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846871+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b556920-b689-4bef-b9a4-0136855c2015" />
+    <UnitTestResult executionId="ea769c77-7fc8-4733-b5e4-e00ac27d2eba" testId="8e646d41-c563-1d8b-1679-14a23d8697c2" testName="RejectsTooManyColumns" computerName="POMELOE" duration="00:00:00.0000058" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815870+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea769c77-7fc8-4733-b5e4-e00ac27d2eba" />
+    <UnitTestResult executionId="5731a174-20eb-4f58-874f-59ddeb61d35e" testId="5f64a35f-30d5-43da-1941-e8fda3e6d11d" testName="MaximumGridStartsWithWalls" computerName="POMELOE" duration="00:00:00.0000599" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858986+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5731a174-20eb-4f58-874f-59ddeb61d35e" />
+    <UnitTestResult executionId="3942777f-efd0-4808-9784-e8d9c54ecdeb" testId="19b9b411-6d3c-58df-f46e-076c672f2b03" testName="RestartPlayingGameKeepsLayoutAndAllocation" computerName="POMELOE" duration="00:00:00.0006005" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0852811+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3942777f-efd0-4808-9784-e8d9c54ecdeb" />
+    <UnitTestResult executionId="f1980aa9-00af-4c86-a46e-fc66b6ea7514" testId="de011fff-5d64-9ff5-bd7e-1f3f7a99a0fe" testName="SlotAndDrinkSoundsAreDistinctAndPauseFadesThem" computerName="POMELOE" duration="00:00:00.0090709" startTime="2026-11-08T13:26:50.5890522+02:00" endTime="2026-11-08T13:26:50.5981231+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1980aa9-00af-4c86-a46e-fc66b6ea7514" />
+    <UnitTestResult executionId="85cde16a-b800-4103-811d-499892b6abb3" testId="e0ca6792-ed13-135c-5236-65385dd1cc69" testName="InvalidReplacementPreservesExistingSession" computerName="POMELOE" duration="00:00:00.0002091" startTime="2026-11-08T13:26:51.0857009+02:00" endTime="2026-11-08T13:26:51.0859100+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="85cde16a-b800-4103-811d-499892b6abb3" />
+    <UnitTestResult executionId="786aaebe-f96a-45f1-bcf0-1e9ba86e2e9e" testId="5d5051f3-b7fd-1fa4-6a3e-763cf8b340a5" testName="RestartPreservesCurrentAndSelectedSeeds" computerName="POMELOE" duration="00:00:00.0000264" startTime="2026-11-08T13:26:51.2107662+02:00" endTime="2026-11-08T13:26:51.2107926+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="786aaebe-f96a-45f1-bcf0-1e9ba86e2e9e" />
+    <UnitTestResult executionId="9db55623-df90-48c6-a7e2-e7a91d3ea7ba" testId="7026bb40-6cc1-e27f-105b-4a30cc296d9f" testName="OnlyObservedJunctionExitsAreLearnedAndBiasSearch" computerName="POMELOE" duration="00:00:00.0000437" startTime="2026-11-08T13:26:50.5476857+02:00" endTime="2026-11-08T13:26:50.5477294+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9db55623-df90-48c6-a7e2-e7a91d3ea7ba" />
+    <UnitTestResult executionId="c6a25f55-dbad-46b6-a3b1-8aeb3a78c60b" testId="cdd3f7c7-42b7-35df-5303-d25651a1d6d5" testName="EndGameReleasesMazeAndResetsState" computerName="POMELOE" duration="00:00:00.0000126" startTime="2026-11-08T13:26:51.0867182+02:00" endTime="2026-11-08T13:26:51.0867308+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c6a25f55-dbad-46b6-a3b1-8aeb3a78c60b" />
+    <UnitTestResult executionId="cda2cb86-e404-4b98-ae55-f4fc6544c4a4" testId="a7751770-515d-acc7-658e-98cb8b0099bc" testName="ReadsValidTriangle" computerName="POMELOE" duration="00:00:00.0000095" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846901+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cda2cb86-e404-4b98-ae55-f4fc6544c4a4" />
+    <UnitTestResult executionId="63d78ba0-5b9b-482c-a815-a0be19c6ab65" testId="b3da3529-5206-cc15-51ef-12147a13b46e" testName="BlocksMovesWithoutMaze" computerName="POMELOE" duration="00:00:00.0000230" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875225+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63d78ba0-5b9b-482c-a815-a0be19c6ab65" />
+    <UnitTestResult executionId="673735ce-8146-4dc7-8243-3df06a766196" testId="de573e95-bb24-763f-085e-8ac3fa3ece0d" testName="DoorAndWhisperEventsAddDirectionalAudio" computerName="POMELOE" duration="00:00:00.0008353" startTime="2026-11-08T13:26:50.5589861+02:00" endTime="2026-11-08T13:26:50.5598214+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="673735ce-8146-4dc7-8243-3df06a766196" />
+    <UnitTestResult executionId="24c36af0-116f-4c42-b302-b764a817c1d1" testId="246b4b47-e82e-2cc2-5771-ba7d113008d9" testName="MovingEmptyGridClearsDestination" computerName="POMELOE" duration="00:00:00.0000595" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848960+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="24c36af0-116f-4c42-b302-b764a817c1d1" />
+    <UnitTestResult executionId="1fe03bd4-7db2-4a93-9a46-0e60b8eb77ba" testId="a2147ba5-511d-d18b-e07f-a28d0567da55" testName="ReadsAndValidatesAnimatedMeshFrames" computerName="POMELOE" duration="00:00:00.0000176" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846982+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1fe03bd4-7db2-4a93-9a46-0e60b8eb77ba" />
+    <UnitTestResult executionId="b3895eb4-287c-401e-8c6e-4d9cbec56d8c" testId="6c748543-2b00-9ec9-2d06-e229f589ce79" testName="EmptyInputUsesRandomMode" computerName="POMELOE" duration="00:00:00.0000020" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130170+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3895eb4-287c-401e-8c6e-4d9cbec56d8c" />
+    <UnitTestResult executionId="51015fda-e580-4ba1-a600-a7804fbf44bb" testId="7744afb3-0261-489b-6ee6-4ea0888087cd" testName="EmptyPathUsesDefaultsAndCannotSave" computerName="POMELOE" duration="00:00:00.0000074" startTime="2026-11-08T13:26:51.0999423+02:00" endTime="2026-11-08T13:26:51.0999497+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="51015fda-e580-4ba1-a600-a7804fbf44bb" />
+    <UnitTestResult executionId="0d4d5c5f-5200-448c-b40d-9069ff827045" testId="8bd2ab37-6cbf-7f74-73f7-4fb022b1ae34" testName="UnreadableFileUsesDefaults" computerName="POMELOE" duration="00:00:00.0007646" startTime="2026-11-08T13:26:51.0987256+02:00" endTime="2026-11-08T13:26:51.0994902+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d4d5c5f-5200-448c-b40d-9069ff827045" />
+    <UnitTestResult executionId="729a1530-b3e7-49de-9347-0f228d5f29c2" testId="25f86bd3-bc9f-b776-8d0a-1c49ed33b28f" testName="BlocksLeftBoundary" computerName="POMELOE" duration="00:00:00.0000173" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5891755+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="729a1530-b3e7-49de-9347-0f228d5f29c2" />
+    <UnitTestResult executionId="2a1570fc-2b45-4c1f-86d5-9266574d7070" testId="5a51dbeb-9efd-30a8-5ec2-2b5f7db2c8f3" testName="AcceptsRectangularSizes" computerName="POMELOE" duration="00:00:00.0000081" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815893+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a1570fc-2b45-4c1f-86d5-9266574d7070" />
+    <UnitTestResult executionId="a7d32f2b-a051-47c6-a208-0ada7c90afb8" testId="f6ddbc52-cf2c-6766-d1ad-5c2fb2721f1f" testName="SequenceAndBalanceUseDifferentInteractionRules" computerName="POMELOE" duration="00:00:00.0000160" startTime="2026-11-08T13:26:50.5216167+02:00" endTime="2026-11-08T13:26:50.5216327+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7d32f2b-a051-47c6-a208-0ada7c90afb8" />
+    <UnitTestResult executionId="6f61bdaf-3956-43f5-b4ba-fcd00df7cc44" testId="e3cf42a2-0de3-7af1-21d3-b91ff884fb56" testName="MissingFileUsesDefaultsWithoutWriting" computerName="POMELOE" duration="00:00:00.0003601" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2091639+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f61bdaf-3956-43f5-b4ba-fcd00df7cc44" />
+    <UnitTestResult executionId="c5404ce2-9c7c-4fcf-a960-e9775dc2f001" testId="28dc57d1-cbcb-95e3-0c12-5d63836606db" testName="FillReplacesEveryCell" computerName="POMELOE" duration="00:00:00.0000073" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848438+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c5404ce2-9c7c-4fcf-a960-e9775dc2f001" />
+    <UnitTestResult executionId="e801f1bf-f681-4b50-809e-dc9318fc72e6" testId="88508012-297b-e282-14ba-81c6e37465aa" testName="AdventureCachesAreSeededPassableAndSpaced" computerName="POMELOE" duration="00:00:00.0429946" startTime="2026-11-08T13:26:50.4773516+02:00" endTime="2026-11-08T13:26:50.5203462+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e801f1bf-f681-4b50-809e-dc9318fc72e6" />
+    <UnitTestResult executionId="ef3585d8-6b5a-4b36-b387-29a8640cd29f" testId="3eb51854-b664-326f-67e2-2c476c3c63f9" testName="AdventureTransactionsAreAtomicAndBounded" computerName="POMELOE" duration="00:00:00.0002069" startTime="2026-11-08T13:26:50.5208667+02:00" endTime="2026-11-08T13:26:50.5210736+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef3585d8-6b5a-4b36-b387-29a8640cd29f" />
+    <UnitTestResult executionId="98d4dea3-3605-47d1-b287-8b23e48ea8a9" testId="65630343-d4a8-27bc-fcc6-3f81e7ec77a6" testName="RejectedOperationsPreserveStatistics" computerName="POMELOE" duration="00:00:00.0000189" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088227+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98d4dea3-3605-47d1-b287-8b23e48ea8a9" />
+    <UnitTestResult executionId="3d370845-6f8a-40f1-9ccc-90bc3d63f9c9" testId="a9f9cd6d-c68c-8fe8-a769-8c9d93d4b38a" testName="BlocksTopBoundary" computerName="POMELOE" duration="00:00:00.0000167" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5891749+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3d370845-6f8a-40f1-9ccc-90bc3d63f9c9" />
+    <UnitTestResult executionId="540f0d4b-dc4a-4121-bc5e-e5327ebd8685" testId="8e76ec04-1b8c-002e-8e9d-deac9ad9d75b" testName="OnlySuccessfulMovesCount" computerName="POMELOE" duration="00:00:00.0000026" startTime="2026-11-08T13:26:51.2100157+02:00" endTime="2026-11-08T13:26:51.2100183+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="540f0d4b-dc4a-4121-bc5e-e5327ebd8685" />
+    <UnitTestResult executionId="014d0938-a0ac-4382-a2d4-313a76fecc05" testId="4ef4b055-6438-2b63-fa10-cf1ebd683919" testName="RepeatedStartsReplaceSmallAndLargeMazes" computerName="POMELOE" duration="00:00:00.0002253" startTime="2026-11-08T13:26:51.0867182+02:00" endTime="2026-11-08T13:26:51.0869435+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="014d0938-a0ac-4382-a2d4-313a76fecc05" />
+    <UnitTestResult executionId="b8dbe1ed-3b4c-4fe7-9da1-20d571583da5" testId="8d09c9ef-8634-4ed3-a65e-97d7ce6b5d29" testName="RejectsCorruptOrOversizedData" computerName="POMELOE" duration="00:00:00.0000186" startTime="2026-11-08T13:26:51.0841625+02:00" endTime="2026-11-08T13:26:51.0841811+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b8dbe1ed-3b4c-4fe7-9da1-20d571583da5" />
+    <UnitTestResult executionId="8a1f1b7a-dde7-429d-86c4-b11eee63346f" testId="ce60c3d7-9d07-b34f-54a8-342daa6030ae" testName="ActiveGameReflectsOwnedMazeData" computerName="POMELOE" duration="00:00:00.0000019" startTime="2026-11-08T13:26:46.5868492+02:00" endTime="2026-11-08T13:26:46.5868511+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a1f1b7a-dde7-429d-86c4-b11eee63346f" />
+    <UnitTestResult executionId="7aa46a09-a64d-480c-92ad-797cbd782c9a" testId="f8908d8b-3411-2129-1141-3bf9da469a85" testName="SpawnAvoidsStonesAndVariesAfterCapture" computerName="POMELOE" duration="00:00:00.0006126" startTime="2026-11-08T13:26:50.5459233+02:00" endTime="2026-11-08T13:26:50.5465359+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7aa46a09-a64d-480c-92ad-797cbd782c9a" />
+    <UnitTestResult executionId="c41b8036-c2ee-42f9-ab7f-a628a47960b4" testId="e2d973a6-bbbc-2a19-4475-c935f1834e77" testName="BlocksMovementAfterVictory" computerName="POMELOE" duration="00:00:00.0000530" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875525+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c41b8036-c2ee-42f9-ab7f-a628a47960b4" />
+    <UnitTestResult executionId="a7302d50-6e7b-4a7c-b3f8-a83b01e26c45" testId="065b606e-aa9d-ef69-e66f-2d2db23a381f" testName="GroupHunterDetectsTheFourthPlayer" computerName="POMELOE" duration="00:00:00.0000116" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469441+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7302d50-6e7b-4a7c-b3f8-a83b01e26c45" />
+    <UnitTestResult executionId="493f020f-fd2f-48e8-bf26-fcb898f23c72" testId="bf1d7ce5-8c42-6259-7b67-202fe9d4140f" testName="HedgeBlocksSightButRunningCanBeHeard" computerName="POMELOE" duration="00:00:00.0000071" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469396+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="493f020f-fd2f-48e8-bf26-fcb898f23c72" />
+    <UnitTestResult executionId="8a69b9fe-1a8e-4eba-ada3-26daa2e818c8" testId="1a800766-dcc2-cb61-d366-d9a9386263c3" testName="BlocksInvalidPlayerPositions" computerName="POMELOE" duration="00:00:00.0003271" startTime="2026-11-08T13:26:46.5884070+02:00" endTime="2026-11-08T13:26:46.5887341+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a69b9fe-1a8e-4eba-ada3-26daa2e818c8" />
+    <UnitTestResult executionId="95aa4614-4128-4167-949f-ca3383446bde" testId="799f1060-0674-cac3-cf91-76c9b54cff6f" testName="RestartPausedGameResetsPositionAndEntersPlaying" computerName="POMELOE" duration="00:00:00.0000145" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846951+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95aa4614-4128-4167-949f-ca3383446bde" />
+    <UnitTestResult executionId="10b34000-0452-4569-b0cf-1afe12b07e9c" testId="c52cda72-7c11-b55c-efd3-053ae949306c" testName="MovesRight" computerName="POMELOE" duration="00:00:00.0000137" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5891719+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10b34000-0452-4569-b0cf-1afe12b07e9c" />
+    <UnitTestResult executionId="6501be28-b4d4-46e2-b7a5-3729bb81335b" testId="88bda024-9150-a332-445b-8f8dbb907e45" testName="StorySitesAndBootTrailsAreReachableAndReproducible" computerName="POMELOE" duration="00:00:00.0489018" startTime="2026-11-08T13:26:50.3642987+02:00" endTime="2026-11-08T13:26:50.4132005+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6501be28-b4d4-46e2-b7a5-3729bb81335b" />
+    <UnitTestResult executionId="8d5f21e1-fa52-400f-af24-2ee2bbf1f896" testId="94cf0d66-7c36-ef3f-9bbb-733739c1c648" testName="SavesAndCreatesParentDirectories" computerName="POMELOE" duration="00:00:00.0063924" startTime="2026-11-08T13:26:51.1116570+02:00" endTime="2026-11-08T13:26:51.1180494+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d5f21e1-fa52-400f-af24-2ee2bbf1f896" />
+    <UnitTestResult executionId="86023bc2-efe9-40c9-a79e-caddd0727ff7" testId="7ad3898d-5d7a-0aa2-8ce4-a8523870ec77" testName="InvalidDimensionsUseDefaults" computerName="POMELOE" duration="00:00:00.0204667" startTime="2026-11-08T13:26:51.1535205+02:00" endTime="2026-11-08T13:26:51.1739872+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="86023bc2-efe9-40c9-a79e-caddd0727ff7" />
+    <UnitTestResult executionId="737a3090-63d6-4d31-b0c9-64a05234f46a" testId="d7eeb7c9-9918-d95c-85ec-d972e2cfa79f" testName="GeneratesMaximumSizeWithReachableExit" computerName="POMELOE" duration="00:00:00.0090291" startTime="2026-11-08T13:26:50.1543216+02:00" endTime="2026-11-08T13:26:50.1633507+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="737a3090-63d6-4d31-b0c9-64a05234f46a" />
+    <UnitTestResult executionId="a50e3a01-f27a-468c-bc02-1f2ba6545278" testId="9b3dbdf5-35ec-6da5-be0f-24adcb665e7a" testName="SeededStonesAreReachableAndReproducible" computerName="POMELOE" duration="00:00:00.0214653" startTime="2026-11-08T13:26:50.5231202+02:00" endTime="2026-11-08T13:26:50.5445855+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a50e3a01-f27a-468c-bc02-1f2ba6545278" />
+    <UnitTestResult executionId="99b7d506-2ee9-4a28-9ab7-c9c3575dabcf" testId="ef86aa02-d9a2-5fc5-d77a-9da53961a644" testName="PreservesInputDimensionsForValidation" computerName="POMELOE" duration="00:00:00.0000524" startTime="2026-11-08T13:26:46.5758118+02:00" endTime="2026-11-08T13:26:46.5758642+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="99b7d506-2ee9-4a28-9ab7-c9c3575dabcf" />
+    <UnitTestResult executionId="e1262495-f6da-49b8-9ea0-309e0d8b0a3b" testId="27d87ba8-5051-09d4-ff88-e7149d3800fe" testName="AllAllowedDimensionsHaveReachableExit" computerName="POMELOE" duration="00:00:03.5453775" startTime="2026-11-08T13:26:46.5987105+02:00" endTime="2026-11-08T13:26:50.1440880+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1262495-f6da-49b8-9ea0-309e0d8b0a3b" />
+    <UnitTestResult executionId="cf40ff3f-f8f3-4bac-9341-cbbab7c735dd" testId="535a98dc-be97-8925-95f6-ff60b7354244" testName="FoliageLayersMuffleHighFrequencies" computerName="POMELOE" duration="00:00:00.0000024" startTime="2026-11-08T13:26:50.5476857+02:00" endTime="2026-11-08T13:26:50.5476881+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf40ff3f-f8f3-4bac-9341-cbbab7c735dd" />
+    <UnitTestResult executionId="f7d66717-4298-4186-ada4-9c2d78dd1b91" testId="b9e3dbf1-de36-9c81-dbdf-45e95dc05682" testName="SeededMazesIncludeAlternateRoutes" computerName="POMELOE" duration="00:00:00.0060682" startTime="2026-11-08T13:26:50.1650337+02:00" endTime="2026-11-08T13:26:50.1711019+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7d66717-4298-4186-ada4-9c2d78dd1b91" />
+    <UnitTestResult executionId="99cdf054-4939-4859-a977-fe8dbaa0775e" testId="ba9288d8-44df-f158-9f0e-55150c9f02d7" testName="TimeAndMovesSaturateInsteadOfWrapping" computerName="POMELOE" duration="00:00:00.0000034" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088072+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="99cdf054-4939-4859-a977-fe8dbaa0775e" />
+    <UnitTestResult executionId="a3e7f0c1-3998-4a5f-a6ff-19b14344c15d" testId="a317b948-5326-d501-118e-828d0724c41f" testName="ContainsChecksAllFourEdges" computerName="POMELOE" duration="00:00:00.0000026" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858413+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a3e7f0c1-3998-4a5f-a6ff-19b14344c15d" />
+    <UnitTestResult executionId="b7320518-ae57-48ba-b097-d1dd2d00cea4" testId="263d2fe5-c62e-1a8c-f748-6c0be6576239" testName="RejectsMazeWithoutEnoughReachablePassages" computerName="POMELOE" duration="00:00:00.0000249" startTime="2026-11-08T13:26:50.5208667+02:00" endTime="2026-11-08T13:26:50.5208916+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b7320518-ae57-48ba-b097-d1dd2d00cea4" />
+    <UnitTestResult executionId="aa685464-94bd-4c6f-9bfa-4c9f4f2f5e8f" testId="7a57546b-8aac-6460-e897-106c9c1143f6" testName="LoadsBoundarySizes" computerName="POMELOE" duration="00:00:00.0229521" startTime="2026-11-08T13:26:51.1745394+02:00" endTime="2026-11-08T13:26:51.1974915+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa685464-94bd-4c6f-9bfa-4c9f4f2f5e8f" />
+    <UnitTestResult executionId="9d03cc2f-98c6-4371-84e2-3d2ada3db9d8" testId="67421925-e2fb-c72a-87ef-59b53cdc6f29" testName="BlocksUnknownDirection" computerName="POMELOE" duration="00:00:00.0000165" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875160+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d03cc2f-98c6-4371-84e2-3d2ada3db9d8" />
+    <UnitTestResult executionId="e932a8b0-4992-4218-bbbe-b20e9c403355" testId="474c5dbc-1e47-1c88-bd42-588eba00d3d9" testName="PlainPreparedSessionClearsOldSeed" computerName="POMELOE" duration="00:00:00.0000118" startTime="2026-11-08T13:26:51.2107662+02:00" endTime="2026-11-08T13:26:51.2107780+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e932a8b0-4992-4218-bbbe-b20e9c403355" />
+    <UnitTestResult executionId="5a4b0c36-f38b-4082-ae1f-05dd51538f47" testId="1a9304d7-668c-bff1-3975-6aacf9edec9e" testName="SilenceAndPauseFadeDoNotLeaveResidualOutput" computerName="POMELOE" duration="00:00:00.0253093" startTime="2026-11-08T13:26:50.5614916+02:00" endTime="2026-11-08T13:26:50.5868009+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a4b0c36-f38b-4082-ae1f-05dd51538f47" />
+    <UnitTestResult executionId="5bc7cec3-76c7-423a-baf9-4fa11fe277d5" testId="14cdd6bc-3a41-e760-deb9-4fade074c1e7" testName="RejectsTooFewRows" computerName="POMELOE" duration="00:00:00.0000041" startTime="2026-11-08T13:26:46.5815812+02:00" endTime="2026-11-08T13:26:46.5815853+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5bc7cec3-76c7-423a-baf9-4fa11fe277d5" />
+    <UnitTestResult executionId="171cac47-4602-47ca-beaf-d5f9fb3461cb" testId="b2aad4ef-f0b1-cc30-587d-bd2229e531a2" testName="NewSessionsStartAtZero" computerName="POMELOE" duration="00:00:00.0000027" startTime="2026-11-08T13:26:51.2100157+02:00" endTime="2026-11-08T13:26:51.2100184+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="171cac47-4602-47ca-beaf-d5f9fb3461cb" />
+    <UnitTestResult executionId="ad1725d2-0586-4034-88ea-b3475361040b" testId="d9d34805-e269-70ab-f692-4542f55567d3" testName="RejectsSignsWhitespaceAndNonnumericInput" computerName="POMELOE" duration="00:00:00.0000023" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130173+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad1725d2-0586-4034-88ea-b3475361040b" />
+    <UnitTestResult executionId="3193e396-1136-42b4-87de-98c6e975ab14" testId="c412ce94-b388-1d28-890e-137f739a42cc" testName="DistantHunterRelocationStaysOutOfViewAndRefuges" computerName="POMELOE" duration="00:00:00.0000315" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469640+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3193e396-1136-42b4-87de-98c6e975ab14" />
+    <UnitTestResult executionId="d4ed8531-8b5c-4301-9522-e7320075cf40" testId="e077955e-c7a5-c3dd-ef0c-d2c20598b445" testName="GeneratedMazesCanBePlayedToVictory" computerName="POMELOE" duration="00:00:00.0077427" startTime="2026-11-08T13:26:46.5906560+02:00" endTime="2026-11-08T13:26:46.5983987+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4ed8531-8b5c-4301-9522-e7320075cf40" />
+    <UnitTestResult executionId="ff968863-6b9e-4a44-939d-ef3e3db28879" testId="7e861b82-f51a-1d24-03fd-d54960923350" testName="DoesNotWinAtMisplacedExit" computerName="POMELOE" duration="00:00:00.0000083" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875078+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff968863-6b9e-4a44-939d-ef3e3db28879" />
+    <UnitTestResult executionId="3e7af93f-d8ee-4e24-a632-70d9151a6244" testId="4bdac7c7-0e37-0591-a3d2-e73adf7bc4af" testName="BlocksRightBoundary" computerName="POMELOE" duration="00:00:00.0000165" startTime="2026-11-08T13:26:46.5884070+02:00" endTime="2026-11-08T13:26:46.5884235+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e7af93f-d8ee-4e24-a632-70d9151a6244" />
+    <UnitTestResult executionId="be17a746-fa8a-4425-b9d3-76420c802e26" testId="9eded03f-63a4-cc3a-f8b4-4c7697bd3dd2" testName="CreatureSeesAheadAndNoticesPlayerVeryCloseBehind" computerName="POMELOE" duration="00:00:00.0000049" startTime="2026-11-08T13:26:50.5459233+02:00" endTime="2026-11-08T13:26:50.5459282+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="be17a746-fa8a-4425-b9d3-76420c802e26" />
+    <UnitTestResult executionId="919e4e09-ca0f-4b8a-9a59-dcf591bb74b7" testId="1d4cbd9e-21ff-cd69-bd72-1363d1005227" testName="DarknessIsSeededBoundedAndContinuous" computerName="POMELOE" duration="00:00:00.0029488" startTime="2026-11-08T13:26:51.0809084+02:00" endTime="2026-11-08T13:26:51.0838572+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="919e4e09-ca0f-4b8a-9a59-dcf591bb74b7" />
+    <UnitTestResult executionId="7010f683-34db-4a77-84ed-d07360512df7" testId="daa26b8b-bbd8-cb84-7bae-4fd53957df8f" testName="RestartRejectsUnstartedOrUnknownPhase" computerName="POMELOE" duration="00:00:00.0000201" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0847007+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7010f683-34db-4a77-84ed-d07360512df7" />
+    <UnitTestResult executionId="3c79db68-de8c-45b8-8e70-211db80bde31" testId="b1e52340-f974-e7a0-0fdc-66dfad9a3fc0" testName="DemoCanBeCompletedWithLegalMoves" computerName="POMELOE" duration="00:00:00.0000116" startTime="2026-11-08T13:26:46.5868492+02:00" endTime="2026-11-08T13:26:46.5868608+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c79db68-de8c-45b8-8e70-211db80bde31" />
+    <UnitTestResult executionId="698e67ef-87a6-41e6-b352-6a6f8e326350" testId="2c01ec0b-4f64-3cf9-efe9-74cc4f9af0b0" testName="InvalidSavePreservesExistingPreferences" computerName="POMELOE" duration="00:00:00.0049582" startTime="2026-11-08T13:26:51.1006921+02:00" endTime="2026-11-08T13:26:51.1056503+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="698e67ef-87a6-41e6-b352-6a6f8e326350" />
+    <UnitTestResult executionId="0b23f4ef-6c91-44f9-89a7-bbd3b19038f7" testId="b67fffeb-5147-f843-eae9-80f2b98ae6c7" testName="SaveFailsWhenParentIsAFile" computerName="POMELOE" duration="00:00:00.0048661" startTime="2026-11-08T13:26:51.0945080+02:00" endTime="2026-11-08T13:26:51.0993741+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b23f4ef-6c91-44f9-89a7-bbd3b19038f7" />
+    <UnitTestResult executionId="49a22836-d0c9-4cfd-b10d-6cec52f7a943" testId="6cc3ca98-a162-735e-facb-38704fcdab92" testName="HiddenPlayerMovementCannotSteerRememberedSearch" computerName="POMELOE" duration="00:00:00.0000673" startTime="2026-11-08T13:26:50.5484366+02:00" endTime="2026-11-08T13:26:50.5485039+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49a22836-d0c9-4cfd-b10d-6cec52f7a943" />
+    <UnitTestResult executionId="e569014e-257b-4bc2-9dbf-f8d58b3a0a9b" testId="d983e83e-e953-7993-b589-be762e08c4ac" testName="CameraFollowsMovementAcrossTheMaze" computerName="POMELOE" duration="00:00:00.0000178" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130328+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e569014e-257b-4bc2-9dbf-f8d58b3a0a9b" />
+    <UnitTestResult executionId="690dbf81-e007-4c1e-919f-850a189b785b" testId="a53aed97-6b0f-1756-ad6d-87e183f69557" testName="AcceptsZeroMaximumAndDecimalValues" computerName="POMELOE" duration="00:00:00.0000016" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130166+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="690dbf81-e007-4c1e-919f-850a189b785b" />
+    <UnitTestResult executionId="9a0a54ce-1aef-4619-872f-5bf13ff60b84" testId="96bc7197-18ad-7059-2fba-1a15c72388b6" testName="MovesUp" computerName="POMELOE" duration="00:00:00.0000120" startTime="2026-11-08T13:26:46.5899068+02:00" endTime="2026-11-08T13:26:46.5899188+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a0a54ce-1aef-4619-872f-5bf13ff60b84" />
+    <UnitTestResult executionId="f67fd58d-9e1e-466e-8f9f-93c6bcd48460" testId="fdac0e7b-11bd-08c7-7f83-9aa85b553f84" testName="WinsWhenEnteringExit" computerName="POMELOE" duration="00:00:00.0000063" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875058+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f67fd58d-9e1e-466e-8f9f-93c6bcd48460" />
+    <UnitTestResult executionId="ab7d9001-b9d0-4ecd-8f6c-ab35f8ab7d45" testId="9b070896-f473-434f-bab8-e5666d32c463" testName="NonpositiveTimeIsIgnored" computerName="POMELOE" duration="00:00:00.0000023" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088061+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab7d9001-b9d0-4ecd-8f6c-ab35f8ab7d45" />
+    <UnitTestResult executionId="7423652a-b0fe-43c2-8796-912fcd434e4f" testId="27a7cb93-d4a5-e1e3-c897-987d5b438c34" testName="WinningMoveCountsAndTimeStops" computerName="POMELOE" duration="00:00:00.0000020" startTime="2026-11-08T13:26:51.2100157+02:00" endTime="2026-11-08T13:26:51.2100177+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7423652a-b0fe-43c2-8796-912fcd434e4f" />
+    <UnitTestResult executionId="137cdfa9-68ef-4050-b3aa-7fd28b8ca6b1" testId="af8d88b9-196c-b791-574c-2d928b3c7cd8" testName="ResizePreservesZoomAndVisibility" computerName="POMELOE" duration="00:00:00.0000071" startTime="2026-11-08T13:26:51.2145177+02:00" endTime="2026-11-08T13:26:51.2145248+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="137cdfa9-68ef-4050-b3aa-7fd28b8ca6b1" />
+    <UnitTestResult executionId="d6ed717a-c567-4917-b1f1-cea91a4dccd9" testId="b724c4bc-34a3-deac-eaa2-463937d83e53" testName="CanStartAgainAfterEndGame" computerName="POMELOE" duration="00:00:00.0000276" startTime="2026-11-08T13:26:51.0857009+02:00" endTime="2026-11-08T13:26:51.0857285+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d6ed717a-c567-4917-b1f1-cea91a4dccd9" />
+    <UnitTestResult executionId="f8097c85-4023-4496-8d1c-ccb3f3356c0e" testId="8314a70f-5e31-b191-2664-fb8ad74e8636" testName="RestartWithoutSessionChangesNothing" computerName="POMELOE" duration="00:00:00.0000143" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846949+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f8097c85-4023-4496-8d1c-ccb3f3356c0e" />
+    <UnitTestResult executionId="ae6ec09a-d75c-454d-9f5d-970bded8f32f" testId="b77cc08c-8855-7948-7e23-faa213671b0c" testName="EndGameIsSafeWhenAlreadyEmpty" computerName="POMELOE" duration="00:00:00.0000126" startTime="2026-11-08T13:26:51.0867182+02:00" endTime="2026-11-08T13:26:51.0867308+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ae6ec09a-d75c-454d-9f5d-970bded8f32f" />
+    <UnitTestResult executionId="6d6c60fb-077c-40bd-8a3d-0fcc4d3be4f9" testId="81a05c9a-6918-c00e-85cf-c8b051396bd3" testName="DetectsSightAndSearchesLastKnownPosition" computerName="POMELOE" duration="00:00:00.0000060" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469385+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d6c60fb-077c-40bd-8a3d-0fcc4d3be4f9" />
+    <UnitTestResult executionId="a7a097cf-fef8-464c-a3af-a3e916216b56" testId="520422fa-9b96-f0dd-095e-97291406606c" testName="RejectsOverflowAndOverlongInput" computerName="POMELOE" duration="00:00:00.0000020" startTime="2026-11-08T13:26:51.2130150+02:00" endTime="2026-11-08T13:26:51.2130170+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7a097cf-fef8-464c-a3af-a3e916216b56" />
+    <UnitTestResult executionId="3e88fa39-371f-4305-80fe-2149f6ea3499" testId="ecef5d77-3dd7-b88a-ab64-042ada91db24" testName="SavingReplacesExistingPreferences" computerName="POMELOE" duration="00:00:00.0062235" startTime="2026-11-08T13:26:51.1058682+02:00" endTime="2026-11-08T13:26:51.1120917+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e88fa39-371f-4305-80fe-2149f6ea3499" />
+    <UnitTestResult executionId="c17d5f45-bd15-4af4-adef-98d32a246bfc" testId="80ed1724-a846-168b-c0e4-efde4a68cd4a" testName="DoesNotWinAtUnmarkedCorner" computerName="POMELOE" duration="00:00:00.0000063" startTime="2026-11-08T13:26:46.5874995+02:00" endTime="2026-11-08T13:26:46.5875058+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c17d5f45-bd15-4af4-adef-98d32a246bfc" />
+    <UnitTestResult executionId="c08177ac-e722-4563-8ec8-a243170a30e9" testId="e9ea37f7-604f-866b-321e-538b4c586870" testName="StormStrikesAreSeededAndEventsFollowTheFlashes" computerName="POMELOE" duration="00:00:00.4791591" startTime="2026-11-08T13:26:50.6008386+02:00" endTime="2026-11-08T13:26:51.0799977+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c08177ac-e722-4563-8ec8-a243170a30e9" />
+    <UnitTestResult executionId="3ce15733-63ca-46b6-a792-07c394402c21" testId="14a6ccfe-2133-015b-b8ec-cd7e3d0d139f" testName="RestartPreservesNextGameSize" computerName="POMELOE" duration="00:00:00.0000069" startTime="2026-11-08T13:26:51.0846806+02:00" endTime="2026-11-08T13:26:51.0846875+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ce15733-63ca-46b6-a792-07c394402c21" />
+    <UnitTestResult executionId="8cfebeb0-9638-41f1-971e-90525c2a11b8" testId="653f32bc-4915-e635-4dd8-f6d8c9abed11" testName="UnseededMazesAreValid" computerName="POMELOE" duration="00:00:00.0005071" startTime="2026-11-08T13:26:46.5899068+02:00" endTime="2026-11-08T13:26:46.5904139+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8cfebeb0-9638-41f1-971e-90525c2a11b8" />
+    <UnitTestResult executionId="ad7244d3-8b02-4c2f-af22-5119dab48de3" testId="a10f292d-032f-de01-ef34-c2e1c7c99d97" testName="ContinuousBlocksMatchOneRender" computerName="POMELOE" duration="00:00:00.0005987" startTime="2026-11-08T13:26:50.5614916+02:00" endTime="2026-11-08T13:26:50.5620903+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad7244d3-8b02-4c2f-af22-5119dab48de3" />
+    <UnitTestResult executionId="a8264399-c366-49c9-b08b-3c359898259b" testId="ca880946-c4bd-ef92-4f96-801435114f8b" testName="MoveConstructionTransfersOwnership" computerName="POMELOE" duration="00:00:00.0000174" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848539+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8264399-c366-49c9-b08b-3c359898259b" />
+    <UnitTestResult executionId="039307cc-0842-4ec0-80a9-7fcd762be5a7" testId="d666e136-5a72-bc27-cb86-7a2f4c4ce6ff" testName="GeneratedRandomSeedCanReproduceAMaze" computerName="POMELOE" duration="00:00:00.0001181" startTime="2026-11-08T13:26:51.2107662+02:00" endTime="2026-11-08T13:26:51.2108843+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="039307cc-0842-4ec0-80a9-7fcd762be5a7" />
+    <UnitTestResult executionId="5ada5dcc-82e3-4471-8e3c-5cf20e3f4ff4" testId="11c28dd0-605a-fa05-07e6-0e4060057f0b" testName="GateInscriptionsProduceDistinctCodes" computerName="POMELOE" duration="00:00:00.0000052" startTime="2026-11-08T13:26:50.5208667+02:00" endTime="2026-11-08T13:26:50.5208719+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ada5dcc-82e3-4471-8e3c-5cf20e3f4ff4" />
+    <UnitTestResult executionId="0a51e025-4c7d-4165-8597-afac89b8a84a" testId="c75c8310-bd37-d42e-d5a6-45da870ed468" testName="ReproducesMapsForFixedSeeds" computerName="POMELOE" duration="00:00:00.0046749" startTime="2026-11-08T13:26:50.1444332+02:00" endTime="2026-11-08T13:26:50.1491081+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0a51e025-4c7d-4165-8597-afac89b8a84a" />
+    <UnitTestResult executionId="d9dd13ab-c748-4793-9b62-f27bc52f294a" testId="8a03acb4-ea5f-b95d-531b-fcf88fef4fbf" testName="MovesDown" computerName="POMELOE" duration="00:00:00.0000115" startTime="2026-11-08T13:26:46.5899068+02:00" endTime="2026-11-08T13:26:46.5899183+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9dd13ab-c748-4793-9b62-f27bc52f294a" />
+    <UnitTestResult executionId="b5143216-88f6-476c-9c95-2b64515e96b2" testId="41162c8e-6185-cb58-c22d-544e655cf8ad" testName="SeededSafehousesAreDistinctOpenAndReproducible" computerName="POMELOE" duration="00:00:00.1008474" startTime="2026-11-08T13:26:50.2629933+02:00" endTime="2026-11-08T13:26:50.3638407+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b5143216-88f6-476c-9c95-2b64515e96b2" />
+    <UnitTestResult executionId="3beed250-4200-4afa-a8e8-1f9abd3b2978" testId="b0ba41d2-9f62-e04b-f858-f1ff29da18df" testName="DefaultGridIsEmpty" computerName="POMELOE" duration="00:00:00.0000241" startTime="2026-11-08T13:26:46.5868492+02:00" endTime="2026-11-08T13:26:46.5868733+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3beed250-4200-4afa-a8e8-1f9abd3b2978" />
+    <UnitTestResult executionId="cc6916c7-661f-42c4-b369-d79ca923e861" testId="4f54c1c6-cbbb-0d44-3ff9-24c33c01f976" testName="DirectionalSoundsPanWithoutChangingTheCenteredAmbience" computerName="POMELOE" duration="00:00:00.0108332" startTime="2026-11-08T13:26:50.5484366+02:00" endTime="2026-11-08T13:26:50.5592698+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc6916c7-661f-42c4-b369-d79ca923e861" />
+    <UnitTestResult executionId="beceb387-02a1-4a46-b607-605fdb6ef640" testId="b4b59cd1-92a6-67c1-a942-34de4c72b7f4" testName="BlocksWallsInEveryDirection" computerName="POMELOE" duration="00:00:00.0000423" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5892005+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="beceb387-02a1-4a46-b607-605fdb6ef640" />
+    <UnitTestResult executionId="d991d512-8649-459b-b12f-0ae07bb7ee9b" testId="6b803f1c-ac66-cfd6-d183-37ea22fd49a1" testName="HunterEntersRefugesAndLearnsFromRepeatedDetections" computerName="POMELOE" duration="00:00:00.0000056" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469381+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d991d512-8649-459b-b12f-0ae07bb7ee9b" />
+    <UnitTestResult executionId="d04781b4-2fa4-4d8e-bca9-614d2b4ad087" testId="dc08dd55-7dc5-5368-8d21-a3fefbe0cbde" testName="IgnoresInactiveOrEmptyGames" computerName="POMELOE" duration="00:00:00.0000022" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088060+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d04781b4-2fa4-4d8e-bca9-614d2b4ad087" />
+    <UnitTestResult executionId="e625a880-6b92-4dda-842a-50fb019ad7e9" testId="ff0bb0e4-1654-956e-22cb-10aeca349bb5" testName="BlocksBottomBoundary" computerName="POMELOE" duration="00:00:00.0000154" startTime="2026-11-08T13:26:46.5891582+02:00" endTime="2026-11-08T13:26:46.5891736+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e625a880-6b92-4dda-842a-50fb019ad7e9" />
+    <UnitTestResult executionId="f2dd0d8d-1374-4523-b4e1-ae36974aebf3" testId="60ce92fb-010e-a507-4f3d-5b34be823f3e" testName="RestartResetsStatisticsAndPreservesNextSize" computerName="POMELOE" duration="00:00:00.0000142" startTime="2026-11-08T13:26:51.2088038+02:00" endTime="2026-11-08T13:26:51.2088180+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2dd0d8d-1374-4523-b4e1-ae36974aebf3" />
+    <UnitTestResult executionId="1f3442dc-3327-4aa0-bffb-62ce3bf64d4f" testId="13ea1c5c-4388-7094-833e-e92f60adc83b" testName="KnownFixedSeedsShowVariation" computerName="POMELOE" duration="00:00:00.0000638" startTime="2026-11-08T13:26:46.5899068+02:00" endTime="2026-11-08T13:26:46.5899706+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f3442dc-3327-4aa0-bffb-62ce3bf64d4f" />
+    <UnitTestResult executionId="2bb5d795-defc-4358-bc8f-bd120e98434c" testId="bee82980-8300-d2fd-a5fa-20663daa7c75" testName="CoopHunterSeesEitherPlayerAndPrioritizesSightOverNoise" computerName="POMELOE" duration="00:00:00.0000087" startTime="2026-11-08T13:26:50.5469325+02:00" endTime="2026-11-08T13:26:50.5469412+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2bb5d795-defc-4358-bc8f-bd120e98434c" />
+    <UnitTestResult executionId="04a0cdad-c6d2-4997-880b-ffa113741639" testId="f2822da5-7c8b-9681-0d52-d61199b6fe38" testName="MinimumGridStartsWithWalls" computerName="POMELOE" duration="00:00:00.0000071" startTime="2026-11-08T13:26:46.5858387+02:00" endTime="2026-11-08T13:26:46.5858458+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04a0cdad-c6d2-4997-880b-ffa113741639" />
+    <UnitTestResult executionId="01b8e484-761e-439b-9117-8876764d5422" testId="69246113-1974-69f2-22a1-8289cf82eea5" testName="MoveAssignmentReplacesExistingCells" computerName="POMELOE" duration="00:00:00.0000219" startTime="2026-11-08T13:26:46.5848365+02:00" endTime="2026-11-08T13:26:46.5848584+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01b8e484-761e-439b-9117-8876764d5422" />
+    <UnitTestResult executionId="30cb9ebd-322d-4c9b-bfc2-2b20c59ec9a8" testId="c5faf573-c36b-48f0-b347-98a659ce8750" testName="RejectsZeroNegativeAndExtremeDimensions" computerName="POMELOE" duration="00:00:00.0000241" startTime="2026-11-08T13:26:46.5808317+02:00" endTime="2026-11-08T13:26:46.5808558+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30cb9ebd-322d-4c9b-bfc2-2b20c59ec9a8" />
+    <UnitTestResult executionId="8b23844e-1d8e-4dc6-82ef-deeabf8efb85" testId="dbbd54b4-0e82-c8df-e3c3-143c19cdcd8a" testName="RejectsInvalidSizesWithSeed" computerName="POMELOE" duration="00:00:00.0000480" startTime="2026-11-08T13:26:50.1444332+02:00" endTime="2026-11-08T13:26:50.1444812+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b23844e-1d8e-4dc6-82ef-deeabf8efb85" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="SavesAndCreatesParentDirectories" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="94cf0d66-7c36-ef3f-9bbb-733739c1c648">
+      <Execution id="8d5f21e1-fa52-400f-af24-2ee2bbf1f896" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::SavesAndCreatesParentDirectories" />
+    </UnitTest>
+    <UnitTest name="CanStartAgainAfterEndGame" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b724c4bc-34a3-deac-eaa2-463937d83e53">
+      <Execution id="d6ed717a-c567-4917-b1f1-cea91a4dccd9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::CanStartAgainAfterEndGame" />
+    </UnitTest>
+    <UnitTest name="WritingCellsDoesNotAliasOtherCells" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="2fbed1de-a26d-e6b9-99ca-6257c5a45a51">
+      <Execution id="26a10359-0939-41eb-b376-7e4ea46a6c96" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::WritingCellsDoesNotAliasOtherCells" />
+    </UnitTest>
+    <UnitTest name="ThreatAndWeatherChangeTheOutput" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="2048e806-8503-4576-03ef-37abdc0b1665">
+      <Execution id="e3f7750e-b032-4605-bd4f-0d996a8e19e2" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::ThreatAndWeatherChangeTheOutput" />
+    </UnitTest>
+    <UnitTest name="RejectsInvalidSizesWithSeed" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="dbbd54b4-0e82-c8df-e3c3-143c19cdcd8a">
+      <Execution id="8b23844e-1d8e-4dc6-82ef-deeabf8efb85" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::RejectsInvalidSizesWithSeed" />
+    </UnitTest>
+    <UnitTest name="BlocksRightBoundary" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="4bdac7c7-0e37-0591-a3d2-e73adf7bc4af">
+      <Execution id="3e7af93f-d8ee-4e24-a632-70d9151a6244" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksRightBoundary" />
+    </UnitTest>
+    <UnitTest name="AllCornersStayVisibleAtMaximumZoom" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="adeb1920-d1d0-84d6-d038-ba3bfe17350d">
+      <Execution id="f41ab506-9edb-46a8-bb5e-b31dd15140e3" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::AllCornersStayVisibleAtMaximumZoom" />
+    </UnitTest>
+    <UnitTest name="MovedFromGridCanBeReused" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a2665b03-f2ad-84ee-d9a8-6ac2f5e149b4">
+      <Execution id="d6eb0a5d-e157-418a-9df4-07a2d3737263" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MovedFromGridCanBeReused" />
+    </UnitTest>
+    <UnitTest name="BlocksLeftBoundary" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="25f86bd3-bc9f-b776-8d0a-1c49ed33b28f">
+      <Execution id="729a1530-b3e7-49de-9347-0f228d5f29c2" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksLeftBoundary" />
+    </UnitTest>
+    <UnitTest name="ContainsChecksAllFourEdges" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a317b948-5326-d501-118e-828d0724c41f">
+      <Execution id="a3e7f0c1-3998-4a5f-a6ff-19b14344c15d" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::ContainsChecksAllFourEdges" />
+    </UnitTest>
+    <UnitTest name="RejectedOperationsPreserveStatistics" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="65630343-d4a8-27bc-fcc6-3f81e7ec77a6">
+      <Execution id="98d4dea3-3605-47d1-b287-8b23e48ea8a9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::RejectedOperationsPreserveStatistics" />
+    </UnitTest>
+    <UnitTest name="CreatureSeesAheadAndNoticesPlayerVeryCloseBehind" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="9eded03f-63a4-cc3a-f8b4-4c7697bd3dd2">
+      <Execution id="be17a746-fa8a-4425-b9d3-76420c802e26" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::CreatureSeesAheadAndNoticesPlayerVeryCloseBehind" />
+    </UnitTest>
+    <UnitTest name="CoopHunterSeesEitherPlayerAndPrioritizesSightOverNoise" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="bee82980-8300-d2fd-a5fa-20663daa7c75">
+      <Execution id="2bb5d795-defc-4358-bc8f-bd120e98434c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::CoopHunterSeesEitherPlayerAndPrioritizesSightOverNoise" />
+    </UnitTest>
+    <UnitTest name="InvalidDimensionsThrow" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="79708aba-425f-df7f-02c1-73b1f61413f6">
+      <Execution id="9f02c6b2-247a-4339-99a3-5490a74462bf" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::InvalidDimensionsThrow" />
+    </UnitTest>
+    <UnitTest name="BlocksMovesWithoutMaze" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b3da3529-5206-cc15-51ef-12147a13b46e">
+      <Execution id="63d78ba0-5b9b-482c-a815-a0be19c6ab65" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksMovesWithoutMaze" />
+    </UnitTest>
+    <UnitTest name="OnlyObservedJunctionExitsAreLearnedAndBiasSearch" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7026bb40-6cc1-e27f-105b-4a30cc296d9f">
+      <Execution id="9db55623-df90-48c6-a7e2-e7a91d3ea7ba" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::OnlyObservedJunctionExitsAreLearnedAndBiasSearch" />
+    </UnitTest>
+    <UnitTest name="HunterEntersRefugesAndLearnsFromRepeatedDetections" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="6b803f1c-ac66-cfd6-d183-37ea22fd49a1">
+      <Execution id="d991d512-8649-459b-b12f-0ae07bb7ee9b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::HunterEntersRefugesAndLearnsFromRepeatedDetections" />
+    </UnitTest>
+    <UnitTest name="LoadsBoundarySizes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7a57546b-8aac-6460-e897-106c9c1143f6">
+      <Execution id="aa685464-94bd-4c6f-9bfa-4c9f4f2f5e8f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::LoadsBoundarySizes" />
+    </UnitTest>
+    <UnitTest name="BalanceTargetsHaveExactlyOneTwoStoneAnswerAcrossSeeds" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d530d563-62ca-a6d8-6e31-35b91e94d03c">
+      <Execution id="90cd1ece-c2cc-40fc-be34-51ca0d603ff6" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazePuzzleTests" name="MazeUnitTest::MazePuzzleTests::BalanceTargetsHaveExactlyOneTwoStoneAnswerAcrossSeeds" />
+    </UnitTest>
+    <UnitTest name="ReadsAndValidatesAnimatedMeshFrames" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a2147ba5-511d-d18b-e07f-a28d0567da55">
+      <Execution id="1fe03bd4-7db2-4a93-9a46-0e60b8eb77ba" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.CreatureMeshTests" name="MazeUnitTest::CreatureMeshTests::ReadsAndValidatesAnimatedMeshFrames" />
+    </UnitTest>
+    <UnitTest name="DenseHedgeAttenuatesFootstepsAndPassagesCarryThemAroundCorners" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="28a6be7f-5628-e5a6-88cb-5b86b594c0fa">
+      <Execution id="a9dedb07-0b39-4334-a876-f30c6f26b2a0" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::DenseHedgeAttenuatesFootstepsAndPassagesCarryThemAroundCorners" />
+    </UnitTest>
+    <UnitTest name="NonpositiveTimeIsIgnored" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="9b070896-f473-434f-bab8-e5666d32c463">
+      <Execution id="ab7d9001-b9d0-4ecd-8f6c-ab35f8ab7d45" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::NonpositiveTimeIsIgnored" />
+    </UnitTest>
+    <UnitTest name="AdventureTransactionsAreAtomicAndBounded" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="3eb51854-b664-326f-67e2-2c476c3c63f9">
+      <Execution id="ef3585d8-6b5a-4b36-b387-29a8640cd29f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::AdventureTransactionsAreAtomicAndBounded" />
+    </UnitTest>
+    <UnitTest name="RestartPreservesCurrentAndSelectedSeeds" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="5d5051f3-b7fd-1fa4-6a3e-763cf8b340a5">
+      <Execution id="786aaebe-f96a-45f1-bcf0-1e9ba86e2e9e" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::RestartPreservesCurrentAndSelectedSeeds" />
+    </UnitTest>
+    <UnitTest name="WinningMoveCountsAndTimeStops" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="27a7cb93-d4a5-e1e3-c897-987d5b438c34">
+      <Execution id="7423652a-b0fe-43c2-8796-912fcd434e4f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::WinningMoveCountsAndTimeStops" />
+    </UnitTest>
+    <UnitTest name="RejectsTooFewColumns" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a28e306e-f2a8-bc65-68ee-f912fdf92f7f">
+      <Execution id="ab2ff1a4-58ea-470a-ac3e-d2f78248e054" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::RejectsTooFewColumns" />
+    </UnitTest>
+    <UnitTest name="MinimumGridStartsWithWalls" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="f2822da5-7c8b-9681-0d52-d61199b6fe38">
+      <Execution id="04a0cdad-c6d2-4997-880b-ffa113741639" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MinimumGridStartsWithWalls" />
+    </UnitTest>
+    <UnitTest name="GeneratesIntermediateSizeWithReachableExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="bc6c97a2-7078-30a6-fce3-e659b2d75c96">
+      <Execution id="9f3a5b57-bb14-4a38-9456-a51511389aac" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::GeneratesIntermediateSizeWithReachableExit" />
+    </UnitTest>
+    <UnitTest name="IgnoresInactiveOrEmptyGames" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="dc08dd55-7dc5-5368-8d21-a3fefbe0cbde">
+      <Execution id="d04781b4-2fa4-4d8e-bca9-614d2b4ad087" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::IgnoresInactiveOrEmptyGames" />
+    </UnitTest>
+    <UnitTest name="AcceptsRectangularSizes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="5a51dbeb-9efd-30a8-5ec2-2b5f7db2c8f3">
+      <Execution id="2a1570fc-2b45-4c1f-86d5-9266574d7070" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::AcceptsRectangularSizes" />
+    </UnitTest>
+    <UnitTest name="EmptyInputUsesRandomMode" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="6c748543-2b00-9ec9-2d06-e229f589ce79">
+      <Execution id="b3895eb4-287c-401e-8c6e-4d9cbec56d8c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::EmptyInputUsesRandomMode" />
+    </UnitTest>
+    <UnitTest name="RejectsInvalidSizesWithoutSeed" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="50b463f1-1128-f2f1-4069-b5588d032867">
+      <Execution id="f79cf8cf-cdfc-48dd-8e08-30c783e52f41" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::RejectsInvalidSizesWithoutSeed" />
+    </UnitTest>
+    <UnitTest name="DemoCanBeCompletedWithLegalMoves" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b1e52340-f974-e7a0-0fdc-66dfad9a3fc0">
+      <Execution id="3c79db68-de8c-45b8-8e70-211db80bde31" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::DemoCanBeCompletedWithLegalMoves" />
+    </UnitTest>
+    <UnitTest name="ClosedDoorsMuffleAudioAndBlockSight" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="f82292f1-f473-247a-d070-17c7f13849f7">
+      <Execution id="95b4bcb5-0836-4879-a7e8-ce14aa2572a5" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::ClosedDoorsMuffleAudioAndBlockSight" />
+    </UnitTest>
+    <UnitTest name="FillReplacesEveryCell" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="28dc57d1-cbcb-95e3-0c12-5d63836606db">
+      <Execution id="c5404ce2-9c7c-4fcf-a960-e9775dc2f001" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::FillReplacesEveryCell" />
+    </UnitTest>
+    <UnitTest name="RestartResetsStatisticsAndPreservesNextSize" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="60ce92fb-010e-a507-4f3d-5b34be823f3e">
+      <Execution id="f2dd0d8d-1374-4523-b4e1-ae36974aebf3" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::RestartResetsStatisticsAndPreservesNextSize" />
+    </UnitTest>
+    <UnitTest name="SlotAndDrinkSoundsAreDistinctAndPauseFadesThem" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="de011fff-5d64-9ff5-bd7e-1f3f7a99a0fe">
+      <Execution id="f1980aa9-00af-4c86-a46e-fc66b6ea7514" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::SlotAndDrinkSoundsAreDistinctAndPauseFadesThem" />
+    </UnitTest>
+    <UnitTest name="EndGameClearsCurrentSeedAndKeepsChoice" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="fae1950f-7b63-eb19-3a95-c913b3620b79">
+      <Execution id="2d3cdad9-2678-4ee3-bd24-db70c9c5b9c3" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::EndGameClearsCurrentSeedAndKeepsChoice" />
+    </UnitTest>
+    <UnitTest name="FitContainsWholeGridAndBorder" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="0024dc21-1331-b04f-e3bd-68e721a2221c">
+      <Execution id="1f12149c-28df-44ca-9f68-59c2b9913e4c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::FitContainsWholeGridAndBorder" />
+    </UnitTest>
+    <UnitTest name="RepeatedStartsReplaceSmallAndLargeMazes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="4ef4b055-6438-2b63-fa10-cf1ebd683919">
+      <Execution id="014d0938-a0ac-4382-a2d4-313a76fecc05" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RepeatedStartsReplaceSmallAndLargeMazes" />
+    </UnitTest>
+    <UnitTest name="AcceptsInteriorSize" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ec43fbde-b350-5464-1163-9bf474f08db4">
+      <Execution id="9f1c0f14-2c24-42cb-b2eb-3b47f114dd3c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::AcceptsInteriorSize" />
+    </UnitTest>
+    <UnitTest name="CameraFollowsMovementAcrossTheMaze" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d983e83e-e953-7993-b589-be762e08c4ac">
+      <Execution id="e569014e-257b-4bc2-9dbf-f8d58b3a0a9b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::CameraFollowsMovementAcrossTheMaze" />
+    </UnitTest>
+    <UnitTest name="SeededSessionsRecordUsedSeedAndRepeatLayout" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="2467386e-f623-0401-30f6-36db7117645d">
+      <Execution id="7bd09b14-b36a-44df-bdb3-381986bf152b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::SeededSessionsRecordUsedSeedAndRepeatLayout" />
+    </UnitTest>
+    <UnitTest name="InvalidReplacementPreservesBothSeeds" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e71862ea-21cc-9ec3-260d-eac0f5265fb3">
+      <Execution id="f7e12bc7-111c-447c-b9d5-d775f1b9bb36" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::InvalidReplacementPreservesBothSeeds" />
+    </UnitTest>
+    <UnitTest name="DoesNotWinAtUnmarkedCorner" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="80ed1724-a846-168b-c0e4-efde4a68cd4a">
+      <Execution id="c17d5f45-bd15-4af4-adef-98d32a246bfc" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::DoesNotWinAtUnmarkedCorner" />
+    </UnitTest>
+    <UnitTest name="PlainPreparedSessionClearsOldSeed" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="474c5dbc-1e47-1c88-bd42-588eba00d3d9">
+      <Execution id="e932a8b0-4992-4218-bbbe-b20e9c403355" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::PlainPreparedSessionClearsOldSeed" />
+    </UnitTest>
+    <UnitTest name="SilenceAndPauseFadeDoNotLeaveResidualOutput" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="1a9304d7-668c-bff1-3975-6aacf9edec9e">
+      <Execution id="5a4b0c36-f38b-4082-ae1f-05dd51538f47" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::SilenceAndPauseFadeDoNotLeaveResidualOutput" />
+    </UnitTest>
+    <UnitTest name="SearchLingersThenChecksAreaAndEventuallyGivesUp" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7cd8d779-3b34-1bfe-6502-f1d27af99364">
+      <Execution id="5c0eccf0-c449-4786-a6e6-65449eba6955" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::SearchLingersThenChecksAreaAndEventuallyGivesUp" />
+    </UnitTest>
+    <UnitTest name="GateInscriptionsProduceDistinctCodes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="11c28dd0-605a-fa05-07e6-0e4060057f0b">
+      <Execution id="5ada5dcc-82e3-4471-8e3c-5cf20e3f4ff4" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazePuzzleTests" name="MazeUnitTest::MazePuzzleTests::GateInscriptionsProduceDistinctCodes" />
+    </UnitTest>
+    <UnitTest name="EmptyPathUsesDefaultsAndCannotSave" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7744afb3-0261-489b-6ee6-4ea0888087cd">
+      <Execution id="51015fda-e580-4ba1-a600-a7804fbf44bb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::EmptyPathUsesDefaultsAndCannotSave" />
+    </UnitTest>
+    <UnitTest name="UnreadableFileUsesDefaults" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8bd2ab37-6cbf-7f74-73f7-4fb022b1ae34">
+      <Execution id="0d4d5c5f-5200-448c-b40d-9069ff827045" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::UnreadableFileUsesDefaults" />
+    </UnitTest>
+    <UnitTest name="ActiveGameReflectsOwnedMazeData" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ce60c3d7-9d07-b34f-54a8-342daa6030ae">
+      <Execution id="8a1f1b7a-dde7-429d-86c4-b11eee63346f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStateTests" name="MazeUnitTest::GameStateTests::ActiveGameReflectsOwnedMazeData" />
+    </UnitTest>
+    <UnitTest name="KnownFixedSeedsShowVariation" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="13ea1c5c-4388-7094-833e-e92f60adc83b">
+      <Execution id="1f3442dc-3327-4aa0-bffb-62ce3bf64d4f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::KnownFixedSeedsShowVariation" />
+    </UnitTest>
+    <UnitTest name="EndGameIsSafeWhenAlreadyEmpty" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b77cc08c-8855-7948-7e23-faa213671b0c">
+      <Execution id="ae6ec09a-d75c-454d-9f5d-970bded8f32f" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::EndGameIsSafeWhenAlreadyEmpty" />
+    </UnitTest>
+    <UnitTest name="PatrolIsSeededAndStaysOnPassages" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a1cd2a6a-5547-c454-c47c-00f47c630bb6">
+      <Execution id="99dd262c-3ec2-4400-bd9d-e9d86bc2b915" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::PatrolIsSeededAndStaysOnPassages" />
+    </UnitTest>
+    <UnitTest name="AccessOutsideGridThrows" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="da0355f9-ba18-e906-55f8-014ab935cdfb">
+      <Execution id="9a178f82-74cb-4a82-bcdb-300052173f57" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::AccessOutsideGridThrows" />
+    </UnitTest>
+    <UnitTest name="StorySitesAndBootTrailsAreReachableAndReproducible" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="88bda024-9150-a332-445b-8f8dbb907e45">
+      <Execution id="6501be28-b4d4-46e2-b7a5-3729bb81335b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::StorySitesAndBootTrailsAreReachableAndReproducible" />
+    </UnitTest>
+    <UnitTest name="FailedReplacePreservesDestination" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a4d6e22f-e836-f2c0-cb9e-09e2395a4adf">
+      <Execution id="e1c765a2-9b2c-4667-b510-79487520825d" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::FailedReplacePreservesDestination" />
+    </UnitTest>
+    <UnitTest name="AllAllowedDimensionsHaveReachableExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="27d87ba8-5051-09d4-ff88-e7149d3800fe">
+      <Execution id="e1262495-f6da-49b8-9ea0-309e0d8b0a3b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::AllAllowedDimensionsHaveReachableExit" />
+    </UnitTest>
+    <UnitTest name="EndGameReleasesMazeAndResetsState" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="cdd3f7c7-42b7-35df-5303-d25651a1d6d5">
+      <Execution id="c6a25f55-dbad-46b6-a3b1-8aeb3a78c60b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::EndGameReleasesMazeAndResetsState" />
+    </UnitTest>
+    <UnitTest name="MovesLeft" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c820c062-4eb0-9ed9-1dba-c1f4f00fbd30">
+      <Execution id="aa9449ae-6a9f-4c0b-b3de-4f41bc6b686c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::MovesLeft" />
+    </UnitTest>
+    <UnitTest name="OcclusionRemovesMonsterHighFrequencyDetail" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="720a2eef-623b-e452-1709-3ba539b62afd">
+      <Execution id="4a1c0703-d766-4366-b05f-63770e6d32bb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::OcclusionRemovesMonsterHighFrequencyDetail" />
+    </UnitTest>
+    <UnitTest name="BlocksWallsInEveryDirection" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b4b59cd1-92a6-67c1-a942-34de4c72b7f4">
+      <Execution id="beceb387-02a1-4a46-b607-605fdb6ef640" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksWallsInEveryDirection" />
+    </UnitTest>
+    <UnitTest name="ReadsValidTriangle" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a7751770-515d-acc7-658e-98cb8b0099bc">
+      <Execution id="cda2cb86-e404-4b98-ae55-f4fc6544c4a4" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.CreatureMeshTests" name="MazeUnitTest::CreatureMeshTests::ReadsValidTriangle" />
+    </UnitTest>
+    <UnitTest name="RejectsTooFewRows" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="14cdd6bc-3a41-e760-deb9-4fade074c1e7">
+      <Execution id="5bc7cec3-76c7-423a-baf9-4fa11fe277d5" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::RejectsTooFewRows" />
+    </UnitTest>
+    <UnitTest name="DistantDoorEventsCanBeSilentWithoutMutingAmbience" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b12c6f38-f98b-8fee-2596-e678703a6a6d">
+      <Execution id="1f9bed74-233f-4883-b477-8da24f6d19c0" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::DistantDoorEventsCanBeSilentWithoutMutingAmbience" />
+    </UnitTest>
+    <UnitTest name="MovesUp" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="96bc7197-18ad-7059-2fba-1a15c72388b6">
+      <Execution id="9a0a54ce-1aef-4619-872f-5bf13ff60b84" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::MovesUp" />
+    </UnitTest>
+    <UnitTest name="RejectsZeroNegativeAndExtremeDimensions" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c5faf573-c36b-48f0-b347-98a659ce8750">
+      <Execution id="30cb9ebd-322d-4c9b-bfc2-2b20c59ec9a8" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::RejectsZeroNegativeAndExtremeDimensions" />
+    </UnitTest>
+    <UnitTest name="MaximumGridStartsWithWalls" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="5f64a35f-30d5-43da-1941-e8fda3e6d11d">
+      <Execution id="5731a174-20eb-4f58-874f-59ddeb61d35e" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MaximumGridStartsWithWalls" />
+    </UnitTest>
+    <UnitTest name="DoorAndWhisperEventsAddDirectionalAudio" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="de573e95-bb24-763f-085e-8ac3fa3ece0d">
+      <Execution id="673735ce-8146-4dc7-8243-3df06a766196" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::DoorAndWhisperEventsAddDirectionalAudio" />
+    </UnitTest>
+    <UnitTest name="SafehouseDoorFramesFillEachOpeningAndSwingOutward" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="358573b8-4270-e574-0580-29c1b2dd6abb">
+      <Execution id="7b6568a3-16c1-4c22-82d1-100d94ea3aed" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::SafehouseDoorFramesFillEachOpeningAndSwingOutward" />
+    </UnitTest>
+    <UnitTest name="MovesDown" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8a03acb4-ea5f-b95d-531b-fcf88fef4fbf">
+      <Execution id="d9dd13ab-c748-4793-9b62-f27bc52f294a" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::MovesDown" />
+    </UnitTest>
+    <UnitTest name="DefaultGridIsEmpty" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b0ba41d2-9f62-e04b-f858-f1ff29da18df">
+      <Execution id="3beed250-4200-4afa-a8e8-1f9abd3b2978" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::DefaultGridIsEmpty" />
+    </UnitTest>
+    <UnitTest name="StormStrikesAreSeededAndEventsFollowTheFlashes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e9ea37f7-604f-866b-321e-538b4c586870">
+      <Execution id="c08177ac-e722-4563-8ec8-a243170a30e9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeAtmosphereTests" name="MazeUnitTest::MazeAtmosphereTests::StormStrikesAreSeededAndEventsFollowTheFlashes" />
+    </UnitTest>
+    <UnitTest name="HiddenPlayerMovementCannotSteerRememberedSearch" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="6cc3ca98-a162-735e-facb-38704fcdab92">
+      <Execution id="49a22836-d0c9-4cfd-b10d-6cec52f7a943" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::HiddenPlayerMovementCannotSteerRememberedSearch" />
+    </UnitTest>
+    <UnitTest name="RestartRejectsUnstartedOrUnknownPhase" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="daa26b8b-bbd8-cb84-7bae-4fd53957df8f">
+      <Execution id="7010f683-34db-4a77-84ed-d07360512df7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartRejectsUnstartedOrUnknownPhase" />
+    </UnitTest>
+    <UnitTest name="SupportsEvenAndOddRectangles" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="9162048e-5603-97ff-c627-c54de274bc77">
+      <Execution id="73938145-7e9d-428d-be57-882402e43dd2" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::SupportsEvenAndOddRectangles" />
+    </UnitTest>
+    <UnitTest name="ContinuousBlocksMatchOneRender" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a10f292d-032f-de01-ef34-c2e1c7c99d97">
+      <Execution id="ad7244d3-8b02-4c2f-af22-5119dab48de3" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::ContinuousBlocksMatchOneRender" />
+    </UnitTest>
+    <UnitTest name="BlocksMovementAfterVictory" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e2d973a6-bbbc-2a19-4475-c935f1834e77">
+      <Execution id="c41b8036-c2ee-42f9-ab7f-a628a47960b4" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksMovementAfterVictory" />
+    </UnitTest>
+    <UnitTest name="RectangularGridsKeepTheirDimensions" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e561914d-cd1f-10ca-1e40-89c0e89fec06">
+      <Execution id="069a91a4-d845-4df3-ad4a-0fbcefad3a98" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::RectangularGridsKeepTheirDimensions" />
+    </UnitTest>
+    <UnitTest name="AcceptsMinimum" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e59f3387-c10e-21d2-7db0-48845fa2d5c1">
+      <Execution id="a288a7f1-3c59-43d7-b8cc-7975bca8ed03" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::AcceptsMinimum" />
+    </UnitTest>
+    <UnitTest name="GroupHunterDetectsTheFourthPlayer" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="065b606e-aa9d-ef69-e66f-2d2db23a381f">
+      <Execution id="a7302d50-6e7b-4a7c-b3f8-a83b01e26c45" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::GroupHunterDetectsTheFourthPlayer" />
+    </UnitTest>
+    <UnitTest name="NewSessionsStartAtZero" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b2aad4ef-f0b1-cc30-587d-bd2229e531a2">
+      <Execution id="171cac47-4602-47ca-beaf-d5f9fb3461cb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::NewSessionsStartAtZero" />
+    </UnitTest>
+    <UnitTest name="RejectsMazeWithoutEnoughReachablePassages" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="263d2fe5-c62e-1a8c-f748-6c0be6576239">
+      <Execution id="b7320518-ae57-48ba-b097-d1dd2d00cea4" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazePuzzleTests" name="MazeUnitTest::MazePuzzleTests::RejectsMazeWithoutEnoughReachablePassages" />
+    </UnitTest>
+    <UnitTest name="PreservesInputDimensionsForValidation" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ef86aa02-d9a2-5fc5-d77a-9da53961a644">
+      <Execution id="99b7d506-2ee9-4a28-9ab7-c9c3575dabcf" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::PreservesInputDimensionsForValidation" />
+    </UnitTest>
+    <UnitTest name="ChangingSelectedSizeDoesNotAllocateAMaze" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="970538de-f446-0a00-bab5-47ffb5ea3f2d">
+      <Execution id="e04c8e0a-4b66-4d72-8aad-4d72cba22e75" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStateTests" name="MazeUnitTest::GameStateTests::ChangingSelectedSizeDoesNotAllocateAMaze" />
+    </UnitTest>
+    <UnitTest name="CollapsedSheltersHaveOpenBypassesAndPreserveRefuges" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="9b225baa-41cd-a29d-ba20-3947b60797a4">
+      <Execution id="8a0d8fbf-40a6-466d-94ce-8ba560f293ff" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::CollapsedSheltersHaveOpenBypassesAndPreserveRefuges" />
+    </UnitTest>
+    <UnitTest name="StartsPreparedMazeAtTopLeft" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="863f254c-4aba-4f1e-1c9b-ba869ec998bf">
+      <Execution id="95638a4d-30c1-489c-9b48-45191f673e2e" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::StartsPreparedMazeAtTopLeft" />
+    </UnitTest>
+    <UnitTest name="BlocksTopBoundary" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a9f9cd6d-c68c-8fe8-a769-8c9d93d4b38a">
+      <Execution id="3d370845-6f8a-40f1-9ccc-90bc3d63f9c9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksTopBoundary" />
+    </UnitTest>
+    <UnitTest name="FoliageLayersMuffleHighFrequencies" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="535a98dc-be97-8925-95f6-ff60b7354244">
+      <Execution id="cf40ff3f-f8f3-4bac-9341-cbbab7c735dd" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::FoliageLayersMuffleHighFrequencies" />
+    </UnitTest>
+    <UnitTest name="HedgeBlocksSightButRunningCanBeHeard" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="bf1d7ce5-8c42-6259-7b67-202fe9d4140f">
+      <Execution id="493f020f-fd2f-48e8-bf26-fcb898f23c72" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::HedgeBlocksSightButRunningCanBeHeard" />
+    </UnitTest>
+    <UnitTest name="GeneratesMinimumSizeWithReachableExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="807215d3-c4aa-3d30-b2f0-35808017d6a4">
+      <Execution id="e88b5a18-7e63-49e3-a2b1-84c5e313b409" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::GeneratesMinimumSizeWithReachableExit" />
+    </UnitTest>
+    <UnitTest name="OnlySuccessfulMovesCount" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8e76ec04-1b8c-002e-8e9d-deac9ad9d75b">
+      <Execution id="540f0d4b-dc4a-4121-bc5e-e5327ebd8685" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::OnlySuccessfulMovesCount" />
+    </UnitTest>
+    <UnitTest name="MissingFileUsesDefaultsWithoutWriting" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e3cf42a2-0de3-7af1-21d3-b91ff884fb56">
+      <Execution id="6f61bdaf-3956-43f5-b4ba-fcd00df7cc44" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::MissingFileUsesDefaultsWithoutWriting" />
+    </UnitTest>
+    <UnitTest name="RejectsTooManyRows" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c4503bdb-3aac-99b6-5458-f91f7ee347ae">
+      <Execution id="3212378b-4cae-4032-8478-be10f7ed814a" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::RejectsTooManyRows" />
+    </UnitTest>
+    <UnitTest name="ResizePreservesZoomAndVisibility" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="af8d88b9-196c-b791-574c-2d928b3c7cd8">
+      <Execution id="137cdfa9-68ef-4050-b3aa-7fd28b8ca6b1" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::ResizePreservesZoomAndVisibility" />
+    </UnitTest>
+    <UnitTest name="SeededMazesIncludeAlternateRoutes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b9e3dbf1-de36-9c81-dbdf-45e95dc05682">
+      <Execution id="f7d66717-4298-4186-ada4-9c2d78dd1b91" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::SeededMazesIncludeAlternateRoutes" />
+    </UnitTest>
+    <UnitTest name="TimeAndMovesSaturateInsteadOfWrapping" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ba9288d8-44df-f158-9f0e-55150c9f02d7">
+      <Execution id="99cdf054-4939-4859-a977-fe8dbaa0775e" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::TimeAndMovesSaturateInsteadOfWrapping" />
+    </UnitTest>
+    <UnitTest name="StartsAtFitAndBoundsZoom" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="642b4478-fcf1-2ae2-69da-c936f9779d38">
+      <Execution id="d3d38a05-ef6e-444a-8988-61d68f358fc7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::StartsAtFitAndBoundsZoom" />
+    </UnitTest>
+    <UnitTest name="WinsWhenEnteringExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="fdac0e7b-11bd-08c7-7f83-9aa85b553f84">
+      <Execution id="f67fd58d-9e1e-466e-8f9f-93c6bcd48460" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::WinsWhenEnteringExit" />
+    </UnitTest>
+    <UnitTest name="RestartWonGameCanBePlayedAgain" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="2b5f1093-d3fb-4708-7dcc-2c82b2ee9d8b">
+      <Execution id="7b556920-b689-4bef-b9a4-0136855c2015" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartWonGameCanBePlayedAgain" />
+    </UnitTest>
+    <UnitTest name="ZoomIncreasesCellsAndKeepsPlayerVisible" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="358c4cd2-a28a-80d5-5f9a-8b39b3062f54">
+      <Execution id="5da2d0d4-d268-4084-90d0-a6e15391c607" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::ZoomIncreasesCellsAndKeepsPlayerVisible" />
+    </UnitTest>
+    <UnitTest name="RestartPreservesNextGameSize" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="14a6ccfe-2133-015b-b8ec-cd7e3d0d139f">
+      <Execution id="3ce15733-63ca-46b6-a792-07c394402c21" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartPreservesNextGameSize" />
+    </UnitTest>
+    <UnitTest name="DistantHunterRelocationStaysOutOfViewAndRefuges" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c412ce94-b388-1d28-890e-137f739a42cc">
+      <Execution id="3193e396-1136-42b4-87de-98c6e975ab14" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::DistantHunterRelocationStaysOutOfViewAndRefuges" />
+    </UnitTest>
+    <UnitTest name="AccumulatesSubsecondTime" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="3e62c406-afaf-6f66-d293-d8dc14a27b4d">
+      <Execution id="d5636beb-0e2e-47fd-a6d4-2913712b05bb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::AccumulatesSubsecondTime" />
+    </UnitTest>
+    <UnitTest name="RejectsOverflowAndOverlongInput" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="520422fa-9b96-f0dd-095e-97291406606c">
+      <Execution id="a7a097cf-fef8-464c-a3af-a3e916216b56" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::RejectsOverflowAndOverlongInput" />
+    </UnitTest>
+    <UnitTest name="DefaultsToMenuWithNoActiveGame" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="0573b2bb-dda4-4167-69bb-6837dfb8b792">
+      <Execution id="9625d6fe-96f2-47eb-976e-edba99a6916b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStateTests" name="MazeUnitTest::GameStateTests::DefaultsToMenuWithNoActiveGame" />
+    </UnitTest>
+    <UnitTest name="InvalidOrTinyAreasProduceNoLayout" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ba977e27-d558-9eff-6e11-39b0b4a37ac9">
+      <Execution id="cdefb03c-87b2-458c-8612-b4c6aed1ecc5" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::InvalidOrTinyAreasProduceNoLayout" />
+    </UnitTest>
+    <UnitTest name="MovesRight" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c52cda72-7c11-b55c-efd3-053ae949306c">
+      <Execution id="10b34000-0452-4569-b0cf-1afe12b07e9c" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::MovesRight" />
+    </UnitTest>
+    <UnitTest name="FloorsHideSilentPlayersAndMuffleTheirFootsteps" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="fa242feb-92fe-a6c0-da51-cddcf782b3bd">
+      <Execution id="521d33f2-73a3-4b4c-8380-af0cf5352c29" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::FloorsHideSilentPlayersAndMuffleTheirFootsteps" />
+    </UnitTest>
+    <UnitTest name="DoesNotWinBeforeReachingExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="160a3113-1783-0a0c-3095-6bddfbbe425f">
+      <Execution id="93d6b049-ac5d-4ac9-8391-b3b6bff10179" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::DoesNotWinBeforeReachingExit" />
+    </UnitTest>
+    <UnitTest name="EndGameHandlesPausedAndWonGames" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8c3a8b0a-36f1-982d-981a-63c1110e953d">
+      <Execution id="f3d6b8a0-ed6d-4fad-a076-870080b744e0" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::EndGameHandlesPausedAndWonGames" />
+    </UnitTest>
+    <UnitTest name="BlocksInvalidPlayerPositions" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="1a800766-dcc2-cb61-d366-d9a9386263c3">
+      <Execution id="8a69b9fe-1a8e-4eba-ada3-26daa2e818c8" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksInvalidPlayerPositions" />
+    </UnitTest>
+    <UnitTest name="RestartPlayingGameKeepsLayoutAndAllocation" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="19b9b411-6d3c-58df-f46e-076c672f2b03">
+      <Execution id="3942777f-efd0-4808-9784-e8d9c54ecdeb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartPlayingGameKeepsLayoutAndAllocation" />
+    </UnitTest>
+    <UnitTest name="RejectsCorruptOrOversizedData" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8d09c9ef-8634-4ed3-a65e-97d7ce6b5d29">
+      <Execution id="b8dbe1ed-3b4c-4fe7-9da1-20d571583da5" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.CreatureMeshTests" name="MazeUnitTest::CreatureMeshTests::RejectsCorruptOrOversizedData" />
+    </UnitTest>
+    <UnitTest name="DetectsSightAndSearchesLastKnownPosition" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="81a05c9a-6918-c00e-85cf-c8b051396bd3">
+      <Execution id="6d6c60fb-077c-40bd-8a3d-0fcc4d3be4f9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::DetectsSightAndSearchesLastKnownPosition" />
+    </UnitTest>
+    <UnitTest name="RestartWithoutSessionChangesNothing" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8314a70f-5e31-b191-2664-fb8ad74e8636">
+      <Execution id="f8097c85-4023-4496-8d1c-ccb3f3356c0e" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartWithoutSessionChangesNothing" />
+    </UnitTest>
+    <UnitTest name="DarknessIsSeededBoundedAndContinuous" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="1d4cbd9e-21ff-cd69-bd72-1363d1005227">
+      <Execution id="919e4e09-ca0f-4b8a-9a59-dcf591bb74b7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeAtmosphereTests" name="MazeUnitTest::MazeAtmosphereTests::DarknessIsSeededBoundedAndContinuous" />
+    </UnitTest>
+    <UnitTest name="MoveConstructionTransfersOwnership" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ca880946-c4bd-ef92-4f96-801435114f8b">
+      <Execution id="a8264399-c366-49c9-b08b-3c359898259b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MoveConstructionTransfersOwnership" />
+    </UnitTest>
+    <UnitTest name="RejectsTooManyColumns" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="8e646d41-c563-1d8b-1679-14a23d8697c2">
+      <Execution id="ea769c77-7fc8-4733-b5e4-e00ac27d2eba" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::RejectsTooManyColumns" />
+    </UnitTest>
+    <UnitTest name="AdventureCachesAreSeededPassableAndSpaced" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="88508012-297b-e282-14ba-81c6e37465aa">
+      <Execution id="e801f1bf-f681-4b50-809e-dc9318fc72e6" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::AdventureCachesAreSeededPassableAndSpaced" />
+    </UnitTest>
+    <UnitTest name="SequenceAndBalanceUseDifferentInteractionRules" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="f6ddbc52-cf2c-6766-d1ad-5c2fb2721f1f">
+      <Execution id="a7d32f2b-a051-47c6-a208-0ada7c90afb8" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazePuzzleTests" name="MazeUnitTest::MazePuzzleTests::SequenceAndBalanceUseDifferentInteractionRules" />
+    </UnitTest>
+    <UnitTest name="GeneratesMaximumSizeWithReachableExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d7eeb7c9-9918-d95c-85ec-d972e2cfa79f">
+      <Execution id="737a3090-63d6-4d31-b0c9-64a05234f46a" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::GeneratesMaximumSizeWithReachableExit" />
+    </UnitTest>
+    <UnitTest name="SavingReplacesExistingPreferences" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ecef5d77-3dd7-b88a-ab64-042ada91db24">
+      <Execution id="3e88fa39-371f-4305-80fe-2149f6ea3499" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::SavingReplacesExistingPreferences" />
+    </UnitTest>
+    <UnitTest name="RejectsSignsWhitespaceAndNonnumericInput" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d9d34805-e269-70ab-f692-4542f55567d3">
+      <Execution id="ad1725d2-0586-4034-88ea-b3475361040b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::RejectsSignsWhitespaceAndNonnumericInput" />
+    </UnitTest>
+    <UnitTest name="FitAfterZoomRestoresWholeGrid" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7681e7e0-8341-4c78-f70f-4516657039cc">
+      <Execution id="4861b303-b6f0-4f92-9ed3-737e6c19389b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeViewportTests" name="MazeUnitTest::MazeViewportTests::FitAfterZoomRestoresWholeGrid" />
+    </UnitTest>
+    <UnitTest name="GeneratedRandomSeedCanReproduceAMaze" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d666e136-5a72-bc27-cb86-7a2f4c4ce6ff">
+      <Execution id="039307cc-0842-4ec0-80a9-7fcd762be5a7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::GeneratedRandomSeedCanReproduceAMaze" />
+    </UnitTest>
+    <UnitTest name="ChasingCreatureVocalizesEvenWhenNotStepping" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="d186f6b0-a7c7-8bef-0f8a-788eff796ed8">
+      <Execution id="4f2951f8-2042-4167-bd16-f4fb106099d7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::ChasingCreatureVocalizesEvenWhenNotStepping" />
+    </UnitTest>
+    <UnitTest name="SpawnAvoidsStonesAndVariesAfterCapture" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="f8908d8b-3411-2129-1141-3bf9da469a85">
+      <Execution id="7aa46a09-a64d-480c-92ad-797cbd782c9a" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeHunterTests" name="MazeUnitTest::MazeHunterTests::SpawnAvoidsStonesAndVariesAfterCapture" />
+    </UnitTest>
+    <UnitTest name="ReproducesMapsForFixedSeeds" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="c75c8310-bd37-d42e-d5a6-45da870ed468">
+      <Execution id="0a51e025-4c7d-4165-8597-afac89b8a84a" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::ReproducesMapsForFixedSeeds" />
+    </UnitTest>
+    <UnitTest name="SaveFailsWhenParentIsAFile" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="b67fffeb-5147-f843-eae9-80f2b98ae6c7">
+      <Execution id="0b23f4ef-6c91-44f9-89a7-bbd3b19038f7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::SaveFailsWhenParentIsAFile" />
+    </UnitTest>
+    <UnitTest name="SeededSafehousesAreDistinctOpenAndReproducible" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="41162c8e-6185-cb58-c22d-544e655cf8ad">
+      <Execution id="b5143216-88f6-476c-9c95-2b64515e96b2" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::SeededSafehousesAreDistinctOpenAndReproducible" />
+    </UnitTest>
+    <UnitTest name="RefugesDoNotDisconnectHunterRoutes" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="fe73c109-4b6a-9130-1f8a-5a750aabf365">
+      <Execution id="d1b3511c-c05f-4ce3-84a5-35c4f3190eba" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::RefugesDoNotDisconnectHunterRoutes" />
+    </UnitTest>
+    <UnitTest name="AcceptsMaximum" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="bfa8e03c-ba7f-3055-2fb4-1ba98a56f4bb">
+      <Execution id="838ba7ee-e560-4681-ab23-e2af0317dc0b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSizeTests" name="MazeUnitTest::MazeSizeTests::AcceptsMaximum" />
+    </UnitTest>
+    <UnitTest name="BlocksBottomBoundary" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="ff0bb0e4-1654-956e-22cb-10aeca349bb5">
+      <Execution id="e625a880-6b92-4dda-842a-50fb019ad7e9" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksBottomBoundary" />
+    </UnitTest>
+    <UnitTest name="InvalidReplacementPreservesExistingSession" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e0ca6792-ed13-135c-5236-65385dd1cc69">
+      <Execution id="85cde16a-b800-4103-811d-499892b6abb3" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::InvalidReplacementPreservesExistingSession" />
+    </UnitTest>
+    <UnitTest name="DirectionalSoundsPanWithoutChangingTheCenteredAmbience" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="4f54c1c6-cbbb-0d44-3ff9-24c33c01f976">
+      <Execution id="cc6916c7-661f-42c4-b369-d79ca923e861" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.SoundscapeTests" name="MazeUnitTest::SoundscapeTests::DirectionalSoundsPanWithoutChangingTheCenteredAmbience" />
+    </UnitTest>
+    <UnitTest name="GeneratedMazesCanBePlayedToVictory" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="e077955e-c7a5-c3dd-ef0c-d2c20598b445">
+      <Execution id="d4ed8531-8b5c-4301-9522-e7320075cf40" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::GeneratedMazesCanBePlayedToVictory" />
+    </UnitTest>
+    <UnitTest name="BlocksMovesOutsidePlayingPhase" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="679dbeaa-5a07-0737-856e-99de4b5212ed">
+      <Execution id="227bd79d-4775-4f2e-b544-79777488c0a5" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksMovesOutsidePlayingPhase" />
+    </UnitTest>
+    <UnitTest name="DoesNotWinAtMisplacedExit" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7e861b82-f51a-1d24-03fd-d54960923350">
+      <Execution id="ff968863-6b9e-4a44-939d-ef3e3db28879" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::DoesNotWinAtMisplacedExit" />
+    </UnitTest>
+    <UnitTest name="InvalidDimensionsUseDefaults" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="7ad3898d-5d7a-0aa2-8ce4-a8523870ec77">
+      <Execution id="86023bc2-efe9-40c9-a79e-caddd0727ff7" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::InvalidDimensionsUseDefaults" />
+    </UnitTest>
+    <UnitTest name="AcceptsZeroMaximumAndDecimalValues" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="a53aed97-6b0f-1756-ad6d-87e183f69557">
+      <Execution id="690dbf81-e007-4c1e-919f-850a189b785b" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSeedTests" name="MazeUnitTest::MazeSeedTests::AcceptsZeroMaximumAndDecimalValues" />
+    </UnitTest>
+    <UnitTest name="BlocksUnknownDirection" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="67421925-e2fb-c72a-87ef-59b53cdc6f29">
+      <Execution id="9d03cc2f-98c6-4371-84e2-3d2ada3db9d8" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeMovementTests" name="MazeUnitTest::MazeMovementTests::BlocksUnknownDirection" />
+    </UnitTest>
+    <UnitTest name="MovingEmptyGridClearsDestination" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="246b4b47-e82e-2cc2-5771-ba7d113008d9">
+      <Execution id="24c36af0-116f-4c42-b302-b764a817c1d1" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MovingEmptyGridClearsDestination" />
+    </UnitTest>
+    <UnitTest name="SeededStonesAreReachableAndReproducible" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="9b3dbdf5-35ec-6da5-be0f-24adcb665e7a">
+      <Execution id="a50e3a01-f27a-468c-bc02-1f2ba6545278" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazePuzzleTests" name="MazeUnitTest::MazePuzzleTests::SeededStonesAreReachableAndReproducible" />
+    </UnitTest>
+    <UnitTest name="UnseededMazesAreValid" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="653f32bc-4915-e635-4dd8-f6d8c9abed11">
+      <Execution id="8cfebeb0-9638-41f1-971e-90525c2a11b8" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGenerationTests" name="MazeUnitTest::MazeGenerationTests::UnseededMazesAreValid" />
+    </UnitTest>
+    <UnitTest name="RestartPausedGameResetsPositionAndEntersPlaying" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="799f1060-0674-cac3-cf91-76c9b54cff6f">
+      <Execution id="95aa4614-4128-4167-949f-ca3383446bde" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSessionTests" name="MazeUnitTest::MazeSessionTests::RestartPausedGameResetsPositionAndEntersPlaying" />
+    </UnitTest>
+    <UnitTest name="LoadsRectanglesAndWhitespace" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="f9a8f6f2-d9b4-5cb9-b0c7-4b6786e8a174">
+      <Execution id="6803c3ed-3f05-4177-84c3-94ccc2b3b7fe" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::LoadsRectanglesAndWhitespace" />
+    </UnitTest>
+    <UnitTest name="MoveAssignmentReplacesExistingCells" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="69246113-1974-69f2-22a1-8289cf82eea5">
+      <Execution id="01b8e484-761e-439b-9117-8876764d5422" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeGridTests" name="MazeUnitTest::MazeGridTests::MoveAssignmentReplacesExistingCells" />
+    </UnitTest>
+    <UnitTest name="ReplacementAndEndGameResetStatistics" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="686e6634-0680-205e-9b19-fc1277dd0de7">
+      <Execution id="0431ad72-5e3c-46e6-bb93-5f6d7a1bbec4" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.GameStatisticsTests" name="MazeUnitTest::GameStatisticsTests::ReplacementAndEndGameResetStatistics" />
+    </UnitTest>
+    <UnitTest name="InvalidSavePreservesExistingPreferences" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="2c01ec0b-4f64-3cf9-efe9-74cc4f9af0b0">
+      <Execution id="698e67ef-87a6-41e6-b352-6a6f8e326350" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::InvalidSavePreservesExistingPreferences" />
+    </UnitTest>
+    <UnitTest name="MalformedOrExtraDataUsesDefaults" storage="c:\users\polek\downloads\nxrp\build\bin\release\maze.unittest.dll" id="1e308734-b8ab-d0d6-1dd4-8953cde1e03e">
+      <Execution id="13b89e7c-cee7-462b-ae1e-825a3acd4adb" />
+      <TestMethod codeBase="C:\Users\polek\Downloads\NXRP\build\bin\Release\Maze.UnitTest.dll" adapterTypeName="executor://cppunittestexecutor/v1" className="MazeUnitTest.MazeSettingsTests" name="MazeUnitTest::MazeSettingsTests::MalformedOrExtraDataUsesDefaults" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="28a6be7f-5628-e5a6-88cb-5b86b594c0fa" executionId="a9dedb07-0b39-4334-a876-f30c6f26b2a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b225baa-41cd-a29d-ba20-3947b60797a4" executionId="8a0d8fbf-40a6-466d-94ce-8ba560f293ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f82292f1-f473-247a-d070-17c7f13849f7" executionId="95b4bcb5-0836-4879-a7e8-ce14aa2572a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="679dbeaa-5a07-0737-856e-99de4b5212ed" executionId="227bd79d-4775-4f2e-b544-79777488c0a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c820c062-4eb0-9ed9-1dba-c1f4f00fbd30" executionId="aa9449ae-6a9f-4c0b-b3de-4f41bc6b686c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="160a3113-1783-0a0c-3095-6bddfbbe425f" executionId="93d6b049-ac5d-4ac9-8391-b3b6bff10179" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c3a8b0a-36f1-982d-981a-63c1110e953d" executionId="f3d6b8a0-ed6d-4fad-a076-870080b744e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="50b463f1-1128-f2f1-4069-b5588d032867" executionId="f79cf8cf-cdfc-48dd-8e08-30c783e52f41" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e71862ea-21cc-9ec3-260d-eac0f5265fb3" executionId="f7e12bc7-111c-447c-b9d5-d775f1b9bb36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2467386e-f623-0401-30f6-36db7117645d" executionId="7bd09b14-b36a-44df-bdb3-381986bf152b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa242feb-92fe-a6c0-da51-cddcf782b3bd" executionId="521d33f2-73a3-4b4c-8380-af0cf5352c29" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="adeb1920-d1d0-84d6-d038-ba3bfe17350d" executionId="f41ab506-9edb-46a8-bb5e-b31dd15140e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2665b03-f2ad-84ee-d9a8-6ac2f5e149b4" executionId="d6eb0a5d-e157-418a-9df4-07a2d3737263" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b12c6f38-f98b-8fee-2596-e678703a6a6d" executionId="1f9bed74-233f-4883-b477-8da24f6d19c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="686e6634-0680-205e-9b19-fc1277dd0de7" executionId="0431ad72-5e3c-46e6-bb93-5f6d7a1bbec4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="720a2eef-623b-e452-1709-3ba539b62afd" executionId="4a1c0703-d766-4366-b05f-63770e6d32bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e59f3387-c10e-21d2-7db0-48845fa2d5c1" executionId="a288a7f1-3c59-43d7-b8cc-7975bca8ed03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ec43fbde-b350-5464-1163-9bf474f08db4" executionId="9f1c0f14-2c24-42cb-b2eb-3b47f114dd3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e561914d-cd1f-10ca-1e40-89c0e89fec06" executionId="069a91a4-d845-4df3-ad4a-0fbcefad3a98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da0355f9-ba18-e906-55f8-014ab935cdfb" executionId="9a178f82-74cb-4a82-bcdb-300052173f57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9a8f6f2-d9b4-5cb9-b0c7-4b6786e8a174" executionId="6803c3ed-3f05-4177-84c3-94ccc2b3b7fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0573b2bb-dda4-4167-69bb-6837dfb8b792" executionId="9625d6fe-96f2-47eb-976e-edba99a6916b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7cd8d779-3b34-1bfe-6502-f1d27af99364" executionId="5c0eccf0-c449-4786-a6e6-65449eba6955" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="358c4cd2-a28a-80d5-5f9a-8b39b3062f54" executionId="5da2d0d4-d268-4084-90d0-a6e15391c607" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2048e806-8503-4576-03ef-37abdc0b1665" executionId="e3f7750e-b032-4605-bd4f-0d996a8e19e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bfa8e03c-ba7f-3055-2fb4-1ba98a56f4bb" executionId="838ba7ee-e560-4681-ab23-e2af0317dc0b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0024dc21-1331-b04f-e3bd-68e721a2221c" executionId="1f12149c-28df-44ca-9f68-59c2b9913e4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ba977e27-d558-9eff-6e11-39b0b4a37ac9" executionId="cdefb03c-87b2-458c-8612-b4c6aed1ecc5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bc6c97a2-7078-30a6-fce3-e659b2d75c96" executionId="9f3a5b57-bb14-4a38-9456-a51511389aac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7681e7e0-8341-4c78-f70f-4516657039cc" executionId="4861b303-b6f0-4f92-9ed3-737e6c19389b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="863f254c-4aba-4f1e-1c9b-ba869ec998bf" executionId="95638a4d-30c1-489c-9b48-45191f673e2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="970538de-f446-0a00-bab5-47ffb5ea3f2d" executionId="e04c8e0a-4b66-4d72-8aad-4d72cba22e75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a28e306e-f2a8-bc65-68ee-f912fdf92f7f" executionId="ab2ff1a4-58ea-470a-ac3e-d2f78248e054" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="358573b8-4270-e574-0580-29c1b2dd6abb" executionId="7b6568a3-16c1-4c22-82d1-100d94ea3aed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="807215d3-c4aa-3d30-b2f0-35808017d6a4" executionId="e88b5a18-7e63-49e3-a2b1-84c5e313b409" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c4503bdb-3aac-99b6-5458-f91f7ee347ae" executionId="3212378b-4cae-4032-8478-be10f7ed814a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d186f6b0-a7c7-8bef-0f8a-788eff796ed8" executionId="4f2951f8-2042-4167-bd16-f4fb106099d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79708aba-425f-df7f-02c1-73b1f61413f6" executionId="9f02c6b2-247a-4339-99a3-5490a74462bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e62c406-afaf-6f66-d293-d8dc14a27b4d" executionId="d5636beb-0e2e-47fd-a6d4-2913712b05bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a4d6e22f-e836-f2c0-cb9e-09e2395a4adf" executionId="e1c765a2-9b2c-4667-b510-79487520825d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1cd2a6a-5547-c454-c47c-00f47c630bb6" executionId="99dd262c-3ec2-4400-bd9d-e9d86bc2b915" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2fbed1de-a26d-e6b9-99ca-6257c5a45a51" executionId="26a10359-0939-41eb-b376-7e4ea46a6c96" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="642b4478-fcf1-2ae2-69da-c936f9779d38" executionId="d3d38a05-ef6e-444a-8988-61d68f358fc7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d530d563-62ca-a6d8-6e31-35b91e94d03c" executionId="90cd1ece-c2cc-40fc-be34-51ca0d603ff6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e308734-b8ab-d0d6-1dd4-8953cde1e03e" executionId="13b89e7c-cee7-462b-ae1e-825a3acd4adb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fe73c109-4b6a-9130-1f8a-5a750aabf365" executionId="d1b3511c-c05f-4ce3-84a5-35c4f3190eba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9162048e-5603-97ff-c627-c54de274bc77" executionId="73938145-7e9d-428d-be57-882402e43dd2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fae1950f-7b63-eb19-3a95-c913b3620b79" executionId="2d3cdad9-2678-4ee3-bd24-db70c9c5b9c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b5f1093-d3fb-4708-7dcc-2c82b2ee9d8b" executionId="7b556920-b689-4bef-b9a4-0136855c2015" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e646d41-c563-1d8b-1679-14a23d8697c2" executionId="ea769c77-7fc8-4733-b5e4-e00ac27d2eba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f64a35f-30d5-43da-1941-e8fda3e6d11d" executionId="5731a174-20eb-4f58-874f-59ddeb61d35e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="19b9b411-6d3c-58df-f46e-076c672f2b03" executionId="3942777f-efd0-4808-9784-e8d9c54ecdeb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de011fff-5d64-9ff5-bd7e-1f3f7a99a0fe" executionId="f1980aa9-00af-4c86-a46e-fc66b6ea7514" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0ca6792-ed13-135c-5236-65385dd1cc69" executionId="85cde16a-b800-4103-811d-499892b6abb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d5051f3-b7fd-1fa4-6a3e-763cf8b340a5" executionId="786aaebe-f96a-45f1-bcf0-1e9ba86e2e9e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7026bb40-6cc1-e27f-105b-4a30cc296d9f" executionId="9db55623-df90-48c6-a7e2-e7a91d3ea7ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdd3f7c7-42b7-35df-5303-d25651a1d6d5" executionId="c6a25f55-dbad-46b6-a3b1-8aeb3a78c60b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7751770-515d-acc7-658e-98cb8b0099bc" executionId="cda2cb86-e404-4b98-ae55-f4fc6544c4a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3da3529-5206-cc15-51ef-12147a13b46e" executionId="63d78ba0-5b9b-482c-a815-a0be19c6ab65" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de573e95-bb24-763f-085e-8ac3fa3ece0d" executionId="673735ce-8146-4dc7-8243-3df06a766196" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="246b4b47-e82e-2cc2-5771-ba7d113008d9" executionId="24c36af0-116f-4c42-b302-b764a817c1d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2147ba5-511d-d18b-e07f-a28d0567da55" executionId="1fe03bd4-7db2-4a93-9a46-0e60b8eb77ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6c748543-2b00-9ec9-2d06-e229f589ce79" executionId="b3895eb4-287c-401e-8c6e-4d9cbec56d8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7744afb3-0261-489b-6ee6-4ea0888087cd" executionId="51015fda-e580-4ba1-a600-a7804fbf44bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8bd2ab37-6cbf-7f74-73f7-4fb022b1ae34" executionId="0d4d5c5f-5200-448c-b40d-9069ff827045" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25f86bd3-bc9f-b776-8d0a-1c49ed33b28f" executionId="729a1530-b3e7-49de-9347-0f228d5f29c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5a51dbeb-9efd-30a8-5ec2-2b5f7db2c8f3" executionId="2a1570fc-2b45-4c1f-86d5-9266574d7070" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6ddbc52-cf2c-6766-d1ad-5c2fb2721f1f" executionId="a7d32f2b-a051-47c6-a208-0ada7c90afb8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e3cf42a2-0de3-7af1-21d3-b91ff884fb56" executionId="6f61bdaf-3956-43f5-b4ba-fcd00df7cc44" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28dc57d1-cbcb-95e3-0c12-5d63836606db" executionId="c5404ce2-9c7c-4fcf-a960-e9775dc2f001" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88508012-297b-e282-14ba-81c6e37465aa" executionId="e801f1bf-f681-4b50-809e-dc9318fc72e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3eb51854-b664-326f-67e2-2c476c3c63f9" executionId="ef3585d8-6b5a-4b36-b387-29a8640cd29f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65630343-d4a8-27bc-fcc6-3f81e7ec77a6" executionId="98d4dea3-3605-47d1-b287-8b23e48ea8a9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9f9cd6d-c68c-8fe8-a769-8c9d93d4b38a" executionId="3d370845-6f8a-40f1-9ccc-90bc3d63f9c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e76ec04-1b8c-002e-8e9d-deac9ad9d75b" executionId="540f0d4b-dc4a-4121-bc5e-e5327ebd8685" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ef4b055-6438-2b63-fa10-cf1ebd683919" executionId="014d0938-a0ac-4382-a2d4-313a76fecc05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8d09c9ef-8634-4ed3-a65e-97d7ce6b5d29" executionId="b8dbe1ed-3b4c-4fe7-9da1-20d571583da5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ce60c3d7-9d07-b34f-54a8-342daa6030ae" executionId="8a1f1b7a-dde7-429d-86c4-b11eee63346f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8908d8b-3411-2129-1141-3bf9da469a85" executionId="7aa46a09-a64d-480c-92ad-797cbd782c9a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e2d973a6-bbbc-2a19-4475-c935f1834e77" executionId="c41b8036-c2ee-42f9-ab7f-a628a47960b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="065b606e-aa9d-ef69-e66f-2d2db23a381f" executionId="a7302d50-6e7b-4a7c-b3f8-a83b01e26c45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf1d7ce5-8c42-6259-7b67-202fe9d4140f" executionId="493f020f-fd2f-48e8-bf26-fcb898f23c72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1a800766-dcc2-cb61-d366-d9a9386263c3" executionId="8a69b9fe-1a8e-4eba-ada3-26daa2e818c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="799f1060-0674-cac3-cf91-76c9b54cff6f" executionId="95aa4614-4128-4167-949f-ca3383446bde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c52cda72-7c11-b55c-efd3-053ae949306c" executionId="10b34000-0452-4569-b0cf-1afe12b07e9c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88bda024-9150-a332-445b-8f8dbb907e45" executionId="6501be28-b4d4-46e2-b7a5-3729bb81335b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94cf0d66-7c36-ef3f-9bbb-733739c1c648" executionId="8d5f21e1-fa52-400f-af24-2ee2bbf1f896" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ad3898d-5d7a-0aa2-8ce4-a8523870ec77" executionId="86023bc2-efe9-40c9-a79e-caddd0727ff7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7eeb7c9-9918-d95c-85ec-d972e2cfa79f" executionId="737a3090-63d6-4d31-b0c9-64a05234f46a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b3dbdf5-35ec-6da5-be0f-24adcb665e7a" executionId="a50e3a01-f27a-468c-bc02-1f2ba6545278" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ef86aa02-d9a2-5fc5-d77a-9da53961a644" executionId="99b7d506-2ee9-4a28-9ab7-c9c3575dabcf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27d87ba8-5051-09d4-ff88-e7149d3800fe" executionId="e1262495-f6da-49b8-9ea0-309e0d8b0a3b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="535a98dc-be97-8925-95f6-ff60b7354244" executionId="cf40ff3f-f8f3-4bac-9341-cbbab7c735dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9e3dbf1-de36-9c81-dbdf-45e95dc05682" executionId="f7d66717-4298-4186-ada4-9c2d78dd1b91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ba9288d8-44df-f158-9f0e-55150c9f02d7" executionId="99cdf054-4939-4859-a977-fe8dbaa0775e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a317b948-5326-d501-118e-828d0724c41f" executionId="a3e7f0c1-3998-4a5f-a6ff-19b14344c15d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="263d2fe5-c62e-1a8c-f748-6c0be6576239" executionId="b7320518-ae57-48ba-b097-d1dd2d00cea4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a57546b-8aac-6460-e897-106c9c1143f6" executionId="aa685464-94bd-4c6f-9bfa-4c9f4f2f5e8f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67421925-e2fb-c72a-87ef-59b53cdc6f29" executionId="9d03cc2f-98c6-4371-84e2-3d2ada3db9d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="474c5dbc-1e47-1c88-bd42-588eba00d3d9" executionId="e932a8b0-4992-4218-bbbe-b20e9c403355" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1a9304d7-668c-bff1-3975-6aacf9edec9e" executionId="5a4b0c36-f38b-4082-ae1f-05dd51538f47" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14cdd6bc-3a41-e760-deb9-4fade074c1e7" executionId="5bc7cec3-76c7-423a-baf9-4fa11fe277d5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b2aad4ef-f0b1-cc30-587d-bd2229e531a2" executionId="171cac47-4602-47ca-beaf-d5f9fb3461cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d9d34805-e269-70ab-f692-4542f55567d3" executionId="ad1725d2-0586-4034-88ea-b3475361040b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c412ce94-b388-1d28-890e-137f739a42cc" executionId="3193e396-1136-42b4-87de-98c6e975ab14" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e077955e-c7a5-c3dd-ef0c-d2c20598b445" executionId="d4ed8531-8b5c-4301-9522-e7320075cf40" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7e861b82-f51a-1d24-03fd-d54960923350" executionId="ff968863-6b9e-4a44-939d-ef3e3db28879" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bdac7c7-0e37-0591-a3d2-e73adf7bc4af" executionId="3e7af93f-d8ee-4e24-a632-70d9151a6244" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eded03f-63a4-cc3a-f8b4-4c7697bd3dd2" executionId="be17a746-fa8a-4425-b9d3-76420c802e26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1d4cbd9e-21ff-cd69-bd72-1363d1005227" executionId="919e4e09-ca0f-4b8a-9a59-dcf591bb74b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="daa26b8b-bbd8-cb84-7bae-4fd53957df8f" executionId="7010f683-34db-4a77-84ed-d07360512df7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b1e52340-f974-e7a0-0fdc-66dfad9a3fc0" executionId="3c79db68-de8c-45b8-8e70-211db80bde31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2c01ec0b-4f64-3cf9-efe9-74cc4f9af0b0" executionId="698e67ef-87a6-41e6-b352-6a6f8e326350" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b67fffeb-5147-f843-eae9-80f2b98ae6c7" executionId="0b23f4ef-6c91-44f9-89a7-bbd3b19038f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6cc3ca98-a162-735e-facb-38704fcdab92" executionId="49a22836-d0c9-4cfd-b10d-6cec52f7a943" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d983e83e-e953-7993-b589-be762e08c4ac" executionId="e569014e-257b-4bc2-9dbf-f8d58b3a0a9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a53aed97-6b0f-1756-ad6d-87e183f69557" executionId="690dbf81-e007-4c1e-919f-850a189b785b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="96bc7197-18ad-7059-2fba-1a15c72388b6" executionId="9a0a54ce-1aef-4619-872f-5bf13ff60b84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdac0e7b-11bd-08c7-7f83-9aa85b553f84" executionId="f67fd58d-9e1e-466e-8f9f-93c6bcd48460" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b070896-f473-434f-bab8-e5666d32c463" executionId="ab7d9001-b9d0-4ecd-8f6c-ab35f8ab7d45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27a7cb93-d4a5-e1e3-c897-987d5b438c34" executionId="7423652a-b0fe-43c2-8796-912fcd434e4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af8d88b9-196c-b791-574c-2d928b3c7cd8" executionId="137cdfa9-68ef-4050-b3aa-7fd28b8ca6b1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b724c4bc-34a3-deac-eaa2-463937d83e53" executionId="d6ed717a-c567-4917-b1f1-cea91a4dccd9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8314a70f-5e31-b191-2664-fb8ad74e8636" executionId="f8097c85-4023-4496-8d1c-ccb3f3356c0e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b77cc08c-8855-7948-7e23-faa213671b0c" executionId="ae6ec09a-d75c-454d-9f5d-970bded8f32f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="81a05c9a-6918-c00e-85cf-c8b051396bd3" executionId="6d6c60fb-077c-40bd-8a3d-0fcc4d3be4f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="520422fa-9b96-f0dd-095e-97291406606c" executionId="a7a097cf-fef8-464c-a3af-a3e916216b56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ecef5d77-3dd7-b88a-ab64-042ada91db24" executionId="3e88fa39-371f-4305-80fe-2149f6ea3499" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="80ed1724-a846-168b-c0e4-efde4a68cd4a" executionId="c17d5f45-bd15-4af4-adef-98d32a246bfc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e9ea37f7-604f-866b-321e-538b4c586870" executionId="c08177ac-e722-4563-8ec8-a243170a30e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14a6ccfe-2133-015b-b8ec-cd7e3d0d139f" executionId="3ce15733-63ca-46b6-a792-07c394402c21" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="653f32bc-4915-e635-4dd8-f6d8c9abed11" executionId="8cfebeb0-9638-41f1-971e-90525c2a11b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a10f292d-032f-de01-ef34-c2e1c7c99d97" executionId="ad7244d3-8b02-4c2f-af22-5119dab48de3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca880946-c4bd-ef92-4f96-801435114f8b" executionId="a8264399-c366-49c9-b08b-3c359898259b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d666e136-5a72-bc27-cb86-7a2f4c4ce6ff" executionId="039307cc-0842-4ec0-80a9-7fcd762be5a7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="11c28dd0-605a-fa05-07e6-0e4060057f0b" executionId="5ada5dcc-82e3-4471-8e3c-5cf20e3f4ff4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c75c8310-bd37-d42e-d5a6-45da870ed468" executionId="0a51e025-4c7d-4165-8597-afac89b8a84a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8a03acb4-ea5f-b95d-531b-fcf88fef4fbf" executionId="d9dd13ab-c748-4793-9b62-f27bc52f294a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41162c8e-6185-cb58-c22d-544e655cf8ad" executionId="b5143216-88f6-476c-9c95-2b64515e96b2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0ba41d2-9f62-e04b-f858-f1ff29da18df" executionId="3beed250-4200-4afa-a8e8-1f9abd3b2978" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4f54c1c6-cbbb-0d44-3ff9-24c33c01f976" executionId="cc6916c7-661f-42c4-b369-d79ca923e861" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b4b59cd1-92a6-67c1-a942-34de4c72b7f4" executionId="beceb387-02a1-4a46-b607-605fdb6ef640" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6b803f1c-ac66-cfd6-d183-37ea22fd49a1" executionId="d991d512-8649-459b-b12f-0ae07bb7ee9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc08dd55-7dc5-5368-8d21-a3fefbe0cbde" executionId="d04781b4-2fa4-4d8e-bca9-614d2b4ad087" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ff0bb0e4-1654-956e-22cb-10aeca349bb5" executionId="e625a880-6b92-4dda-842a-50fb019ad7e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60ce92fb-010e-a507-4f3d-5b34be823f3e" executionId="f2dd0d8d-1374-4523-b4e1-ae36974aebf3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13ea1c5c-4388-7094-833e-e92f60adc83b" executionId="1f3442dc-3327-4aa0-bffb-62ce3bf64d4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bee82980-8300-d2fd-a5fa-20663daa7c75" executionId="2bb5d795-defc-4358-bc8f-bd120e98434c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2822da5-7c8b-9681-0d52-d61199b6fe38" executionId="04a0cdad-c6d2-4997-880b-ffa113741639" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="69246113-1974-69f2-22a1-8289cf82eea5" executionId="01b8e484-761e-439b-9117-8876764d5422" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5faf573-c36b-48f0-b347-98a659ce8750" executionId="30cb9ebd-322d-4c9b-bfc2-2b20c59ec9a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dbbd54b4-0e82-c8df-e3c3-143c19cdcd8a" executionId="8b23844e-1d8e-4dc6-82ef-deeabf8efb85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="152" executed="152" passed="152" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+</TestRun>

@@ -10,9 +10,15 @@ uniform sampler2D normalMap;
 uniform sampler2D materialMap;
 uniform float normalStrength;
 uniform float refugeLighting;
+uniform vec3 refugeTint;
+uniform bool footprintsEnabled;
+uniform sampler2D footprintLeft;
+uniform sampler2D footprintRight;
+uniform vec4 footsteps[24];
 varying vec3 eyePosition;
 varying vec3 eyeNormal;
 varying vec4 tint;
+varying vec3 worldPosition;
 void main()
 {
     vec3 normal = normalize(eyeNormal);
@@ -43,7 +49,7 @@ void main()
     float cone = smoothstep(0.60 + darkness * 0.07, 0.90, dot(-towardLight, vec3(0.0, 0.0, -1.0)));
     float attenuation = 1.0 / (1.0 + distanceToEye * 0.10 + distanceToEye * distanceToEye * 0.035);
     float moon = max(dot(normal, normalize(gl_LightSource[1].position.xyz)), 0.0);
-    vec3 ambient = mix(vec3(0.12,0.15,0.14)*(1.0-darkness*.45),vec3(.43,.34,.25),refugeLighting);
+    vec3 ambient = mix(vec3(0.12,0.15,0.14)*(1.0-darkness*.45),vec3(.43,.34,.25)*refugeTint,refugeLighting);
     vec3 moonlight = vec3(0.17, 0.24, 0.28) * moon * 0.65;
     vec3 stormlight = vec3(0.34, 0.40, 0.52) * flash * (0.45 + moon * 0.55);
     vec3 flashlight = vec3(1.15, 0.92, 0.62) * diffuse * cone * attenuation * flicker;
@@ -54,6 +60,22 @@ void main()
         / (1.0 + shelterDistance * 0.28 + shelterDistance * shelterDistance * 0.13);
     vec4 texel = textured ? texture2D(surface, gl_TexCoord[0].xy) : vec4(1.0);
     vec3 albedo=texel.rgb*tint.rgb*mix(1.0,.68,water);
+    if(footprintsEnabled)
+    {
+        float footprint=0.0;
+        for(int i=0;i<24;++i)
+        {
+            vec2 delta=worldPosition.xz-footsteps[i].xy;
+            if(abs(delta.x)>.22 || abs(delta.y)>.22)continue;
+            vec2 local=vec2(delta.x*footsteps[i].z-delta.y*footsteps[i].w,
+                delta.x*footsteps[i].w+delta.y*footsteps[i].z);
+            vec2 mark=local/vec2(.13,.28)+.5;
+            if(mark.x<0.0 || mark.x>1.0 || mark.y<0.0 || mark.y>1.0)continue;
+            float alpha=mod(float(i),2.0)<.5?texture2D(footprintLeft,mark).a:texture2D(footprintRight,mark).a;
+            footprint=max(footprint,alpha);
+        }
+        albedo=mix(albedo,vec3(.028,.021,.017),footprint*.78);
+    }
     vec3 color=albedo*((ambient+moonlight)*mix(.45,1.0,material.r)+stormlight+flashlight+shelter);
     float exponent=clamp(2.0/pow(roughness,4.0)-2.0,2.0,256.0);
     float sheen=pow(max(dot(normal,towardLight),0.0),exponent)*cone*attenuation*flicker;

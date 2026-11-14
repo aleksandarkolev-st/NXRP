@@ -102,7 +102,7 @@ Menu::Menu(const sf::Font& font)
       addressLabel_(font, "Host address", 20), addressValue_(font, "", 20),
       mainButtons_{
           Button(font, "Continue", MenuAction::Continue),
-          Button(font, "New Game", MenuAction::NewGame),
+          Button(font, "Begin expedition", MenuAction::NewGame),
           Button(font, "Restart maze", MenuAction::RestartMaze),
           Button(font, "How to Play", MenuAction::HowToPlay),
           Button(font, "Settings", MenuAction::Settings),
@@ -116,7 +116,9 @@ Menu::Menu(const sf::Font& font)
       backButton_(font, "Back", MenuAction::Back),
       applyButton_(font, "Apply", MenuAction::ApplySettings),
       hostButton_(font, "Host game", MenuAction::HostGame),
-      joinButton_(font, "Join game", MenuAction::JoinGame)
+      joinButton_(font, "Join game", MenuAction::JoinGame),
+      guidePrevious_(font, "Previous", MenuAction::None),
+      guideNext_(font, "Next", MenuAction::None)
 {
     for (auto* text : { &title_, &rules_, &victorySummary_, &rowName_, &colName_, &rowValue_, &colValue_, &seedLabel_, &seedValue_ })
         text->setFillColor(textColor);
@@ -155,28 +157,29 @@ void Menu::resize(sf::Vector2u size)
     centerText(victorySummary_, { center, std::floor(height / 2.f - 100.f) });
     centerText(victoryStatistics_, { center, std::floor(height / 2.f - 64.f) });
     centerText(victorySeed_, { center, std::floor(height / 2.f - 138.f) });
-    const std::string instructions =
-        "Read the entrance inscription with E to reveal the task.\n"
-        "Touch stones in order, or light them to match the total.\n"
-        "E toggles balance stones; * marks lit stones in the journal.\n"
-        "At the gate, follow its inscription and enter a code.\n"
-        "A wrong stone resets the sequence; Backspace edits the code.\n"
-        "WASD moves; mouse or left/right arrows turn.\n"
-        "Shift runs; Space jumps; Ctrl/C crouches quietly.\n"
-        "The creature sees and hears you. Caught? Your progress stays.\n"
-        "E opens doors. The hunter can force them and climb stairs.\n"
-        "Upstairs: G picks up/throws basketball; K kicks football.\n"
-        "E pulls handles or sits/drinks at bar; Q stands. Noise attracts.\n"
-        "F collects notes; J rereads. Repeated noise sharpens its hearing.\n"
-        "The hedge shifts. T toggles ray-traced light; B head motion; M sound.\n"
-        "Esc pauses; R restarts this maze.\n"
-        "Choose size and an optional seed in Settings.";
-    // Keep the instructions above the Back button at the minimum window size.
-    for (unsigned int fontSize = 20; fontSize >= 14; --fontSize)
+    static constexpr const char* guidePages[]={
+        "Explore the living labyrinth. E opens treasure caches for ingredients and crowns. New districts reward 4 crowns. Tab opens an atlas of the routes you have explored.\n\n"
+        "I opens your satchel; 1-6 uses an item. Potions restore breath, conceal you or speed you up. Relics reveal paths, recall you to a refuge or cast a distracting echo.\n\n"
+        "WASD moves; mouse looks; Shift runs; Space jumps; Ctrl/C crouches. F reads belongings; J rereads notes.",
+        "Press E at the entrance inscription. Find three engraved stones, then follow the task: touch them in order, or light stones whose numbers total the target.\n\n"
+        "E toggles a balance stone; * marks lit stones. A wrong sequence resets its progress.\n\n"
+        "At the gate, transform the stone numbers using its inscription. Type 1-9, Enter to try, Backspace to edit. Walk through the open gate.",
+        "Trading posts are your bases. O at the keeper's counter opens the shop. 1-6 buys an item; 7 sells one of each ingredient for 9 crowns.\n\n"
+        "N inside a post opens the workbench. Recipes use dewleaf, moon salt and old brass from caches. I opens your satchel; Q closes menus. Entering a post sets your Recall destination.\n\n"
+        "The warden can enter. Find an exit on the first strike; leave on the second. The third forces the door. Veil hides you from sight, but noise still carries.",
+        "P at the downstairs bar deals Keeper's Draw. Press 1-5 to hold cards, then P to replace the rest once. P deals again after the result; Q puts the cards away. Scores are individual.\n\n"
+        "Upstairs, G picks up or throws the basketball. Keep facing the hoop through the wind-up. K kicks the football. Scores are shared.\n\n"
+        "All games are free play. The world keeps moving while you play, and card noise can give you away.",
+        "Multiplayer hosts up to four survivors. Everyone needs the same build. Host listens on TCP 24816; guests enter the host's reachable address or TCP tunnel.\n\n"
+        "Hold V for nearby voice chat. Walls and doors muffle speech. F8 toggles voice; F1-F4 mute individual speakers locally. Voice can attract the hunter.\n\n"
+        "Esc pauses. R restarts this maze. T toggles ray-traced light; B toggles head motion; M toggles game sound. Settings chooses the next size and seed."
+    };
+    for (unsigned int fontSize = 21; fontSize >= 18; --fontSize)
     {
         rules_.setCharacterSize(fontSize);
-        rules_.setString(wrapText(instructions, font_, fontSize, width - 112.f));
-        if (rules_.getLocalBounds().size.y <= height - 277.f || fontSize == 14) break;
+        rules_.setString(wrapText(guidePages[guidePage_], font_, fontSize, width - 112.f));
+        const auto body=rules_.getLocalBounds();
+        if (body.position.y+body.size.y <= height - 279.f || fontSize == 18) break;
     }
     rules_.setOrigin({ 0.f, 0.f });
     rules_.setPosition({ std::round((width - rules_.getLocalBounds().size.x) / 2.f), 155.f });
@@ -220,6 +223,11 @@ void Menu::resize(sf::Vector2u size)
             { buttonWidth, 48.f });
     }
     else backButton_.setBounds({ center - 100.f, height - 108.f }, { 200.f, 48.f });
+    if(screen_==Screen::HowToPlay)
+    {
+        guidePrevious_.setBounds({center-280.f,height-108.f},{160.f,48.f});
+        guideNext_.setBounds({center+120.f,height-108.f},{160.f,48.f});
+    }
 }
 
 void Menu::setHasActiveGame(bool active)
@@ -237,8 +245,8 @@ void Menu::setCanRestart(bool available)
 void Menu::showMain()
 {
     screen_ = Screen::Main;
-    title_.setString("THE HEDGE");
-    subtitle_.setString("Find the stones. Find your way out.");
+    title_.setString("WAYWARD");
+    subtitle_.setString("Trade. Brew. Find your way through the living labyrinth.");
     mainButtons_[0].enabled = hasActiveGame_;
     mainButtons_[2].enabled = canRestart_;
     if (hasActiveGame_) notice_ = "An active game is available.";
@@ -250,8 +258,17 @@ void Menu::showMain()
 void Menu::showHowToPlay()
 {
     screen_ = Screen::HowToPlay;
-    title_.setString("How to Play");
-    subtitle_.setString("The goal and controls");
+    guidePage_=0;
+    title_.setString("KEEPER'S FIELD GUIDE");
+    refreshGuide();
+}
+
+void Menu::refreshGuide()
+{
+    static constexpr const char* chapters[]={"AN EXPEDITION BEGINS","THE STONES AND THE GATE","KEEPERS AND ALCHEMY","GAMES AFTER DARK","CO-OP AND CONTROLS"};
+    guidePage_=std::clamp(guidePage_,0,4);
+    subtitle_.setString(std::to_string(guidePage_+1)+" / 5   -   "+chapters[guidePage_]);
+    guidePrevious_.enabled=guidePage_>0;guideNext_.enabled=guidePage_<4;
     resize(viewport_);
 }
 
@@ -371,6 +388,10 @@ MenuAction Menu::handleEvent(const sf::Event& event, const sf::RenderWindow& win
     }
     if (const auto* key = event.getIf<sf::Event::KeyPressed>())
     {
+        if(screen_==Screen::HowToPlay && (key->code==sf::Keyboard::Key::Left || key->code==sf::Keyboard::Key::Right))
+        {
+            guidePage_+=key->code==sf::Keyboard::Key::Left?-1:1;refreshGuide();return MenuAction::None;
+        }
         if (screen_ == Screen::Multiplayer)
         {
             if (key->code == sf::Keyboard::Key::Enter) return MenuAction::JoinGame;
@@ -418,6 +439,11 @@ MenuAction Menu::handleEvent(const sf::Event& event, const sf::RenderWindow& win
     }
     else
     {
+        if(screen_==Screen::HowToPlay)
+        {
+            if(guidePrevious_.hit(point)) {--guidePage_;refreshGuide();return MenuAction::None;}
+            if(guideNext_.hit(point)) {++guidePage_;refreshGuide();return MenuAction::None;}
+        }
         if (backButton_.hit(point)) return MenuAction::Back;
         if (screen_ == Screen::Victory && mainButtons_[1].hit(point)) return MenuAction::NewGame;
         if (screen_ == Screen::Victory && mainButtons_[2].hit(point)) return MenuAction::RestartMaze;
@@ -451,6 +477,7 @@ void Menu::update(sf::Vector2f mousePosition)
     else
     {
         backButton_.update(mousePosition);
+        if(screen_==Screen::HowToPlay) {guidePrevious_.update(mousePosition);guideNext_.update(mousePosition);}
         if (screen_ == Screen::Multiplayer) { hostButton_.update(mousePosition); joinButton_.update(mousePosition); }
         if (screen_ == Screen::Victory)
         {
@@ -477,7 +504,7 @@ void Menu::draw(sf::RenderTarget& target) const
     else
     {
         backButton_.draw(target);
-        if (screen_ == Screen::HowToPlay) target.draw(rules_);
+        if (screen_ == Screen::HowToPlay) {target.draw(rules_);guidePrevious_.draw(target);guideNext_.draw(target);}
         else if (screen_ == Screen::Multiplayer)
         {
             target.draw(addressLabel_); target.draw(addressField_); target.draw(addressValue_);

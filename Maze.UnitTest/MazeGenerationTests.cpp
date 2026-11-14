@@ -3,6 +3,9 @@
 #include "Maze.Game.h"
 #include "Maze.Generation.h"
 #include "Maze.Safehouse.h"
+#include "Maze.Story.h"
+#include "Maze.Puzzle.h"
+#include "Maze.Adventure.h"
 
 #include <algorithm>
 #include <climits>
@@ -121,6 +124,83 @@ namespace MazeUnitTest
     TEST_CLASS(MazeGenerationTests)
     {
     public:
+        TEST_METHOD(AdventureTransactionsAreAtomicAndBounded)
+        {
+            Adventure::Pack pack;const auto initial=pack;
+            Assert::IsFalse(Adventure::buy(pack,4));Assert::AreEqual(initial.coins,pack.coins);
+            Assert::IsTrue(Adventure::buy(pack,0));Assert::AreEqual(6u,pack.coins);Assert::AreEqual(2u,pack.items[0]);
+            Assert::IsTrue(Adventure::craft(pack,0));Assert::AreEqual(0u,pack.materials[0]);
+            const auto before=pack;Assert::IsFalse(Adventure::craft(pack,0));Assert::IsTrue(before.materials==pack.materials && before.items==pack.items);
+            Assert::IsFalse(Adventure::sell(pack));Assert::AreEqual(before.coins,pack.coins);
+            pack.materials={1,1,1};Assert::IsTrue(Adventure::sell(pack));Assert::AreEqual(15u,pack.coins);
+            pack.items[0]=99;Assert::IsFalse(Adventure::buy(pack,0));Assert::AreEqual(15u,pack.coins);
+            pack.effects={12,15,20};pack.echoTime=8;Adventure::tick(pack,30);Assert::IsTrue(pack.effects==std::array<float,3>{});Assert::AreEqual(0.f,pack.echoTime);
+            Assert::IsTrue(Adventure::valid(pack));pack.effects[0]=13;Assert::IsFalse(Adventure::valid(pack));
+        }
+        TEST_METHOD(AdventureCachesAreSeededPassableAndSpaced)
+        {
+            for(const MazeSize size:{MazeSize{10,10},MazeSize{30,30},MazeSize{100,100}})
+            for(unsigned seed=0;seed<12;++seed)
+            {
+                const auto maze=generateMaze(size,seed);const auto puzzle=generateMazePuzzle(maze,seed);
+                const auto caches=Adventure::caches(maze,seed,puzzle.stones),replay=Adventure::caches(maze,seed,puzzle.stones);
+                Assert::IsTrue(!caches.empty() && caches.size()<=48 && caches.size()==replay.size());
+                for(std::size_t i=0;i<caches.size();++i)
+                {
+                    const auto cache=caches[i];Assert::IsTrue(maze.at(cache.cell.row,cache.cell.col)==MazeCell::Passage);
+                    Assert::IsTrue(cache.kind>=0 && cache.kind<3 && cache.coins>=3 && cache.coins<=7);
+                    Assert::AreEqual(cache.cell.row,replay[i].cell.row);Assert::AreEqual(cache.cell.col,replay[i].cell.col);
+                    Assert::IsTrue(safehouseAt(cache.cell,generateSafehouses(size,seed))<0);
+                    for(std::size_t j=0;j<i;++j)Assert::IsTrue(std::abs(cache.cell.row-caches[j].cell.row)+std::abs(cache.cell.col-caches[j].cell.col)>=3);
+                }
+            }
+        }
+        TEST_METHOD(CollapsedSheltersHaveOpenBypassesAndPreserveRefuges)
+        {
+            for(const MazeSize size: {MazeSize{10,10},MazeSize{10,100},MazeSize{25,30},MazeSize{100,100}})
+            for(unsigned seed=0;seed<16;++seed)
+            {
+                const auto ruin=generateStoryRuin(size,seed);Assert::IsTrue(ruin.has_value());
+                const auto maze=generateMaze(size,seed);const auto houses=generateSafehouses(size,seed);
+                int blocked=0;
+                for(int r=0;r<size.rows;++r)for(int c=0;c<size.cols;++c)
+                    if(storyRuinReserved({r,c},ruin))
+                    {
+                        Assert::IsTrue(safehouseAt({r,c},houses)<0);
+                        if(storyRuinBlocked({r,c},ruin))
+                        {++blocked;Assert::IsTrue(maze.at(r,c)==MazeCell::Wall);}
+                        else Assert::IsTrue(maze.at(r,c)==MazeCell::Passage);
+                    }
+                Assert::AreEqual(3,blocked);
+                const auto replay=generateStoryRuin(size,seed);
+                Assert::AreEqual(ruin->cell.row,replay->cell.row);Assert::AreEqual(ruin->cell.col,replay->cell.col);
+            }
+        }
+        TEST_METHOD(StorySitesAndBootTrailsAreReachableAndReproducible)
+        {
+            for(const MazeSize size: {MazeSize{10,10},MazeSize{20,30},MazeSize{100,100}})
+            for(unsigned seed=0;seed<8;++seed)
+            {
+                const auto maze=generateMaze(size,seed);const auto puzzle=generateMazePuzzle(maze,seed);
+                const auto sites=generateStorySites(maze,seed,puzzle.stones),replay=generateStorySites(maze,seed,puzzle.stones);
+                for(int i=0;i<4;++i)
+                {
+                    Assert::IsTrue(maze.at(sites[i].cell.row,sites[i].cell.col)==MazeCell::Passage);
+                    Assert::AreEqual(sites[i].cell.row,replay[i].cell.row);Assert::AreEqual(sites[i].cell.col,replay[i].cell.col);
+                    for(const auto stone:puzzle.stones)Assert::IsFalse(stone.row==sites[i].cell.row && stone.col==sites[i].cell.col);
+                }
+                const auto houses=generateSafehouses(size,seed);
+                const auto prints=generateStoryFootsteps(maze,sites,houses);
+                Assert::IsTrue(!prints.empty() && prints.size()<=24);
+                for(auto print:prints)
+                {
+                    const MazePosition at{static_cast<int>(print.z),static_cast<int>(print.x)};
+                    Assert::IsTrue(maze.contains(at) && maze.at(at.row,at.col)==MazeCell::Passage);
+                    Assert::IsTrue(safehouseAt(at,houses)<0);
+                    Assert::IsTrue(std::abs(print.cosine*print.cosine+print.sine*print.sine-1.f)<.0001f);
+                }
+            }
+        }
         TEST_METHOD(SeededSafehousesAreDistinctOpenAndReproducible)
         {
             const MazeSize sizes[] = { {10,10}, {10,100}, {30,30}, {99,100}, {100,100} };

@@ -1,6 +1,7 @@
 #include "Maze.Generation.h"
 #include "Maze.Validation.h"
 #include "Maze.Safehouse.h"
+#include "Maze.Story.h"
 
 #include <algorithm>
 #include <random>
@@ -69,6 +70,15 @@ MazeGrid generateMaze(const MazeSize& size, std::uint32_t seed)
         for (int row = center.row - 3; row <= center.row + 3; ++row)
             for (int col = center.col - 3; col <= center.col + 3; ++col)
                 maze.at(row, col) = MazeCell::Passage;
+    }
+
+    // A collapsed sourced cabin occupies a narrow core. Its carved bypass
+    // reconnects all original approaches and never removes a refuge interior.
+    if(const auto ruin=generateStoryRuin(size,seed))
+    {
+        for(int row=0;row<size.rows;++row)for(int col=0;col<size.cols;++col)
+            if(storyRuinReserved({row,col},ruin))
+                maze.at(row,col)=storyRuinBlocked({row,col},ruin)?MazeCell::Wall:MazeCell::Passage;
     }
 
     // For even dimensions the last row/column lies beyond the room lattice.

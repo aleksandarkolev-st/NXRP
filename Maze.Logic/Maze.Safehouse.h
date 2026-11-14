@@ -107,7 +107,7 @@ inline std::vector<MazePosition> generateSafehouses(const MazeSize& size, std::u
     std::mt19937 random(seed ^ 0x85ebca6bu);
     std::shuffle(candidates.begin(), candidates.end(), random);
     const int smallerSide = std::min(size.rows, size.cols);
-    const std::size_t wanted = smallerSide >= 60 ? 4u : smallerSide >= 25 ? 3u : 2u;
+    const std::size_t wanted = smallerSide >= 25 ? 4u : 2u;
     const int separation = std::max(6, smallerSide / 4);
     std::vector<MazePosition> best;
     for (std::size_t start = 0; start < std::min<std::size_t>(16, candidates.size()); ++start)

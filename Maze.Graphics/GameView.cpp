@@ -386,7 +386,7 @@ namespace
 }
 
 GameView::GameView(const sf::Font& font)
-    : voiceLabel_(font,"",12), heading_(font, "THE HEDGE", 24), objective_(font, "", 19), journal_(font, "", 16), hint_(font, "", 17),
+    : voiceLabel_(font,"",12), heading_(font, "WAYWARD", 24), objective_(font, "", 19), journal_(font, "", 16), hint_(font, "", 17),
       seedText_(font, "", 15), feedback_(font, "", 20), staminaLabel_(font, "BREATH", 14), soundLabel_(font, "", 14)
 {
     heading_.setFillColor({ 231, 226, 198 });
@@ -431,21 +431,29 @@ void GameView::initialize(GameState& game)
     for (auto& balls : refugeBalls_) { balls[0].x = -.5f; balls[0].z = -.5f; balls[1].x = -.7f; balls[1].z = .5f; }
     shiftDelay_ = 10.f + static_cast<float>(game.mazeSeed.value_or(0) % 21u);
     fieldNotes_ = 0; journalPage_ = -1; refugeSlots_.assign(safehouses_.size(), {});
+    poker_={}; pokerVisible_=false;
+    packs_={};adventurePanels_.fill(0);openedCaches_=0;seenRecall_=seenRestore_=0;surveyed_.assign(game.maze.cellCount(),false);
+    cacheOpenClocks_.fill(0.f);adventureMotionClock_=0.f;lootingCache_=-1;
     for (auto& house : doors_) for (auto& door : house)
-    { door.open = false; door.swing = 0.f; door.rattle = 0.f; }
+    { door.open = false; door.swing = 0.f; door.rattle = 0.f;door.travel=0.f; }
     fear_ = scareClock_ = rattleClock_ = 0.f; scareCount_ = 0; whisperEvent_ = doorEvent_ = 0;
     whisperPan_ = doorPan_ = 0.f; doorSlam_ = false;
+    doorSource_=-1;
     checkpoints_.fill(-1);
     solved_ = 0; activeStones_ = 0; gateOpen_ = false; inscriptionRead_ = false; gateInput_.clear();
     discoveredClues_.fill(false);
     puzzle_ = generateMazePuzzle(game.maze, game.mazeSeed.value_or(0));
     shrines_ = puzzle_.stones; order_ = puzzle_.order; clues_ = puzzle_.numbers;
     gateRule_ = puzzle_.gateRule; gateCode_ = gateCode(puzzle_);
+    storyRuin_=generateStoryRuin(game.maze.size(),game.mazeSeed.value_or(0));
+    storySites_=generateStorySites(game.maze,game.mazeSeed.value_or(0),shrines_);
+    caches_=Adventure::caches(game.maze,game.mazeSeed.value_or(0),shrines_);
+    storyFootsteps_=generateStoryFootsteps(game.maze,storySites_,safehouses_);
     resetHunter(game);
     monsterStepDuration_ = 1.15f; stamina_ = 1.f; exhausted_ = false;
     monsterHeading_ = monsterTargetHeading_ = 0.f; creatureGait_ = 0.f;
     movementHeard_ = runningHeard_ = false;
-    notice_ = "An inscription waits near the entrance. Press E to read it.";
+    notice_ = "Explore, gather and trade. E reads the inscription. I satchel / Tab atlas.";
     messageClock_ = 0.f;
     initialized_ = true;
 }
@@ -453,6 +461,13 @@ void GameView::initialize(GameState& game)
 bool GameView::walkable(const GameState& game, float x, float z) const
 {
     constexpr float radius = .17f;
+    if(elevation_<.1f)for(int i=0;i<4;++i)
+    {
+        const auto& site=storySites_[i];const float dx=x-(site.cell.col+site.x),dz=z-(site.cell.row+site.z);
+        const float localX=dx*std::cos(site.angle)-dz*std::sin(site.angle),localZ=dx*std::sin(site.angle)+dz*std::cos(site.angle);
+        const float width=i==0?.21f:i==1?.20f:.15f,depth=i==1?.136f:.04f;
+        if(std::abs(localX)<width+radius && std::abs(localZ)<depth+radius)return false;
+    }
     for (float dx : { -radius, radius }) for (float dz : { -radius, radius })
     {
         const int row = static_cast<int>(std::floor(z + dz));
@@ -510,29 +525,28 @@ void GameView::handleEvent(const sf::Event& event, GameState& game)
     if (!initialized_ || game.phase != GamePhase::Playing) return;
     const auto* key = event.getIf<sf::Event::KeyPressed>();
     if (!key) return;
+    if(adventureEvent(key->code,game)) return;
+    if(key->code==sf::Keyboard::Key::P) adventurePanels_[networkGuest_?networkSelfSlot_:interactionSlot_]=0;
+    if(key->code==sf::Keyboard::Key::Q && (networkGuest_ || interactionSlot_==networkSelfSlot_)) pokerVisible_=false;
+    if(pokerEvent(key->code,game)) return;
     if (key->code==sf::Keyboard::Key::Q) { seatedHouse_=-1; drinkClock_=0.f; notice_="You stand up."; messageClock_=2.f; return; }
     if (key->code == sf::Keyboard::Key::G || key->code == sf::Keyboard::Key::K)
     { if (!networkGuest_) playRefugeBall(key->code == sf::Keyboard::Key::G, networkSelfSlot_); return; }
     if (key->code == sf::Keyboard::Key::J || key->code == sf::Keyboard::Key::F)
     {
-        static const char* notes[] = {
-            "KEEPER 01: We painted the rooms bright so the children could sleep.\nOutside, the gardener kept counting. There were no children left.",
-            "KEEPER 02: The lamps have burned for thirty years without oil.\nDo not thank whoever keeps them lit. Do not invite them inside.",
-            "KEEPER 03: I carved three numbers before I forgot my own name.\nIf you find the gate, remember someone waited here for you.",
-            "KEEPER 04: The games still work. We laughed once, last winter.\nFor a moment the thing outside sounded almost lonely."
-        };
-        const int house = safehouseAt(game.player, safehouses_);
-        if (key->code == sf::Keyboard::Key::F && house >= 0)
+        const int house=safehouseAt(game.player,safehouses_),site=nearbyStorySite();
+        const int note=site>=0?site:house>=0?4+house:-1;
+        if(key->code==sf::Keyboard::Key::F && note>=0)
         {
-            fieldNotes_ |= 1u << house; journalPage_ = house;
-            notice_ = std::string("FIELD NOTE COLLECTED / J to reread\n") + notes[house % 4];
+            fieldNotes_|=1u<<note;journalPage_=note;
+            notice_=std::string("FIELD NOTE COLLECTED / J to reread\n")+storyNote(note);
         }
-        else if (key->code == sf::Keyboard::Key::J && fieldNotes_)
+        else if(key->code==sf::Keyboard::Key::J && fieldNotes_)
         {
-            do { journalPage_ = (journalPage_ + 1) % 4; } while (!(fieldNotes_ & (1u << journalPage_)));
-            notice_ = notes[journalPage_];
+            do {journalPage_=(journalPage_+1)%8;}while(!(fieldNotes_&(1u<<journalPage_)));
+            notice_=storyNote(journalPage_);
         }
-        else notice_ = "Find the keepers' field notes in the safehouses. F collects / J rereads.";
+        else notice_="Look for abandoned belongings and keeper notes. F collects / J rereads.";
         messageClock_ = 14.f;
         return;
     }
@@ -669,6 +683,7 @@ void GameView::toggleDoor(int house, int side, bool slam)
         door.open = !door.open; door.rattle = 0.f;
         doorEvent_++; doorSlam_ = false;
     }
+    doorSource_=house*4+side;
     const float dx = frame.centreX - x_, dz = frame.centreZ - z_;
     const float distance = std::sqrt(dx * dx + dz * dz);
     doorPan_ = distance > .001f
@@ -685,8 +700,9 @@ void GameView::updateDoors(float seconds)
     {
         const float target = door.open ? 1.f : 0.f;
         const float step = seconds * (door.open ? 2.6f : 3.2f);
-        door.swing = door.swing < target ? std::min(target, door.swing + step)
-            : std::max(target, door.swing - step);
+        door.travel = door.travel < target ? std::min(target, door.travel + step)
+            : std::max(target, door.travel - step);
+        door.swing=interactionSmooth(door.travel);
         door.rattle = std::max(0.f, door.rattle - seconds * 1.8f);
     }
 }
@@ -724,6 +740,70 @@ int GameView::nearbyBar() const
     }
     return -1;
 }
+
+bool GameView::pokerEvent(sf::Keyboard::Key key,const GameState& game)
+{
+    const int house=nearbyBar();
+    if(house<0) return false;
+    const int actor=networkGuest_?networkSelfSlot_:interactionSlot_;
+    auto& hand=poker_[actor];
+    const sf::Keyboard::Key digits[]={sf::Keyboard::Key::Num1,sf::Keyboard::Key::Num2,sf::Keyboard::Key::Num3,sf::Keyboard::Key::Num4,sf::Keyboard::Key::Num5};
+    const sf::Keyboard::Key pads[]={sf::Keyboard::Key::Numpad1,sf::Keyboard::Key::Numpad2,sf::Keyboard::Key::Numpad3,sf::Keyboard::Key::Numpad4,sf::Keyboard::Key::Numpad5};
+    if(key==sf::Keyboard::Key::P)
+    {
+        if(actor==networkSelfSlot_) pokerVisible_=true;
+        if(!networkGuest_ && RefugePoker::play(hand,game.mazeSeed.value_or(0),actor,elapsed_))
+        {
+            refugeNoise_[house]=3.f;
+            notice_=hand.phase==1?"Cards scrape across the bar. Choose what to hold.":"The draw is over. Every sound carries beyond the doors.";
+            messageClock_=4.f;
+        }
+        return true;
+    }
+    if(hand.phase==1) for(int i=0;i<5;++i) if(key==digits[i] || key==pads[i])
+    {
+        if(!networkGuest_) hand.held^=1u<<i;
+        return true;
+    }
+    return false;
+}
+
+void GameView::drawPoker(sf::RenderTarget& target)
+{
+    if(!pokerVisible_ || nearbyBar()<0) return;
+    const auto& hand=poker_[networkSelfSlot_];
+    if(!hand.phase) return;
+    const float scale=std::min(1.f,static_cast<float>(viewport_.x)/760.f);
+    const float left=(viewport_.x-660.f*scale)*.5f, top=viewport_.y*.48f;
+    sf::RectangleShape panel({660.f*scale,214.f*scale});
+    panel.setPosition({left,top}); panel.setFillColor({12,29,25,235});
+    panel.setOutlineColor({172,139,81});panel.setOutlineThickness(1.f);target.draw(panel);
+    sf::Text text(heading_.getFont(),"",static_cast<unsigned>(18*scale));
+    const auto label=[&](const std::string& value,float x,float y,sf::Color color)
+    {text.setString(value);text.setFillColor(color);text.setPosition({left+x*scale,top+y*scale});target.draw(text);};
+    label("KEEPER'S DRAW / FREE PLAY",18,10,{230,205,156});
+    label("SCORE "+std::to_string(hand.score),470,10,{230,205,156});
+    static constexpr const char* ranks[]={"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+    static constexpr const char* suits[]={"CLUBS","DIAMONDS","HEARTS","SPADES"};
+    for(int i=0;i<5;++i)
+    {
+        const bool held=hand.held&(1u<<i); const int c=hand.cards[i];
+        const float reveal=hand.phase==2 && held?1.f:interactionSmooth((1.2f+elapsed_-hand.readyAt-i*.075f)/.24f);
+        const float width=112.f*std::max(.06f,std::abs(2.f*reveal-1.f));
+        const float lift=held?5.f:0.f;
+        sf::RectangleShape card({width*scale,100.f*scale});
+        card.setPosition({left+(18+i*127.f+(112.f-width)*.5f)*scale,top+(44+16.f*(1.f-reveal)-lift)*scale});
+        card.setFillColor(reveal<.5f?sf::Color(100,35,31):held?sf::Color(241,224,177):sf::Color(220,217,202));
+        card.setOutlineColor({209,157,67});card.setOutlineThickness(held?3.f:0.f);target.draw(card);
+        if(reveal<.97f) continue;
+        const sf::Color ink=c/13==1 || c/13==2?sf::Color(143,35,29):sf::Color(25,36,32);
+        label(ranks[c%13],28+i*127.f,52-lift,ink);label(suits[c/13],28+i*127.f,82-lift,ink);
+        label(std::to_string(i+1)+(held?" HOLD":""),28+i*127.f,116-lift,ink);
+    }
+    label(elapsed_<hand.readyAt-.55f?"DEALING...":hand.phase==1?"1-5 hold / P draw once / Q put cards away":std::string(RefugePoker::name(RefugePoker::category(hand.cards)))+" / +"+std::to_string(RefugePoker::payout(RefugePoker::category(hand.cards)))+" / P deal again",18,157,{230,205,156});
+    label("The world keeps moving. Listen for the doors.",18,184,{157,181,164});
+}
+
 void GameView::sitAtBar(int house)
 {
     seatedHouse_=house;
@@ -733,6 +813,19 @@ void GameView::sitAtBar(int house)
 }
 void GameView::interact(GameState& game)
 {
+    const int cache=nearbyCache();
+    if(cache>=0)
+    {
+        if(interactionSlot_==networkSelfSlot_) {adventureMotionClock_=1.2f;adventureMotionItem_=-1;lootingCache_=cache;}
+        if(networkGuest_)return;
+        auto& pack=packs_[interactionSlot_];const auto loot=caches_[cache];
+        openedCaches_|=std::uint64_t{1}<<cache;
+        cacheOpenClocks_[cache]=1.2f;
+        pack.coins=std::min(99999u,pack.coins+loot.coins);
+        pack.materials[loot.kind]=std::min(999u,pack.materials[loot.kind]+2);
+        notice_=std::string("Cache discovered: +2 ")+Adventure::materials[loot.kind]+" / +"+std::to_string(loot.coins)+" crowns. I opens your satchel.";
+        messageClock_=5.f;return;
+    }
     if (nearbySlotHandle() >= 0) { pullSlotHandle(game); return; }
     const int bar=nearbyBar();
     if(bar>=0)
@@ -861,6 +954,21 @@ std::string GameView::worldSnapshot() const
         out << ' ' << machine.spins << ' ' << machine.stopTime << ' ' << machine.symbols[0] << ' ' << machine.symbols[1] << ' ' << machine.symbols[2] << ' ' << machine.actor;
     for (const auto count : drinks_) out << ' ' << count;
     out << ' ' << interiorHunter_ << ' ' << hunterX_ << ' ' << hunterY_ << ' ' << hunterZ_;
+    out << ' ' << doorEvent_ << ' ' << doorSource_ << ' ' << doorSlam_;
+    for(std::size_t house=0;house<doors_.size();++house) for(int side=0;side<4;++side)
+        out << ' ' << doors_[house][side].rattle << ' ' << doorStrikes_[house*4+side];
+    out << ' ' << openedCaches_;
+    for(int actor=0;actor<maxCoopPlayers;++actor)
+    {
+        const auto& p=packs_[actor];out << ' ' << p.coins << ' ' << p.districts << ' ' << p.recalls << ' ' << p.restores << ' ' << p.echoes << ' ' << adventurePanels_[actor];
+        for(auto n:p.materials)out << ' ' << n;for(auto n:p.items)out << ' ' << n;for(auto t:p.effects)out << ' ' << t;
+        out << ' ' << p.echoTime << ' ' << p.echo.row << ' ' << p.echo.col << ' ' << p.useCooldown;
+    }
+    for(const auto& hand:poker_)
+    {
+        out << ' ' << hand.rounds << ' ' << hand.held << ' ' << hand.score << ' ' << hand.phase << ' ' << hand.readyAt;
+        for(int c:hand.cards) out << ' ' << c;
+    }
     return out.str();
 }
 
@@ -910,6 +1018,34 @@ bool GameView::applyWorldSnapshot(GameState& game, const std::string& data, int 
     if (!(in >> interior >> hx >> hy >> hz) || (interior!=0 && interior!=1) ||
         !std::isfinite(hx) || !std::isfinite(hy) || !std::isfinite(hz) || hy<0.f || hy>refugeUpperFloor ||
         (interior && (hx<0.f || hz<0.f || hx>=game.maze.size().cols || hz>=game.maze.size().rows))) return false;
+    std::uint32_t doorEvent;int doorSource,doorSlam;
+    if(!(in>>doorEvent>>doorSource>>doorSlam) || doorSource < -1 || doorSource>=static_cast<int>(doors_.size()*4)
+        || (doorSlam!=0 && doorSlam!=1) || (doorEvent && doorSource<0)) return false;
+    auto replicatedDoors=doors_; auto strikes=doorStrikes_;
+    for(std::size_t house=0;house<doors_.size();++house) for(int side=0;side<4;++side)
+    {
+        auto& rattle=replicatedDoors[house][side].rattle;auto& count=strikes[house*4+side];
+        if(!(in>>rattle>>count) || !std::isfinite(rattle) || rattle<0.f || rattle>1.f || count>2) return false;
+    }
+    std::uint64_t opened;
+    if(!(in>>opened) || (opened>>caches_.size())!=0) return false;
+    auto packs=packs_;auto panels=adventurePanels_;
+    for(int actor=0;actor<maxCoopPlayers;++actor)
+    {
+        auto& p=packs[actor];
+        if(!(in>>p.coins>>p.districts>>p.recalls>>p.restores>>p.echoes>>panels[actor]))return false;
+        for(auto& n:p.materials)if(!(in>>n))return false;for(auto& n:p.items)if(!(in>>n))return false;for(auto& t:p.effects)if(!(in>>t))return false;
+        if(!(in>>p.echoTime>>p.echo.row>>p.echo.col>>p.useCooldown) || !Adventure::valid(p) || panels[actor]<0 || panels[actor]>4) return false;
+        if(!(p.echo.row==-1 && p.echo.col==-1) && (!game.maze.contains(p.echo) || game.maze.at(p.echo.row,p.echo.col)==MazeCell::Wall))return false;
+        if(p.echoTime>0 && p.echo.row<0)return false;
+    }
+    auto poker=poker_;
+    for(auto& hand:poker)
+    {
+        if(!(in>>hand.rounds>>hand.held>>hand.score>>hand.phase>>hand.readyAt)) return false;
+        for(auto& c:hand.cards) if(!(in>>c)) return false;
+        if(!RefugePoker::valid(hand) || !std::isfinite(hand.readyAt) || hand.readyAt<0.f) return false;
+    }
     if (in >> extra) return false;
     const unsigned int doorLimit = doors_.size() < 8
         ? (1u << (doors_.size() * 4)) : 0xffffffffu;
@@ -956,21 +1092,25 @@ bool GameView::applyWorldSnapshot(GameState& game, const std::string& data, int 
         {
             auto& door = doors_[house][side];
             const bool open = (doorsMask & (1u << (house * 4 + side))) != 0;
-            if (door.open == open) continue;
+            door.rattle=replicatedDoors[house][side].rattle;
             door.open = open;
-            ++doorEvent_; doorSlam_ = !open;
-            const auto frame = safehouseDoorFrame(safehouses_[house], side);
-            const float dx = frame.centreX - x_, dz = frame.centreZ - z_;
-            const float distance = std::sqrt(dx * dx + dz * dz);
-            doorPan_ = distance > .001f
-                ? std::clamp((-dx * std::cos(angle_) + dz * std::sin(angle_)) / distance, -1.f, 1.f) : 0.f;
         }
+    doorEvent_=doorEvent;doorSource_=doorSource;doorSlam_=doorSlam!=0;doorStrikes_=strikes;
     refugeBalls_ = std::move(balls);
     for(std::size_t house=0;house<machines.size();++house)
         if(machines[house].spins!=refugeSlots_[house].spins && machines[house].actor==selfSlot) alignSlotView(static_cast<int>(house));
     refugeSlots_ = std::move(machines);
     interiorHunter_=interior!=0; hunterX_=hx; hunterY_=hy; hunterZ_=hz;
     drinks_=drinks;
+    poker_=poker;
+    for(std::size_t i=0;i<caches_.size();++i)if((opened&(std::uint64_t{1}<<i)) && !(openedCaches_&(std::uint64_t{1}<<i)))cacheOpenClocks_[i]=1.2f;
+    for(int i=0;i<6;++i)if(packs[selfSlot].items[i]<packs_[selfSlot].items[i])
+    {adventureMotionClock_=1.2f;adventureMotionItem_=i;drinkClock_=0.f;}
+    packs_=packs;adventurePanels_=panels;openedCaches_=opened;
+    if(packs_[selfSlot].recalls!=seenRecall_)
+    {seenRecall_=packs_[selfSlot].recalls;recallAdventurer(selfSlot,game);notice_="The Recall rune brings you back to your trading post.";messageClock_=4.f;}
+    if(packs_[selfSlot].restores!=seenRestore_)
+    {seenRestore_=packs_[selfSlot].restores;stamina_=1.f;fear_=std::max(0.f,fear_-.3f);notice_="Verdant draught restores your breath.";messageClock_=4.f;}
     if (drinks_[selfSlot] != seenDrink_)
     {
         seenDrink_=drinks_[selfSlot]; const int bar=nearbyBar(); if(bar>=0) sitAtBar(bar); stamina_=1.f; fear_=std::max(0.f,fear_-.15f); drinkClock_=4.f;
@@ -999,6 +1139,8 @@ bool GameView::applyWorldSnapshot(GameState& game, const std::string& data, int 
 void GameView::handleRemoteEvent(int slot, const sf::Event& event, GameState& game)
 {
     if (slot < 0 || slot >= maxCoopPlayers || !remote_[slot].present) return;
+    if(const auto* key=event.getIf<sf::Event::KeyPressed>();key && key->code==sf::Keyboard::Key::Q)
+    {adventurePanels_[slot]=0;return;}
     const auto* ballKey = event.getIf<sf::Event::KeyPressed>();
     if (ballKey && (ballKey->code == sf::Keyboard::Key::G || ballKey->code == sf::Keyboard::Key::K))
     { playRefugeBall(ballKey->code == sf::Keyboard::Key::G, slot); return; }
@@ -1041,7 +1183,7 @@ void GameView::updateInteriorHunter(const GameState& game,float seconds)
         const MazePosition at{static_cast<int>(player.z),static_cast<int>(player.x)};
         const HunterTarget target{at,player.moving,player.running,
             voiceNoiseTime_[slot]>0.f?std::clamp(static_cast<int>(2.f+voiceNoiseLevel_[slot]*30.f),4,12):player.jumpHeight>.01f?4:0,
-            player.crouched,false,player.elevation};
+            player.crouched,packs_[slot].effects[0]>0.f,player.elevation};
         const int signal=senseHunterTarget(game.maze,observer,target,safehouses_,~doorMask());
         const float distance=(player.x-hunterX_)*(player.x-hunterX_)+(player.z-hunterZ_)*(player.z-hunterZ_);
         if(signal>strongest || (signal>0 && signal==strongest && distance<nearest))
@@ -1051,6 +1193,12 @@ void GameView::updateInteriorHunter(const GameState& game,float seconds)
             interiorGoalZ_=signal==2?player.z:at.row+.5f;interiorGoalY_=player.elevation;
             hunter_.lastKnown=at;hunter_.lastKnownElevation=player.elevation;
         }
+    }
+    if(strongest<2)for(const auto& pack:packs_)if(pack.echoTime>0.f)
+    {
+        const HunterTarget echo{pack.echo,false,false,14,false,true,0.f};
+        if(senseHunterTarget(game.maze,observer,echo,safehouses_,~doorMask())>0)
+        {strongest=1;interiorGoalX_=pack.echo.col+.5f;interiorGoalZ_=pack.echo.row+.5f;interiorGoalY_=0.f;hunter_.lastKnown=pack.echo;hunter_.lastKnownElevation=0.f;break;}
     }
     interiorMemory_=strongest>0?8.f:std::max(0.f,interiorMemory_-seconds);
     // Follow remembered evidence, never the live position of a hidden player.
@@ -1118,17 +1266,18 @@ void GameView::updateMonster(GameState& game, float seconds, bool playerMoving, 
         monsterClock_ -= monsterStepDuration_;
         monsterFrom_ = monster_;
         const auto previousMode = hunter_.mode;
-        std::array<HunterTarget, maxCoopPlayers + 4> targets{};
+        std::array<HunterTarget, maxCoopPlayers*2 + 4> targets{};
         std::size_t count = 0;
-        targets[count++] = { game.player, movementHeard_ && !crouched_, runningHeard_, voiceNoiseTime_[networkSelfSlot_]>0.f?std::clamp(static_cast<int>(2.f+voiceNoiseLevel_[networkSelfSlot_]*30.f),4,12):jumpHeight_>.01f?4:0, crouched_,false,elevation_ };
+        targets[count++] = { game.player, movementHeard_ && !crouched_, runningHeard_, voiceNoiseTime_[networkSelfSlot_]>0.f?std::clamp(static_cast<int>(2.f+voiceNoiseLevel_[networkSelfSlot_]*30.f),4,12):jumpHeight_>.01f?4:0, crouched_,packs_[networkSelfSlot_].effects[0]>0.f,elevation_ };
         for (int slot = 1; slot < maxCoopPlayers; ++slot)
         {
             const auto& player = remote_[slot];
             if (player.present) targets[count++] = { { static_cast<int>(player.z), static_cast<int>(player.x) },
-                player.moving, player.running, voiceNoiseTime_[slot]>0.f?std::clamp(static_cast<int>(2.f+voiceNoiseLevel_[slot]*30.f),4,12):player.jumpHeight>.01f?4:0, player.crouched,false,player.elevation };
+                player.moving, player.running, voiceNoiseTime_[slot]>0.f?std::clamp(static_cast<int>(2.f+voiceNoiseLevel_[slot]*30.f),4,12):player.jumpHeight>.01f?4:0, player.crouched,packs_[slot].effects[0]>0.f,player.elevation };
         }
         for (std::size_t house=0;house<refugeNoise_.size();++house)
             if (refugeNoise_[house]>0.f) targets[count++]={safehouses_[house],true,true,10,false,true};
+        for(const auto& p:packs_) if(p.echoTime>0.f) targets[count++]={p.echo,false,false,14,false,true};
         hunter_.elevation=hunterY_;
         advanceHunterGroup(game.maze, hunter_, targets.data(), count, safehouses_,~doorMask());
         // A closed doorway delays entry. Repeated strikes force it open;
@@ -1145,6 +1294,7 @@ void GameView::updateMonster(GameState& game, float seconds, bool playerMoving, 
                 const auto index=house*4+side;
                 if (++doorStrikes_[index]>=3u) { if (!door.open) toggleDoor(static_cast<int>(house),side); doorStrikes_[index]=0; }
                 door.rattle=1.f; ++doorEvent_; doorSlam_=true;
+                doorSource_=static_cast<int>(index);
                 hunter_.cell=monsterFrom_; hunter_.previous=monsterFrom_;
                 notice_="It is forcing the door. Find another way out."; messageClock_=3.f;
             }
@@ -1193,6 +1343,10 @@ void GameView::updateMonster(GameState& game, float seconds, bool playerMoving, 
         angle_ = open(game.maze, respawn.row + 1, respawn.col) ? 0.f : pi / 2.f; pitch_ = 0.f;
         game.player = respawn; gateInput_.clear();
         ++captureCount_; resetHunter(game);
+        // Capture restarts the encounter clock, so preserve remaining interaction
+        // durations rather than leaving cabinets/cards locked to the old epoch.
+        for(auto& machine:refugeSlots_) machine.stopTime=std::max(0.f,machine.stopTime-elapsed_);
+        for(auto& hand:poker_) hand.readyAt=std::max(0.f,hand.readyAt-elapsed_);
         elapsed_ = monsterClock_ = directorClock_ = 0.f; monsterStepDuration_ = 1.15f;
         monsterHeading_ = monsterTargetHeading_ = 0.f; creatureGait_ = 0.f;
         stamina_ = 1.f; exhausted_ = false; movementHeard_ = runningHeard_ = false;
@@ -1228,6 +1382,7 @@ void GameView::updateMonster(GameState& game, float seconds, bool playerMoving, 
                     auto& door = doors_[house][chosen];
                     door.rattle = 1.f;
                     ++doorEvent_; doorSlam_ = false;
+                    doorSource_=static_cast<int>(house*4+chosen);
                     const auto frame = safehouseDoorFrame(safehouses_[house], chosen);
                     const float doorDx = frame.centreX - x_, doorDz = frame.centreZ - z_;
                     const float distance = std::sqrt(doorDx * doorDx + doorDz * doorDz);
@@ -1298,6 +1453,7 @@ void GameView::update(GameState& game, float seconds, const GameInput& input)
     for(auto& timer:voiceNoiseTime_)timer=std::max(0.f,timer-seconds);
     for (auto& noise : refugeNoise_) noise=std::max(0.f,noise-seconds);
     elapsed_ += seconds; messageClock_ = std::max(0.f, messageClock_ - seconds);
+    updateAdventure(game,seconds);
     const auto previousStorm = sampleStorm(ambientTime_, game.mazeSeed.value_or(0)).event;
     ambientTime_ += seconds;
     const auto currentStorm = sampleStorm(ambientTime_, game.mazeSeed.value_or(0)).event;
@@ -1326,7 +1482,7 @@ void GameView::update(GameState& game, float seconds, const GameInput& input)
     const float oldX = x_, oldZ = z_;
     if (length > 0.f)
     {
-        const float speed = (crouched_ ? .65f : running ? 2.15f : 1.45f) * seconds / length;
+        const float speed = (crouched_ ? .65f : running ? 2.15f : 1.45f) * (packs_[networkSelfSlot_].effects[1]>0.f?1.3f:1.f) * seconds / length;
         const float dx = (std::sin(angle_) * forward - std::cos(angle_) * strafe) * speed;
         const float dz = (std::cos(angle_) * forward + std::sin(angle_) * strafe) * speed;
         if (walkable(game, x_ + dx, z_)) x_ += dx;
@@ -1353,7 +1509,7 @@ void GameView::update(GameState& game, float seconds, const GameInput& input)
     // The journal survives a capture but is cleared when the maze is restarted.
     const int observedStone = nearbyShrine();
     if (observedStone >= 0) discoveredClues_[observedStone] = true;
-    if (running && moved)
+    if (running && moved && packs_[networkSelfSlot_].effects[1]<=0.f)
     {
         stamina_ = std::max(0.f, stamina_ - seconds * .16f);
         if (stamina_ <= 0.f) exhausted_ = true;
@@ -1563,6 +1719,7 @@ void GameView::updateShift(GameState& game, float seconds)
              (open(game.maze,row,col-1) && open(game.maze,row,col+1))))
         {
             const MazePosition cell{ row, col };
+            if(storyRuinReserved(cell,storyRuin_))continue;
             candidates.push_back(cell);
             int distance = std::abs(row - game.player.row) + std::abs(col - game.player.col);
             for (const auto& player : remote_) if (player.present)
@@ -1680,7 +1837,9 @@ void GameView::drawGroundChunks(const GameState& game, int r0, int r1, int c0, i
                         if(timber!=(floorPass==1))continue;
                         const unsigned grain=(static_cast<unsigned>(row)*92821u^static_cast<unsigned>(col)*68917u)%15u;
                         const float shade=grain/255.f;
-                        glColor3f(.85f+shade,.85f+shade,.82f+shade);
+                        const float districtTint[4][3]={{.94f,1.f,.93f},{1.f,.89f,.77f},{.79f,.96f,1.f},{.91f,.84f,.96f}};
+                        const auto& tint=districtTint[storyDistrict({row,col},size)];
+                        glColor3f((.85f+shade)*(timber?1.f:tint[0]),(.85f+shade)*(timber?1.f:tint[1]),(.82f+shade)*(timber?1.f:tint[2]));
                         subdividedQuad(static_cast<float>(col),0,static_cast<float>(row),static_cast<float>(col+1),0,static_cast<float>(row),
                             static_cast<float>(col+1),0,static_cast<float>(row+1),static_cast<float>(col),0,static_cast<float>(row+1),0,1,0,2);
                     }
@@ -1691,6 +1850,7 @@ void GameView::drawGroundChunks(const GameState& game, int r0, int r1, int c0, i
             if(worldShader_)
             {
                 worldShader_->setUniform("materialMaps",woodMapsReady_);worldShader_->setUniform("wetness",0.f);
+                worldShader_->setUniform("footprintsEnabled",false);
                 worldShader_->setUniform("refugeLighting",safehouseAt(game.player,safehouses_)>=0?1.f:0.f);
                 if(woodMapsReady_){worldShader_->setUniform("normalMap",woodNormal_);worldShader_->setUniform("materialMap",woodMaterial_);}
                 sf::Shader::bind(worldShader_.get());
@@ -1700,6 +1860,7 @@ void GameView::drawGroundChunks(const GameState& game, int r0, int r1, int c0, i
             if(worldShader_)
             {
                 worldShader_->setUniform("materialMaps",groundMapsReady_);worldShader_->setUniform("wetness",.65f);
+                worldShader_->setUniform("footprintsEnabled",footprintsReady_);
                 worldShader_->setUniform("refugeLighting",0.f);
                 if(groundMapsReady_){worldShader_->setUniform("normalMap",groundNormal_);worldShader_->setUniform("materialMap",groundMaterial_);}
                 sf::Shader::bind(worldShader_.get());
@@ -1748,6 +1909,7 @@ void GameView::drawHedgeChunks(const GameState& game, int r0, int r1, int c0, in
                             return open(game.maze, r, c) || (same({r, c}, shift_) &&
                                 (shiftPhase_ == ShiftPhase::Opening || shiftPhase_ == ShiftPhase::Closing));
                         };
+                        if(storyRuinBlocked({row,col},storyRuin_))continue;
                         if (game.maze.at(row, col) == MazeCell::Wall && !movingWall)
                         {
                             const float l = static_cast<float>(col), r = l + 1.f;
@@ -1780,7 +1942,7 @@ void GameView::drawHedgeChunks(const GameState& game, int r0, int r1, int c0, in
                     for (int row = cr * chunkSize; row < lastRow; ++row)
                         for (int col = cc * chunkSize; col < lastCol; ++col)
                         {
-                            if (game.maze.at(row, col) != MazeCell::Wall ||
+                            if (storyRuinBlocked({row,col},storyRuin_) || game.maze.at(row, col) != MazeCell::Wall ||
                                 (same({row, col}, shift_) && (shiftPhase_ == ShiftPhase::Opening || shiftPhase_ == ShiftPhase::Closing))) continue;
                             const unsigned variation = static_cast<unsigned>(row) * 73856093u
                                 ^ static_cast<unsigned>(col) * 19349663u ^ game.mazeSeed.value_or(0);
@@ -1859,11 +2021,33 @@ SoundscapeFrame GameView::soundFrame() const
     for (int slot=0;slot<maxCoopPlayers;++slot)
     {
         const auto player=slot==networkSelfSlot_?localPlayer():remote_[slot];
+        frame.pokerEvent+=poker_[slot].rounds*2u-(poker_[slot].phase==1?1u:0u);
+        if(player.present && poker_[slot].phase && elapsed_<poker_[slot].readyAt)
+        {
+            const float dx=player.x-x_,dz=player.z-z_,distance=std::sqrt(dx*dx+dz*dz);
+            const float gain=std::clamp(1.f-distance/8.f,0.f,1.f);
+            if(gain>frame.pokerGain)
+            {frame.pokerGain=gain;frame.pokerPan=distance>.01f?std::clamp((-dx*std::cos(angle_)+dz*std::sin(angle_))/distance,-1.f,1.f):0.f;}
+        }
         if (player.present && (player.x-x_)*(player.x-x_)+(player.z-z_)*(player.z-z_)<64.f) frame.drinkEvent+=drinks_[slot];
     }
     frame.fear = fear_;
     frame.doorEvent = doorEvent_; frame.doorPan = doorPan_; frame.doorSlam = doorSlam_;
+    if(doorSource_>=0 && doorSource_<static_cast<int>(doors_.size()*4))
+    {
+        const auto source=safehouseDoorFrame(safehouses_[doorSource_/4],doorSource_%4);
+        const float dx=source.centreX-x_,dz=source.centreZ-z_,distance=std::sqrt(dx*dx+dz*dz);
+        frame.doorPan=distance>.01f?std::clamp((-dx*std::cos(angle_)+dz*std::sin(angle_))/distance,-1.f,1.f):0.f;
+        frame.doorGain=std::clamp(1.f-distance/14.f,0.f,1.f)*(elevation_>1.f?.65f:1.f);
+    }
     frame.whisperEvent = whisperEvent_; frame.whisperPan = whisperPan_;
+    float nearestEcho=100.f;
+    for(const auto& pack:packs_)if(pack.echoTime>0.f)
+    {
+        const float dx=pack.echo.col+.5f-x_,dz=pack.echo.row+.5f-z_,distance=dx*dx+dz*dz;
+        if(distance<nearestEcho)
+        {nearestEcho=distance;frame.whisperEvent=whisperEvent_+pack.echoes;frame.whisperPan=distance>.001f?std::clamp((-dx*std::cos(angle_)+dz*std::sin(angle_))/std::sqrt(distance),-1.f,1.f):0.f;}
+    }
     if (elapsed_ >= 12.f)
     {
         const float blend = std::clamp(monsterClock_ / monsterStepDuration_, 0.f, 1.f);
@@ -2084,9 +2268,98 @@ void GameView::drawPostProcess(const GameState& game, float flash)
     glEnable(GL_DEPTH_TEST);
 }
 
+int GameView::nearbyStorySite()const noexcept
+{
+    if(elevation_>.3f)return -1;
+    for(int i=0;i<4;++i)
+    {
+        const auto& site=storySites_[i];const float dx=x_-(site.cell.col+site.x),dz=z_-(site.cell.row+site.z);
+        if(dx*dx+dz*dz<.85f*.85f)return i;
+    }
+    return -1;
+}
+
+void GameView::prepareStoryAssets(sf::RenderTarget& target)
+{
+    if(!storyAssetsAttempted_)
+    {
+        sf::Texture signWood;
+        (void)signWood.loadFromFile(executableDirectory()/"assets"/"textures"/"pbr"/"wood-diffuse.png");
+        const auto models=executableDirectory()/"assets"/"models";
+        const char* modelNames[]={"story-luggage","story-toolbox","story-player","story-ruin","story-sign"};
+        for(int i=0;i<5;++i)
+        {storyMeshes_[i]=loadCreatureMesh(models/(std::string(modelNames[i])+".nxm"));if(i<4)storyTextures_[i]=loadSurfaceTexture(models/(std::string(modelNames[i])+".png"),1024);}
+        const auto textures=executableDirectory()/"assets"/"textures";
+        footprintsReady_=footprintLeft_.loadFromFile(textures/"story-foot-left.png") && footprintRight_.loadFromFile(textures/"story-foot-right.png");
+        if(footprintsReady_)for(auto* foot:{&footprintLeft_,&footprintRight_}){foot->setSmooth(true);(void)foot->generateMipmap();}
+        for(int i=0;i<4;++i)
+        {
+            auto board=std::make_unique<sf::RenderTexture>();
+            if(!board->resize({512,256}))continue;
+            board->clear({40,34,28});
+            if(signWood.getSize().x)
+            {sf::Sprite wood(signWood);wood.setScale({512.f/signWood.getSize().x,256.f/signWood.getSize().y});wood.setColor({120,110,95});board->draw(wood);}
+            sf::Text title(heading_.getFont(),storyDistrictName(i),32);title.setPosition({16,15});title.setFillColor({225,211,176});board->draw(title);
+            sf::Text erased(heading_.getFont(),"SAFE ROUTE",36);erased.setPosition({18,76});erased.setFillColor({135,130,112});board->draw(erased);
+            for(int scratch=0;scratch<3;++scratch)
+            {sf::RectangleShape line({340.f,3.f});line.setPosition({16.f,92.f+scratch*9.f});line.setRotation(sf::degrees(scratch==1?-3.f:2.f));line.setFillColor({52,40,30});board->draw(line);}
+            const char* warnings[]={"THE TICKETS SAY TOMORROW","CHANGE YOUR ESCAPE ROUTE","REMOVE THE BATTERIES","LEAVE BEFORE THE THIRD KNOCK"};
+            sf::Text warning(heading_.getFont(),warnings[i],22);warning.setPosition({16,157});warning.setFillColor({212,190,141});board->draw(warning);
+            sf::Text label(heading_.getFont(),"F / READ THE NOTE",20);label.setPosition({16,208});label.setFillColor({166,160,137});board->draw(label);
+            board->display();board->setSmooth(true);storySigns_[i]=std::move(board);
+        }
+        for(int i=0;i<4;++i)
+        {
+            auto sign=std::make_unique<sf::RenderTexture>();if(!sign->resize({768,256}))continue;
+            const sf::Color inks[]={{33,65,43},{71,47,28},{27,48,77},{65,25,48}};
+            sign->clear(inks[i]);
+            sf::Text title(heading_.getFont(),Adventure::shopNames[i],44);title.setPosition({24,30});title.setFillColor({237,216,160});sign->draw(title);
+            sf::Text service(heading_.getFont(),Adventure::shopSpecialties[i],24);service.setPosition({24,110});service.setFillColor({211,215,193});sign->draw(service);
+            sf::Text help(heading_.getFont(),"O / TRADE     N / BREW     P / POKER",27);help.setPosition({24,180});help.setFillColor({237,216,160});sign->draw(help);
+            sign->display();sign->setSmooth(true);adventureSigns_[i]=std::move(sign);
+        }
+        storyAssetsAttempted_=true;
+        (void)target.setActive(true);target.resetGLStates();
+    }
+}
+
+void GameView::drawStory(const GameState& game)
+{
+    sf::Shader::bind(nullptr);glEnable(GL_TEXTURE_2D);glColor3f(.85f,.83f,.78f);
+    if(storyRuin_)
+    {
+        const auto p=storyRuin_->cell;
+        if(std::abs(p.col+.5f-x_)<14.f && std::abs(p.row+.5f-z_)<14.f)
+        {
+            glBindTexture(GL_TEXTURE_2D,storyTextures_[3]);glPushMatrix();glTranslatef(p.col+.5f,0.f,p.row+.5f);
+            if(storyRuin_->alongRows)glRotatef(90.f,0,1,0);
+            if(storyMeshes_[3])glCallList(storyMeshes_[3]);glPopMatrix();
+        }
+    }
+    for(int i=0;i<4;++i)
+    {
+        const auto& site=storySites_[i];const float x=site.cell.col+site.x,z=site.cell.row+site.z;
+        if((x-x_)*(x-x_)+(z-z_)*(z-z_)>225.f)continue;
+        const int prop=i==3?2:i;
+        glBindTexture(GL_TEXTURE_2D,storyTextures_[prop]);glPushMatrix();glTranslatef(x,.008f,z);glRotatef(site.angle*180.f/pi,0,1,0);
+        if(storyMeshes_[prop])glCallList(storyMeshes_[prop]);glPopMatrix();
+        if(storySigns_[i] && storyMeshes_[4])
+        {
+            sf::Texture::bind(&storySigns_[i]->getTexture());
+            const float wallX=site.cell.col+.5f+(site.x-.5f)*1.3f,wallZ=site.cell.row+.5f+(site.z-.5f)*1.3f;
+            const MazePosition behind{static_cast<int>(wallZ-.10f*std::cos(site.angle)),static_cast<int>(wallX-.10f*std::sin(site.angle))};
+            const bool mounted=!game.maze.contains(behind) || game.maze.at(behind.row,behind.col)==MazeCell::Wall;
+            glPushMatrix();glTranslatef(wallX,mounted?.55f:.04f,wallZ);glRotatef(site.angle*180.f/pi,0,1,0);
+            if(!mounted)glRotatef(-12.f,1,0,0);glCallList(storyMeshes_[4]);glPopMatrix();sf::Texture::bind(nullptr);
+        }
+    }
+    glDisable(GL_TEXTURE_2D);glColor3f(1,1,1);
+}
+
 void GameView::draw(sf::RenderTarget& target, const GameState& game)
 {
     if (!initialized_ || game.maze.empty()) return;
+    prepareStoryAssets(target);
     if (!shaderAttempted_)
     {
         shaderAttempted_ = true;
@@ -2136,7 +2409,7 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         if (creatureMesh_) creatureTexture_ = loadSurfaceTexture(models / "stalker.jpg");
         creatureMeshAttempted_ = true;
     }
-    if (!survivorMeshAttempted_ && !networkStatusText_.empty())
+    if (!survivorMeshAttempted_)
     {
         const auto models = executableDirectory() / "assets" / "models";
         const auto mesh = loadAnimatedMesh(models / "survivor.nxa");
@@ -2164,7 +2437,13 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
     const auto storm = sampleStorm(ambientTime_, game.mazeSeed.value_or(0));
     const float flash = storm.flash;
-    const GLfloat fog[] = { .027f + flash * .10f, .038f + flash * .12f, .043f + flash * .16f, 1.f };
+    const float districtFog[4][3]={{.027f,.038f,.039f},{.040f,.034f,.028f},{.026f,.040f,.047f},{.034f,.030f,.043f}};
+    const float fx=std::clamp((x_-game.maze.size().cols*.5f+1.5f)/3.f,0.f,1.f);
+    const float fz=std::clamp((z_-game.maze.size().rows*.5f+1.5f)/3.f,0.f,1.f);
+    GLfloat fog[4]={0,0,0,1};
+    for(int channel=0;channel<3;++channel)
+        fog[channel]=(districtFog[0][channel]*(1-fx)+districtFog[1][channel]*fx)*(1-fz)
+            +(districtFog[2][channel]*(1-fx)+districtFog[3][channel]*fx)*fz+flash*(.10f+channel*.03f);
     glFogfv(GL_FOG_COLOR, fog);
     glClearColor(fog[0], fog[1], fog[2], 1.f); glClear(GL_COLOR_BUFFER_BIT);
     const float ambientScale = 1.f - darkness_ * .45f;
@@ -2236,6 +2515,15 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         worldShader_->setUniform("materialMaps",groundMapsReady_);
         worldShader_->setUniform("normalStrength",.55f);
         worldShader_->setUniform("refugeLighting",0.f);
+        worldShader_->setUniform("footprintsEnabled",footprintsReady_);
+        if(footprintsReady_)
+        {
+            worldShader_->setUniform("footprintLeft",footprintLeft_);worldShader_->setUniform("footprintRight",footprintRight_);
+            sf::Glsl::Vec4 footsteps[24];for(auto& step:footsteps)step={-100.f,-100.f,1.f,0.f};
+            for(std::size_t i=0;i<std::min(storyFootsteps_.size(),std::size_t{24});++i)
+            {const auto step=storyFootsteps_[i];footsteps[i]={step.x,step.z,step.cosine,step.sine};}
+            worldShader_->setUniformArray("footsteps",footsteps,24);
+        }
         if(groundMapsReady_)
         {worldShader_->setUniform("normalMap",groundNormal_);worldShader_->setUniform("materialMap",groundMaterial_);}
         sf::Shader::bind(worldShader_.get());
@@ -2248,6 +2536,7 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         worldShader_->setUniform("textured", true);
         worldShader_->setUniform("wetness", .06f);
         worldShader_->setUniform("materialMaps",false);
+        worldShader_->setUniform("footprintsEnabled",false);
     }
     drawHedgeChunks(game, r0, r1, c0, c1);
     if (foliageShader_)
@@ -2274,10 +2563,14 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         }
     }
     const bool inRefuge = safehouseAt(game.player, safehouses_) >= 0;
-    const GLfloat refugeAmbient[] = { .53f, .42f, .32f, 1.f };
+    const int playerHouse=safehouseAt(game.player,safehouses_);
+    const GLfloat themeLights[4][4]={{.40f,.52f,.36f,1},{.56f,.39f,.25f,1},{.35f,.43f,.58f,1},{.55f,.34f,.43f,1}};
+    const GLfloat* refugeAmbient=themeLights[playerHouse<0?0:playerHouse%4];
     if (inRefuge) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, refugeAmbient);
     for (const auto house : safehouses_)
     {
+        const int theme=safehouseAt(house,safehouses_)%4;
+        const GLfloat trim[4][3]={{.20f,.55f,.31f},{.75f,.42f,.16f},{.22f,.45f,.76f},{.67f,.22f,.39f}};
         const float hx = house.col + .5f, hz = house.row + .5f;
         if ((hx-x_)*(hx-x_) + (hz-z_)*(hz-z_) > 144.f) continue;
         glPushMatrix(); glTranslatef(hx, 0.f, hz); glScalef(refugeScale, 1.f, refugeScale); glTranslatef(-hx, 0.f, -hz);
@@ -2287,6 +2580,8 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
             worldShader_->setUniform("wetness",0.f);
             worldShader_->setUniform("normalStrength",.75f);
             worldShader_->setUniform("refugeLighting",inRefuge?1.f:0.f);
+            const sf::Glsl::Vec3 tints[]={{.85f,1.12f,.85f},{1.14f,.95f,.78f},{.78f,.96f,1.32f},{1.16f,.79f,1.08f}};
+            worldShader_->setUniform("refugeTint",tints[theme]);
             if(woodMapsReady_){worldShader_->setUniform("normalMap",woodNormal_);worldShader_->setUniform("materialMap",woodMaterial_);}
             sf::Shader::bind(worldShader_.get());
         }
@@ -2325,12 +2620,12 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         for (int floor = 0; floor < 2; ++floor)
         {
             const float base = floor * refugeUpperFloor;
-            glColor3f(.08f, .64f, .56f); part(hx, base + .05f, hz - 1.37f, 2.70f, .15f, .04f);
-            glColor3f(.85f, .28f, .32f); part(hx - 1.37f, base + .05f, hz, .04f, .15f, 2.70f);
+            glColor3fv(trim[theme]); part(hx, base + .05f, hz - 1.37f, 2.70f, .15f, .04f);
+            glColor3f(trim[theme][0]*.8f,trim[theme][1]*.8f,trim[theme][2]*.8f); part(hx - 1.37f, base + .05f, hz, .04f, .15f, 2.70f);
             glDisable(GL_LIGHTING);
             for (int bulb = 0; bulb < 9; ++bulb)
             {
-                glColor3f(bulb % 3 == 0 ? 1.f : .18f, bulb % 3 == 1 ? 1.f : .35f, bulb % 3 == 2 ? 1.f : .20f);
+                glColor3f(.35f+trim[theme][0]*.6f,.35f+trim[theme][1]*.6f,.25f+trim[theme][2]*.65f);
                 ellipsoid(hx - 1.18f + bulb * .29f, base + 1.53f, hz - 1.30f, .035f, .055f, .035f);
             }
             glEnable(GL_LIGHTING);
@@ -2342,7 +2637,7 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         glColor3f(.9f, .63f, .25f); part(hx, 1.47f, hz, .13f, .20f, .13f);
         glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, dark);
         // Colourful refuge furniture stays clear of the four doorways.
-        glColor3f(.48f, .12f, .29f); part(hx, .018f, hz, 1.65f, .025f, 1.65f);
+        glColor3f(trim[theme][0]*.65f,trim[theme][1]*.65f,trim[theme][2]*.65f); part(hx, .018f, hz, 1.65f, .025f, 1.65f);
         if (!refugePropsAttempted_)
         {
             const auto models = executableDirectory() / "assets" / "models";
@@ -2410,6 +2705,8 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         glDisable(GL_TEXTURE_2D);
         glPopMatrix();
     }
+    drawStory(game);
+    drawAdventure(game);
     drawDoors(game);
     for (std::size_t house = 0; house < refugeBalls_.size(); ++house)
     {
@@ -2725,7 +3022,21 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
             gripRotation=(side==0?-55.f:55.f)*withdraw;
             gripAmount=.35f*(1.f-interactionSmooth(std::min(1.f,phase*3.f)));
         }
-        if(side==1 && drinkClock_>0.f)
+        if(side==1 && adventureMotionClock_>0.f)
+        {
+            const float u=std::clamp((1.2f-adventureMotionClock_)/1.2f,0.f,1.f),pulse=std::sin(interactionSmooth(u)*pi);
+            if(adventureMotionItem_==-1 && lootingCache_>=0)
+            {
+                const auto cell=caches_[lootingCache_].cell;const auto contact=toCamera({cell.col+.5f,.36f,cell.row+.5f});
+                const float reach=interactionSmooth(u/.22f)*(1.f-interactionSmooth((u-.58f)/.42f));
+                pose.x+=(contact.x-pose.x)*reach;pose.y+=(contact.y+.02f-pose.y)*reach;pose.z+=(contact.z+.06f-pose.z)*reach;
+                gripAmount=.25f*reach;wristPitch=-25.f*reach;
+            }
+            else if(adventureMotionItem_<=2)
+            {pose={.14f-.1f*pulse,-.18f+.16f*pulse,-.36f+.05f*pulse};gripAmount=.95f;gripRotation=-25.f*pulse;wristPitch=-65.f*pulse;}
+            else {pose.y+=.08f*pulse;pose.z-=.18f*pulse;gripAmount=.1f;wristPitch=35.f*pulse;}
+        }
+        else if(side==1 && drinkClock_>0.f)
         {
             const float sip=std::sin(interactionSmooth((4.f-drinkClock_)/4.f)*pi);
             pose={.14f-.10f*sip,-.15f+.12f*sip,-.36f+.06f*sip};
@@ -2752,10 +3063,10 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
             const V shoulder{lateral*.22f,-.27f+sway*.3f,.015f};
             V direction=axisAngle({1,0,0},wristPitch*.01745329252f)*V{0,.25f,-1.f};
             V across{-lateral,0,0};float handRoll=gripRotation*.01745329252f;
-            if(side==1 && drinkClock_>0.f)
+            if(side==1 && (drinkClock_>0.f || (adventureMotionClock_>0.f && adventureMotionItem_>=0 && adventureMotionItem_<=2)))
             {
-                const float sip=std::sin(interactionSmooth((4.f-drinkClock_)/4.f)*pi);
-                const R cup=axisAngle({0,0,1},handRoll)*axisAngle({1,0,0},-55.f*sip*.01745329252f);
+                const float sip=adventureMotionClock_>0.f?std::sin(interactionSmooth((1.2f-adventureMotionClock_)/1.2f)*pi):std::sin(interactionSmooth((4.f-drinkClock_)/4.f)*pi);
+                const R cup=axisAngle({0,0,1},handRoll)*axisAngle({1,0,0},(adventureMotionClock_>0.f?-65.f:-55.f)*sip*.01745329252f);
                 direction=cup*V{-1,0,0};across=cup*V{0,1,0};handRoll=0.f;
             }
             skin(*handRigs_[side],handPoses_[side],shoulder,{pose.x,pose.y,pose.z},direction,
@@ -2770,7 +3081,13 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
             glEnd();glBindTexture(GL_TEXTURE_2D,handTexture_);
         }
         glPushMatrix();glTranslatef(pose.x,pose.y,pose.z);glRotatef(gripRotation,0.f,0.f,1.f);
-        if(side==1 && drinkClock_>0.f && drinkMesh_)
+        if(side==1 && adventureMotionClock_>0.f && adventureMotionItem_>=0 && adventureMotionItem_<=2 && adventureMeshes_[0])
+        {
+            const float sip=std::sin(interactionSmooth((1.2f-adventureMotionClock_)/1.2f)*pi);
+            glPushMatrix();glRotatef(-65.f*sip,1,0,0);glTranslatef(.025f,-.06f,.025f);glScalef(.35f,.35f,.35f);
+            glBindTexture(GL_TEXTURE_2D,adventureTextures_[0]);glCallList(adventureMeshes_[0]);glBindTexture(GL_TEXTURE_2D,handTexture_);glPopMatrix();
+        }
+        else if(side==1 && drinkClock_>0.f && drinkMesh_)
         {
             glPushMatrix();glTranslatef(.025f,-.045f,.05f);glScalef(.65f,.65f,.65f);
             const float sip=std::sin(interactionSmooth((4.f-drinkClock_)/4.f)*pi);
@@ -2821,7 +3138,8 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
     voiceLabel_.setString(voiceStatus_);voiceLabel_.setPosition({static_cast<float>(viewport_.x)-240.f,65.f});target.draw(voiceLabel_);
     soundLabel_.setString(soundMuted_ ? "SOUND OFF" : soundStatus_ < 0 ? "NO AUDIO" : soundStatus_ > 0 ? "SOUND ON" : "SOUND ...");
     soundLabel_.setPosition({ static_cast<float>(viewport_.x) - 134.f, 49.f }); target.draw(soundLabel_);
-    seedText_.setString("SEED  " + std::to_string(game.mazeSeed.value_or(0))
+    const int currentTradingPost=adventureHouse();
+    seedText_.setString(std::string(currentTradingPost>=0?Adventure::shopNames[currentTradingPost%4]:storyDistrictName(storyDistrict(game.player,game.maze.size())))+" / SEED  " + std::to_string(game.mazeSeed.value_or(0))
         + (networkStatusText_.empty() ? "" : "     /     " + networkStatusText_));
     seedText_.setPosition({ 25.f, 47.f }); target.draw(seedText_);
     if (gateOpen_) objective_.setString("THE GATE IS OPEN   /   STEP THROUGH");
@@ -2846,7 +3164,7 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
         journal_.setString(journal);
         journal_.setPosition({ 24.f, static_cast<float>(viewport_.y) - 76.f }); if(safehouseAt(game.player,safehouses_)<0) target.draw(journal_);
     }
-    hint_.setString("WASD move | Mouse look | Shift run | E open/use | T rays | M sound | B motion");
+    hint_.setString("WASD move / E use / I satchel / O trade / N craft / Tab atlas");
     hint_.setPosition({ 24.f, static_cast<float>(viewport_.y) - 45.f }); target.draw(hint_);
     const int nearby = nearbyShrine();
     const int door = elevation_ < .1f ? nearbyDoor() : -1;
@@ -2867,7 +3185,7 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
     }
     else if(nearbyBar()>=0)
     {
-        feedback_.setString(seatedHouse_>=0?"BAR / E drink / Q stand":"BAR / E sit and drink");
+        feedback_.setString(seatedHouse_>=0?"BAR / E drink / P poker / Q stand":"BAR / E sit and drink / P poker");
         feedback_.setPosition({24.f,78.f});target.draw(feedback_);
     }
     else if (nearbySlotHandle() >= 0)
@@ -2908,12 +3226,18 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
             feedback_.setString(notice_); feedback_.setPosition({ 24.f, 106.f }); target.draw(feedback_);
         }
     }
+    else if(nearbyStorySite()>=0)
+    {
+        feedback_.setString("ABANDONED BELONGINGS / F to read note / J journal");
+        feedback_.setPosition({24.f,78.f});target.draw(feedback_);
+        if(messageClock_>0.f){feedback_.setString(notice_);feedback_.setPosition({24.f,106.f});target.draw(feedback_);}
+    }
     else if (safehouseAt(game.player, safehouses_) >= 0)
     {
         const int house = safehouseAt(game.player, safehouses_);
         feedback_.setString(elevation_ > refugeUpperFloor - .1f
             ? "G pick up / throw basketball | K kick football\nHOOP " + std::to_string(refugeBalls_[house][1].scoreA) + " | FOOTBALL " + std::to_string(refugeBalls_[house][0].scoreA) + " - " + std::to_string(refugeBalls_[house][0].scoreB)
-            : "HOUSE / E doors, slots, bar / F note / J journal\nSpace jump / Ctrl crouch / Games upstairs");
+            : "TRADING POST / O shop / N brew / P poker\nE doors and bar / F notes / Games upstairs");
         feedback_.setPosition({ 24.f, 78.f }); target.draw(feedback_);
         if (messageClock_ > 0.f)
         {
@@ -2926,4 +3250,33 @@ void GameView::draw(sf::RenderTarget& target, const GameState& game)
     }
     sf::RectangleShape crosshair({ 4.f, 4.f }); crosshair.setFillColor({ 230, 225, 196, 180 });
     crosshair.setPosition({ viewport_.x * .5f - 2.f, viewport_.y * .5f - 2.f }); target.draw(crosshair);
+    drawPoker(target);
+    drawAdventureHud(target,game);
+    drawDoorWarning(target);
 }
+
+void GameView::drawDoorWarning(sf::RenderTarget& target)
+{
+    int selected=-1;float closest=25.f;
+    for(std::size_t house=0;house<doors_.size();++house) for(int side=0;side<4;++side)
+    {
+        const auto& door=doors_[house][side];
+        if((door.open || !doorStrikes_[house*4+side]) && door.rattle<=0.f) continue;
+        const auto frame=safehouseDoorFrame(safehouses_[house],side);
+        const float dx=frame.centreX-x_,dz=frame.centreZ-z_,distance=dx*dx+dz*dz;
+        if(distance<closest) {closest=distance;selected=static_cast<int>(house*4+side);}
+    }
+    if(selected<0) return;
+    const auto& door=doors_[selected/4][selected%4];const unsigned strikes=doorStrikes_[selected];
+    const auto source=safehouseDoorFrame(safehouses_[selected/4],selected%4);
+    const float dx=source.centreX-x_,dz=source.centreZ-z_;
+    const float forward=dx*std::sin(angle_)+dz*std::cos(angle_),right=-dx*std::cos(angle_)+dz*std::sin(angle_);
+    const char* direction=std::abs(right)>std::abs(forward)*.7f?(right>0.f?"RIGHT DOOR":"LEFT DOOR"):(forward>0.f?"DOOR AHEAD":"DOOR BEHIND");
+    const std::string warning=std::string(direction)+" / "+
+        (door.open?"FORCED OPEN - MOVE!":strikes>=2?"SECOND STRIKE - LEAVE NOW":strikes==1?"FIRST STRIKE - FIND AN EXIT":"SOMETHING IS TESTING THE HANDLE");
+    const float width=std::min(580.f,viewport_.x-32.f),left=(viewport_.x-width)*.5f,top=viewport_.y*.34f;
+    sf::RectangleShape panel({width,48.f});panel.setPosition({left,top});panel.setFillColor({28,14,12,230});
+    panel.setOutlineColor(strikes>=2?sf::Color(206,78,48):sf::Color(168,130,76));panel.setOutlineThickness(1.f);target.draw(panel);
+    sf::Text text(heading_.getFont(),warning,18);text.setFillColor({245,207,156});text.setPosition({left+14.f,top+12.f});target.draw(text);
+}
+#include "GameView.Adventure.inc"

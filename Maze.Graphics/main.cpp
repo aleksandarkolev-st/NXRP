@@ -20,7 +20,7 @@ int main()
 
         sf::ContextSettings context;
         context.depthBits = 24;
-        sf::RenderWindow window(sf::VideoMode({ 900u, 600u }), "NXRP - The Hedge", sf::Style::Default,
+        sf::RenderWindow window(sf::VideoMode({ 900u, 600u }), "WAYWARD - The Living Labyrinth", sf::Style::Default,
             sf::State::Windowed, context);
         window.setMinimumSize(sf::Vector2u{ 640u, 560u });
         window.setFramerateLimit(60);

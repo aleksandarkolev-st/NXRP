@@ -32,7 +32,13 @@ namespace
 
     char networkKey(sf::Keyboard::Key key)
     {
+        if(key==sf::Keyboard::Key::I)return 'I';
+        if(key==sf::Keyboard::Key::O)return 'O';
+        if(key==sf::Keyboard::Key::N)return 'C';
+        if(key==sf::Keyboard::Key::Tab)return 'A';
+        if(key==sf::Keyboard::Key::Q)return 'Q';
         if (key == sf::Keyboard::Key::G) return 'G';
+        if (key == sf::Keyboard::Key::P) return 'P';
         if (key == sf::Keyboard::Key::K) return 'K';
         if (key == sf::Keyboard::Key::E) return 'E';
         if (key == sf::Keyboard::Key::Backspace) return 'B';
@@ -49,7 +55,13 @@ namespace
 
     sf::Keyboard::Key decodeNetworkKey(char key)
     {
+        if(key=='I')return sf::Keyboard::Key::I;
+        if(key=='O')return sf::Keyboard::Key::O;
+        if(key=='C')return sf::Keyboard::Key::N;
+        if(key=='A')return sf::Keyboard::Key::Tab;
+        if(key=='Q')return sf::Keyboard::Key::Q;
         if (key == 'G') return sf::Keyboard::Key::G;
+        if (key == 'P') return sf::Keyboard::Key::P;
         if (key == 'K') return sf::Keyboard::Key::K;
         if (key == 'E') return sf::Keyboard::Key::E;
         if (key == 'B') return sf::Keyboard::Key::Backspace;
@@ -308,7 +320,7 @@ void MazeApplication::updateNetwork(float seconds)
         {
             unsigned version, generation, seed, phase; int rows, cols, selfSlot;
             if (!(in >> version)) continue;
-            if (version != 12)
+            if (version != 16)
             {
                 endNetwork(); menu_.showMultiplayer(); menu_.showMessage("Different game version. Everyone needs the same build.");
                 return;
@@ -384,7 +396,7 @@ void MazeApplication::updateNetwork(float seconds)
         {
             if (!(network_.connectedMask() & (1u << slot))) continue;
             std::ostringstream out;
-            out << "W 12 " << networkGeneration_ << ' ' << game_.maze.size().rows << ' ' << game_.maze.size().cols
+            out << "W 16 " << networkGeneration_ << ' ' << game_.maze.size().rows << ' ' << game_.maze.size().cols
                 << ' ' << *game_.mazeSeed << ' ' << phase << ' ' << slot << ' ' << world;
             network_.send(out.str(), slot);
         }
@@ -453,6 +465,8 @@ void MazeApplication::handleEvent(const sf::Event& event, sf::RenderWindow& wind
             if (remoteKey)
             {
                 sendPlayer(); network_.send(std::string("K ") + remoteKey);
+                if(key->code==sf::Keyboard::Key::E)gameView_.previewGather();
+                if(key->code==sf::Keyboard::Key::P || key->code==sf::Keyboard::Key::I || key->code==sf::Keyboard::Key::O || key->code==sf::Keyboard::Key::N || key->code==sf::Keyboard::Key::Tab || key->code==sf::Keyboard::Key::Q) gameView_.handleEvent(event,game_);
             }
             else if (networkRole_ != NetworkRole::Guest || (key && !networkPaused_ &&
                 (key->code == sf::Keyboard::Key::Q || key->code == sf::Keyboard::Key::F || key->code == sf::Keyboard::Key::J ||

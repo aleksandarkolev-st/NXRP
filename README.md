@@ -27,10 +27,13 @@ reach/drink interactions. The machine has mechanical reel sounds, a pull clank
 and result cues; the bar has a glass clink. **E** at the bar restores breath and
 reduces fear, but its noise can draw the hunter into the house. The creature can
 force doors and follow players upstairs. Maze openings and closures now use
-irregular seeded delays rather than a fixed interval. Co-op protocol is **10**.
+irregular seeded delays rather than a fixed interval. Co-op protocol is **15**.
 
 A packaged build includes assets and app-local Windows runtime libraries. Extract
 the entire ZIP and launch `Play.cmd`. See [the quick play guide](docs/PLAY.md).
+The in-game **How to Play** opens the five-page Keeper's Field Guide. Use its
+Previous/Next buttons or Left/Right arrows for survival, puzzles, refuge games
+and voice-chat controls; Escape returns to the menu.
 After building Release/x64, `tools/Package-Release.ps1 -Name TheHedge-Windows-x64`
 creates a ZIP with dependency notices and a SHA256 file manifest.
 
@@ -70,3 +73,22 @@ A downloaded stool and vessel support the sitting/sipping animation. Hands blend
 source-skeleton finger curl for carrying a basketball and gripping the glass or
 lever. The lever waits for reach, then the hand follows its actual knob trajectory
 through pull and return. Walking is briefly locked during lever contact.
+
+**P** at the downstairs bar plays **Keeper's Draw**, free-play five-card draw.
+Press **1-5** to hold cards, then **P** to replace the rest once. Press **P** after
+the result to deal again; **Q** puts the cards away. Each survivor has a separate
+hand and score, synchronized by the host. Deals have directional paper scrapes
+and taps and attract the hunter; the world keeps moving while you play.
+There are no purchases or real-money stakes.
+
+Nearby refuge doors now show directional first/second-strike warnings. Guests
+receive the same rattles and impact events as the host, with sound positioned
+for each listener. The third strike forces the door. Captures preserve the
+remaining slot and poker animation timers, so a new encounter cannot lock a
+machine or hand behind the previous clock. Poker cards deal and flip in sequence.
+
+Four maze districts now connect a luggage tag, repair toolbox, cassette player
+and collapsed shelter through notes and muddy boot trails. **F** reads and
+collects nearby notes; **J** rereads collected pages. The damaged shelter has
+walkable bypasses. Downloaded prop and footprint credits are in
+[story sources](assets/models/STORY_SOURCES.md).

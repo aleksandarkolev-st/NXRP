@@ -65,6 +65,8 @@ private:
     };
 
     void refreshSettings();
+    void refreshGuide();
+    int guidePage_ = 0;
 
     const sf::Font& font_;
     Screen screen_ = Screen::Main;
@@ -101,4 +103,5 @@ private:
     Button applyButton_;
     Button hostButton_;
     Button joinButton_;
+    Button guidePrevious_, guideNext_;
 };

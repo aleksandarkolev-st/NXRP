@@ -13,6 +13,9 @@
 #include "Maze.Safehouse.h"
 #include "Maze.CreatureMesh.h"
 #include "HandRig.h"
+#include "Maze.Story.h"
+#include "Maze.Poker.h"
+#include "Maze.Adventure.h"
 
 struct GameInput
 {
@@ -37,6 +40,7 @@ struct SafehouseDoor
     bool open = false;
     float swing = 0.f;
     float rattle = 0.f;
+    float travel = 0.f;
 };
 
 struct RefugeSlots
@@ -98,6 +102,7 @@ public:
     }
     void showNetworkNotice(const std::string& text) { notice_ = text; messageClock_ = 5.f; }
     void setNetworkStatus(std::string text) { networkStatusText_ = std::move(text); }
+    void previewGather();
 
 private:
     void initialize(GameState& game);
@@ -107,6 +112,30 @@ private:
     int nearbyDoor() const;
     int nearbySlotHandle() const;
     int nearbyBar() const;
+    bool pokerEvent(sf::Keyboard::Key key, const GameState& game);
+    void drawPoker(sf::RenderTarget& target);
+    void drawDoorWarning(sf::RenderTarget& target);
+    bool adventureEvent(sf::Keyboard::Key key,GameState& game);
+    int nearbyCache() const;
+    int adventureHouse() const;
+    void useAdventureItem(int actor,int item,GameState& game);
+    void recallAdventurer(int actor,GameState& game);
+    void updateAdventure(const GameState& game,float seconds);
+    void drawAdventure(const GameState& game);
+    void drawAdventureHud(sf::RenderTarget& target,const GameState& game);
+    std::array<Adventure::Pack,maxCoopPlayers> packs_{};
+    std::array<int,maxCoopPlayers> adventurePanels_{};
+    std::vector<Adventure::Cache> caches_;
+    std::uint64_t openedCaches_=0;
+    unsigned seenRecall_=0,seenRestore_=0;
+    std::vector<bool> surveyed_;
+    std::array<unsigned int,5> adventureMeshes_{},adventureTextures_{};
+    std::array<float,48> cacheOpenClocks_{};
+    float adventureMotionClock_=0.f;
+    int adventureMotionItem_=0;
+    int lootingCache_=-1;
+    bool adventureAssetsAttempted_=false;
+    std::array<std::unique_ptr<sf::RenderTexture>,4> adventureSigns_{};
     void sitAtBar(int house);
     void pullSlotHandle(const GameState& game);
     void alignSlotView(int house);
@@ -133,6 +162,9 @@ private:
     void updateChunkVisibility(const GameState& game);
     void drawGroundChunks(const GameState& game, int r0, int r1, int c0, int c1);
     void drawHedgeChunks(const GameState& game, int r0, int r1, int c0, int c1);
+    void drawStory(const GameState& game);
+    void prepareStoryAssets(sf::RenderTarget& target);
+    int nearbyStorySite() const noexcept;
     void drawFoliageChunks(const GameState& game, int r0, int r1, int c0, int c1);
     sf::Vector2u viewport_{ 900u, 600u };
     sf::Text voiceLabel_;
@@ -148,6 +180,14 @@ private:
     sf::Vector2u postSize_{};
     unsigned int hedgeTexture_ = 0, groundTexture_ = 0, monsterTexture_ = 0, foliageTexture_ = 0;
     unsigned int shelterTexture_ = 0;
+    std::optional<StoryRuin> storyRuin_;
+    std::array<StorySite,4> storySites_{};
+    std::array<unsigned int,5> storyMeshes_{},storyTextures_{};
+    std::array<std::unique_ptr<sf::RenderTexture>,4> storySigns_{};
+    sf::Texture footprintLeft_,footprintRight_;
+    bool footprintsReady_=false;
+    std::vector<StoryFootstep> storyFootsteps_;
+    bool storyAssetsAttempted_=false;
     sf::Texture groundAlbedo_,groundNormal_,groundMaterial_,woodAlbedo_,woodNormal_,woodMaterial_;
     bool groundMapsReady_=false,woodMapsReady_=false;
     std::array<unsigned int, 4> refugePropMeshes_{};
@@ -182,6 +222,7 @@ private:
     float bobPhase_ = 0.f, bobBlend_ = 0.f, sprintBlend_ = 0.f;
     float fear_ = 0.f, scareClock_ = 0.f, rattleClock_ = 0.f;
     std::uint32_t scareCount_ = 0, whisperEvent_ = 0, doorEvent_ = 0;
+    int doorSource_ = -1;
     float whisperPan_ = 0.f, doorPan_ = 0.f;
     bool doorSlam_ = false, rayTraceEnabled_ = true;
     bool headMotionEnabled_ = true;
@@ -195,6 +236,8 @@ private:
     unsigned fieldNotes_ = 0;
     int journalPage_ = -1;
     std::vector<RefugeSlots> refugeSlots_;
+    std::array<RefugePoker::Hand, maxCoopPlayers> poker_{};
+    bool pokerVisible_ = false;
     std::vector<std::array<SafehouseDoor, 4>> doors_;
     std::array<int, maxCoopPlayers> checkpoints_{ { -1, -1, -1, -1 } };
     std::array<std::uint32_t, maxCoopPlayers> remoteCaptures_{};

@@ -26,8 +26,91 @@
 #error The co-op smoke test requires assertions to be enabled.
 #endif
 
-int main()
+int main(int argc,char** argv)
 {
+    if(argc==2 && std::string(argv[1])=="--adventure")
+    {
+        sf::Font font;assert(font.openFromFile("assets/fonts/SourceSans3-Semibold.ttf"));
+        GameState game;startGame(game,generateMaze({30,30},43),43);
+        GameView view(font);view.initialize(game);view.resize({900,650});
+        sf::RenderTexture target({900,650},sf::ContextSettings{24});
+        const auto shot=[&](const std::string& name){view.draw(target,game);target.display();assert(target.getTexture().copyToImage().saveToFile("build/"+name+".png"));};
+        assert(view.safehouses_.size()==4);
+        for(std::size_t i=0;i<view.safehouses_.size();++i)
+        {
+            const auto house=view.safehouses_[i];view.x_=house.col+.5f;view.z_=house.row+.5f;game.player=house;
+            view.angle_=3.8f;view.pitch_=0;view.messageClock_=0;view.updateAdventure(game,.01f);
+            shot("wayward-refuge-"+std::to_string(i));
+        }
+        const auto cache=view.caches_.front();
+        view.x_=cache.cell.col+.5f;view.z_=cache.cell.row+.95f;game.player=cache.cell;view.angle_=3.14159265f;view.pitch_=-.65f;
+        shot("wayward-cache-closed");
+        view.openedCaches_=1;view.cacheOpenClocks_[0]=.65f;shot("wayward-cache-opening");
+        view.cacheOpenClocks_[0]=0;shot("wayward-cache-open");
+        view.sitAtBar(0);game.player=view.safehouses_[0];view.seatedHouse_=-1;
+        view.updateAdventure(game,.01f);
+        for(int mode=1;mode<=4;++mode){view.adventurePanels_[0]=mode;shot("wayward-panel-"+std::to_string(mode));}
+        view.adventurePanels_[0]=0;view.adventureMotionItem_=0;view.adventureMotionClock_=.65f;
+        shot("wayward-potion-use");
+        view.adventureMotionClock_=0;view.packs_[0].effects[2]=20;view.angle_=0;shot("wayward-wayfinder");
+        view.resize({640,560});sf::RenderTexture small({640,560},sf::ContextSettings{24});
+        for(int mode=1;mode<=4;++mode)
+        {view.adventurePanels_[0]=mode;view.draw(small,game);small.display();assert(small.getTexture().copyToImage().saveToFile("build/wayward-small-panel-"+std::to_string(mode)+".png"));}
+        for(auto mesh:view.adventureMeshes_)assert(mesh!=0);
+        std::cout<<"Four refuge identities, sourced models, chest animation, magic and adventure panels rendered.\n";return 0;
+    }
+    if(argc==2 && std::string(argv[1])=="--guide")
+    {
+        sf::Font font;assert(font.openFromFile("assets/fonts/SourceSans3-Semibold.ttf"));
+        sf::RenderWindow window(sf::VideoMode({640,560}),"Field guide layout check");window.setVisible(false);
+        sf::RenderTexture target({640,560});Menu guide(font);guide.resize({640,560});guide.showHowToPlay();
+        for(int page=0;page<5;++page)
+        {
+            assert(guide.guidePage_==page && guide.rules_.getCharacterSize()>=18);
+            const auto bounds=guide.rules_.getGlobalBounds();
+            std::cout<<"Guide page "<<page+1<<": font "<<guide.rules_.getCharacterSize()<<", bottom "<<bounds.position.y+bounds.size.y<<std::endl;
+            assert(bounds.position.x>=24 && bounds.position.x+bounds.size.x<=616);
+            assert(bounds.position.y+bounds.size.y<guide.backButton_.shape.getPosition().y-12.f);
+            assert(guide.title_.getGlobalBounds().position.x>=0.f);
+            guide.update({-1,-1});target.clear({13,19,17});guide.draw(target);target.display();
+            assert(target.getTexture().copyToImage().saveToFile("build/field-guide-"+std::to_string(page)+".png"));
+            sf::Event::KeyPressed next;next.code=sf::Keyboard::Key::Right;guide.handleEvent(sf::Event{next},window);
+        }
+        assert(!guide.guideNext_.enabled && guide.guidePrevious_.enabled && guide.guidePage_==4);
+        sf::Event::MouseButtonPressed previous;previous.button=sf::Mouse::Button::Left;
+        const auto at=guide.guidePrevious_.shape.getPosition();previous.position={static_cast<int>(at.x+10),static_cast<int>(at.y+10)};
+        assert(guide.handleEvent(sf::Event{previous},window)==MenuAction::None && guide.guidePage_==3);
+        sf::Event::KeyPressed back;back.code=sf::Keyboard::Key::Escape;
+        assert(guide.handleEvent(sf::Event{back},window)==MenuAction::Back);
+        guide.showHowToPlay();assert(guide.guidePage_==0 && !guide.guidePrevious_.enabled);
+        std::cout<<"Five field-guide pages fit at 640x560; keyboard, pointer, bounds and Back passed.\n";
+        return 0;
+    }
+    SoundscapeFrame cardsFrame;cardsFrame.active=true;cardsFrame.pokerEvent=1;cardsFrame.pokerGain=1.f;cardsFrame.pokerPan=-1.f;
+    SoundscapeFrame quietCards=cardsFrame;quietCards.pokerGain=0.f;
+    SoundscapeSynth cardsSynth,quietSynth;
+    std::array<std::int16_t,8192> cardsAudio{},quietAudio{};
+    cardsSynth.render(cardsAudio.data(),4096,cardsFrame);quietSynth.render(quietAudio.data(),4096,quietCards);
+    unsigned changedLeft=0;
+    for(int i=0;i<4096;++i)
+    {changedLeft+=cardsAudio[i*2]!=quietAudio[i*2];assert(cardsAudio[i*2+1]==quietAudio[i*2+1]);}
+    assert(changedLeft>1000);
+    // Exhaust all 2,598,960 hands: catches ace-low and royal-flush edge cases.
+    std::array<unsigned,10> pokerCounts{};
+    for(int a=0;a<48;++a) for(int b=a+1;b<49;++b) for(int c=b+1;c<50;++c)
+    for(int d=c+1;d<51;++d) for(int e=d+1;e<52;++e)
+        ++pokerCounts[RefugePoker::category({a,b,c,d,e})];
+    assert((pokerCounts==std::array<unsigned,10>{1302540,1098240,123552,54912,10200,5108,3744,624,36,4}));
+    for(unsigned seed=0;seed<100;++seed) for(unsigned held=0;held<32;++held)
+    {
+        RefugePoker::Hand hand;
+        assert(RefugePoker::play(hand,seed,1,0.f)); const auto original=hand.cards;
+        hand.held=held;
+        assert(!RefugePoker::play(hand,seed,1,.5f));
+        assert(RefugePoker::play(hand,seed,1,2.f));assert(RefugePoker::valid(hand));
+        for(int i=0;i<5;++i) if(held&(1u<<i)) assert(hand.cards[i]==original[i]);
+        assert(hand.score==RefugePoker::payout(RefugePoker::category(hand.cards)));
+    }
     std::istringstream truncatedRig("NXR1");assert(!HandMotion::readRig(truncatedRig));
     std::istringstream oversizedRig(std::string("NXR1")+std::string(12,static_cast<char>(255)));
     assert(!HandMotion::readRig(oversizedRig));
@@ -353,6 +436,54 @@ int main()
     second.gameView_.x_=first.gameView_.x_; second.gameView_.z_=first.gameView_.z_;
     second.gameView_.elevation_=0.f; second.sendPlayer(); pump(20); sendKey(second,'E');
     assert(hv.drinks_[second.networkSlot_]==1 && second.gameView_.stamina_==1.f);
+    // Guest poker actions use host authority; other survivors retain their hands.
+    sf::Event::KeyPressed pokerKey; pokerKey.code=sf::Keyboard::Key::P;
+    first.handleEvent(sf::Event{pokerKey},window);pump(40);
+    assert(first.gameView_.pokerVisible_);
+    const int pokerSlot=first.networkSlot_;
+    assert(hv.poker_[pokerSlot].phase==1 && first.gameView_.poker_[pokerSlot].phase==1);
+    assert(hv.poker_[0].phase==0 && hv.poker_[second.networkSlot_].phase==0);
+    sendKey(first,'1');sendKey(first,'3');
+    assert(hv.poker_[pokerSlot].held==5 && second.gameView_.poker_[pokerSlot].held==5);
+    const auto beforeDraw=hv.poker_[pokerSlot].cards;
+    hv.elapsed_+=2.f; pump(20);sendKey(first,'P');
+    assert(hv.poker_[pokerSlot].phase==2 && first.gameView_.poker_[pokerSlot].phase==2);
+    assert(hv.poker_[pokerSlot].cards[0]==beforeDraw[0] && hv.poker_[pokerSlot].cards[2]==beforeDraw[2]);
+    assert(first.gameView_.poker_[pokerSlot].cards==hv.poker_[pokerSlot].cards);
+    assert(hv.refugeNoise_[0]>0.f);
+    auto malformedPoker=hv.worldSnapshot();
+    malformedPoker.replace(malformedPoker.find_last_of(' ')+1,std::string::npos,"52");
+    assert(!first.gameView_.applyWorldSnapshot(first.game_,malformedPoker,pokerSlot));
+    first.handleEvent(sf::Event{stand},window);
+    assert(!first.gameView_.pokerVisible_);
+    // Explore -> loot -> buy -> craft -> use: all owned by the host in co-op.
+    sendKey(first,'Q');
+    assert(!hv.caches_.empty());const auto cache=hv.caches_[0];
+    first.gameView_.x_=cache.cell.col+.5f;first.gameView_.z_=cache.cell.row+.5f;first.gameView_.elevation_=0;
+    first.sendPlayer();pump(20);
+    const auto beforeLoot=hv.packs_[pokerSlot];sendKey(first,'E');
+    assert((hv.openedCaches_&1) && (second.gameView_.openedCaches_&1));
+    assert(hv.packs_[pokerSlot].coins==beforeLoot.coins+cache.coins);
+    assert(hv.packs_[pokerSlot].materials[cache.kind]==beforeLoot.materials[cache.kind]+2);
+    const auto lootedCoins=hv.packs_[pokerSlot].coins;sendKey(first,'E');assert(hv.packs_[pokerSlot].coins==lootedCoins);
+    first.gameView_.x_=gamesHouse.col+.5f-.85f*refugeScale;first.gameView_.z_=gamesHouse.row+.5f+.85f*refugeScale;
+    first.sendPlayer();pump(20);sendKey(first,'O');assert(first.gameView_.adventurePanels_[pokerSlot]==2);
+    const auto purchasedBefore=hv.packs_[pokerSlot].items[0];sendKey(first,'1');
+    assert(hv.packs_[pokerSlot].items[0]==purchasedBefore+1 && hv.packs_[pokerSlot].coins==lootedCoins-Adventure::price(0,0));
+    sendKey(first,'C');assert(hv.adventurePanels_[pokerSlot]==3);sendKey(first,'1');
+    assert(hv.packs_[pokerSlot].items[0]==purchasedBefore+2);
+    sendKey(first,'I');first.gameView_.stamina_=.1f;sendKey(first,'1');
+    assert(first.gameView_.stamina_==1.f && hv.packs_[pokerSlot].items[0]==purchasedBefore+1);
+    sendKey(first,'4');assert(hv.packs_[pokerSlot].effects[2]==0.f); // Animation cooldown prevents double-use.
+    hv.updateAdventure(host.game_,1.3f);sendKey(first,'4');assert(hv.packs_[pokerSlot].effects[2]==20.f && second.gameView_.packs_[pokerSlot].effects[2]==20.f);
+    hv.packs_[pokerSlot].items[4]=1;
+    first.gameView_.x_=cache.cell.col+.5f;first.gameView_.z_=cache.cell.row+.5f;first.sendPlayer();pump(20);hv.updateAdventure(host.game_,1.3f);sendKey(first,'5');
+    assert(first.gameView_.x_==gamesHouse.col+.5f && first.gameView_.z_==gamesHouse.row+.5f);
+    assert(hv.packs_[pokerSlot].items[4]==0 && first.gameView_.packs_[pokerSlot].recalls==1);
+    hv.packs_[pokerSlot].items[1]=1;hv.updateAdventure(host.game_,1.3f);sendKey(first,'2');assert(hv.packs_[pokerSlot].effects[0]==12.f);
+    hv.packs_[pokerSlot].items[5]=1;hv.updateAdventure(host.game_,1.3f);sendKey(first,'6');assert(hv.packs_[pokerSlot].echoTime==8.f);
+    sendKey(first,'Q');assert(hv.adventurePanels_[pokerSlot]==0);
+    hv.packs_[pokerSlot].effects={};hv.packs_[pokerSlot].echoTime=0;
     // Walk up the stair, onto the gallery, back to the stair and down again.
     hv.x_ = gamesHouse.col + .5f + .98f * refugeScale;
     hv.z_ = gamesHouse.row + .5f + .20f * refugeScale;
@@ -430,20 +561,43 @@ int main()
     hv.hunter_.mode=HunterMode::Chase; hv.monsterClock_=0.f;hv.refugeNoise_[0]=5.f;
     hv.doors_[0][0].open=false; hv.doors_[0][0].swing=0.f; hv.doorStrikes_.fill(0);
     bool enteredHouse=false;
+    unsigned warnedStrikes=0;
+    pump(20); // Deliver earlier capture acknowledgements before placing listeners.
     for(int i=0;i<8 && !enteredHouse;++i)
     {
-        hv.updateMonster(host.game_,1.2f,false,false); hv.updateDoors(1.f);
+        for(auto& player:hv.remote_)player.present=false; // Isolate the doorway pursuit target.
+        const auto previousDoorEvent=hv.doorEvent_;
+        hv.updateMonster(host.game_,1.2f,false,false);
+        if(hv.doorEvent_!=previousDoorEvent)
+        {
+            pump(20);
+            assert(first.gameView_.doorEvent_==hv.doorEvent_ && first.gameView_.doorSource_==0);
+            assert(first.gameView_.doors_[0][0].rattle==hv.doors_[0][0].rattle);
+            assert(first.gameView_.doorStrikes_[0]==hv.doorStrikes_[0]);
+            assert(first.gameView_.soundFrame().doorSlam);
+            // Audio direction belongs to the listener, including after respawn.
+            first.gameView_.x_=gamesHouse.col+1.5f;first.gameView_.z_=gamesHouse.row+.5f;first.gameView_.angle_=0.f;first.gameView_.elevation_=0.f;
+            second.gameView_.x_=gamesHouse.col+.5f-3.2f;second.gameView_.z_=gamesHouse.row+.5f;second.gameView_.angle_=0.f;second.gameView_.elevation_=0.f;
+            assert(first.gameView_.soundFrame().doorPan>.9f && second.gameView_.soundFrame().doorPan<-.9f);
+            if(hv.doorStrikes_[0]) ++warnedStrikes;
+        }
+        hv.updateDoors(1.f);
         enteredHouse=insideSafehouse(hv.monster_,gamesHouse);
     }
-    assert(hv.doors_[0][0].open && enteredHouse);
+    assert(hv.doors_[0][0].open && enteredHouse && warnedStrikes==2);
     // Upper-floor capture compares physical height, not footprint immunity.
     hv.interiorHunter_=true; hv.interiorHouse_=0; hv.interiorPhase_=4;
     hv.hunterX_=hv.x_; hv.hunterZ_=hv.z_; hv.hunterY_=refugeUpperFloor;
     hv.elevation_=refugeUpperFloor; hv.elapsed_=13.f;
     hv.hunter_.routes[0]={{4,4},{4,5},3};
     const auto beforeUpperCapture=hv.captureCount_;
+    hv.refugeSlots_[0].stopTime=14.4f;hv.poker_[0].readyAt=13.7f;
+    const auto preservedHand=hv.poker_[first.networkSlot_].cards;
     hv.updateMonster(host.game_,.01f,false,false);
     assert(hv.captureCount_==beforeUpperCapture+1);
+    assert(hv.elapsed_==0.f && std::abs(hv.refugeSlots_[0].stopTime-1.4f)<.001f);
+    assert(std::abs(hv.poker_[0].readyAt-.7f)<.001f);
+    assert(hv.poker_[first.networkSlot_].cards==preservedHand);
     assert(hv.hunter_.routes[0].confidence==3 && hv.hunter_.routes[0].exit.col==5);
     Multiplayer unavailable; unavailable.join("127.0.0.1", 1);
     for (int i=0; i<400 && unavailable.status()==Multiplayer::Status::Connecting; ++i)
@@ -462,6 +616,13 @@ int main()
     for (const auto& reel : hv.reelMeshes_) for (const auto mesh : reel) assert(mesh != 0);
     assert(hv.handMeshes_[0] && hv.handMeshes_[1] && hv.handTexture_);
     assert(refugeTarget.getTexture().copyToImage().saveToFile("build/refuge-ground.png"));
+    hv.doors_[0][0].open=false;hv.doors_[0][0].rattle=1.f;hv.doorStrikes_[0]=2;
+    hv.draw(refugeTarget,host.game_);refugeTarget.display();
+    assert(refugeTarget.getTexture().copyToImage().saveToFile("build/door-warning.png"));
+    hv.doors_[0][0].open=true;hv.doors_[0][0].rattle=0.f;hv.doorStrikes_[0]=0;
+    for(auto mesh:hv.storyMeshes_) assert(mesh!=0);
+    for(int i=0;i<4;++i) assert(hv.storyTextures_[i]!=0 && hv.storySigns_[i]);
+    assert(hv.footprintsReady_ && !hv.storyFootsteps_.empty());
     hv.elevation_ = refugeUpperFloor; hv.angle_ = 0.f; hv.pitch_ = -.12f;
     hv.draw(refugeTarget, host.game_); refugeTarget.display();
     assert(refugeTarget.getTexture().copyToImage().saveToFile("build/refuge-upper.png"));
@@ -487,6 +648,14 @@ int main()
     hv.sitAtBar(0); hv.seatedBlend_=1.f; hv.drinkClock_=2.f;
     hv.draw(refugeTarget,host.game_);refugeTarget.display();
     assert(refugeTarget.getTexture().copyToImage().saveToFile("build/bar-drinking.png"));
+    RefugePoker::play(hv.poker_[0],42,0,hv.elapsed_+2.f);hv.pokerVisible_=true;
+    hv.poker_[0].readyAt=hv.elapsed_+.9f;
+    hv.draw(refugeTarget,host.game_);refugeTarget.display();
+    assert(refugeTarget.getTexture().copyToImage().saveToFile("build/poker-dealing.png"));
+    hv.poker_[0].readyAt=hv.elapsed_;
+    hv.draw(refugeTarget,host.game_);refugeTarget.display();
+    assert(refugeTarget.getTexture().copyToImage().saveToFile("build/refuge-poker.png"));
+    hv.pokerVisible_=false;
     hv.seatedHouse_=-1;hv.seatedBlend_=0.f;hv.drinkClock_=0.f;
     hv.crouched_=false;hv.jumpHeight_=0.f;hv.pitch_=0.f;hv.bobBlend_=0.f;hv.ballHoldBlend_=1.f;hv.crouchBlend_=0.f;hv.elevation_=refugeUpperFloor;hv.x_=renderHouse.col+.5f-.55f;hv.z_=renderHouse.row+.5f-.5f;hv.angle_=0.f;
     hv.refugeBalls_[0][1].carrier=0;hv.updateRefugeGames(.01f);
@@ -575,6 +744,31 @@ int main()
         hv.draw(refugeTarget,host.game_);refugeTarget.display();
         assert(refugeTarget.getTexture().copyToImage().saveToFile("build/exterior-hunter-sightline.png"));
     }
+    // Inspect the actual downloaded story assets in their seeded locations.
+    hv.elevation_=0.f;hv.elapsed_=2.f;hv.interiorHunter_=false;hv.messageClock_=0.f;
+    for(int i=0;i<4;++i)
+    {
+        const auto site=hv.storySites_[i];
+        hv.x_=site.cell.col+.5f;hv.z_=site.cell.row+.5f;host.game_.player=site.cell;
+        hv.angle_=std::atan2(site.x-.5f,site.z-.5f);hv.pitch_=-.85f;
+        assert(hv.nearbyStorySite()==i);
+        sf::Event::KeyPressed readNote;readNote.code=sf::Keyboard::Key::F;
+        hv.handleEvent(sf::Event{readNote},host.game_);assert(hv.fieldNotes_&(1u<<i));
+        hv.draw(refugeTarget,host.game_);refugeTarget.display();
+        assert(refugeTarget.getTexture().copyToImage().saveToFile("build/story-site-"+std::to_string(i)+".png"));
+    }
+    if(hv.storyRuin_)
+    {
+        const auto ruin=*hv.storyRuin_;
+        hv.x_=ruin.cell.col+.5f+(ruin.alongRows?0.f:3.f);
+        hv.z_=ruin.cell.row+.5f+(ruin.alongRows?3.f:0.f);
+        host.game_.player={static_cast<int>(hv.z_),static_cast<int>(hv.x_)};
+        hv.angle_=ruin.alongRows?3.14159265f:-1.57079633f;hv.pitch_=0.f;hv.messageClock_=0.f;
+        assert(host.game_.maze.at(host.game_.player.row,host.game_.player.col)==MazeCell::Passage);
+        hv.draw(refugeTarget,host.game_);refugeTarget.display();
+        assert(refugeTarget.getTexture().copyToImage().saveToFile("build/story-ruin.png"));
+    }
+    std::cout << "All poker rankings, hold masks, directional card audio, guest poker and story assets passed.\n";
     std::cout << "Screen-space ray tracing active: " << hv.rayTracingActive() << "\n";
     std::cout << "Four-player joins, capacity, both puzzles, refuges, captures, shifting, reconnect, and victory passed.\n";
 }
